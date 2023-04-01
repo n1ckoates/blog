@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"baseUrl": ".",
+		"paths": {
+			"contentlayer/generated": ["./.contentlayer/generated"]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.tsx",
+		"**/*.ts",
+		".contentlayer/generated"
+	]
+}
