@@ -57,9 +57,9 @@ export const projects = {
 			"Visit Guide": github + "/steamdeck-emulation",
 		},
 	},
-	"nchristopher.me": {
+	"nickoates.com": {
 		cover: "/images/projects/blog.png",
-		coverAlt: "Home page of nchristopher.me",
+		coverAlt: "Home page of nickoates.com",
 		description:
 			"The site you're on! I built my blog with Next.js, Tailwind CSS, Contentlayer, and MDX. Hosted on Vercel.",
 		links: {
