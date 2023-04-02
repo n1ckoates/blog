@@ -22,7 +22,7 @@ export default function MyApp({ Component, pageProps }) {
 		(pageProps.seo?.image || "/images/card-image.png");
 	const imageAlt =
 		pageProps.seo?.imageAlt ||
-		"Text reading 'Nicholas Christopher' on a black background.";
+		"Text reading 'Nick Oates' on a black background.";
 
 	return (
 		<ThemeProvider attribute="class" disableTransitionOnChange>
