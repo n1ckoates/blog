@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import localFont from "next/font/local";
 import { name } from "../metadata.js";
+import { Analytics } from "@vercel/analytics/react";
 
 const BeVietnamPro = localFont({
 	src: "../public/BeVietnamPro.woff2",
@@ -56,6 +57,8 @@ export default function MyApp({ Component, pageProps }) {
 				</style>
 
 				<Component {...pageProps} />
+
+				<Analytics />
 			</Layout>
 		</ThemeProvider>
 	);
