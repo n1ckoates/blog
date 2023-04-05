@@ -60,7 +60,7 @@ export default function Home({ posts }) {
 
 				<Link
 					href="/blog"
-					className="group ml-8 transition-colors hover:text-neutral-600 dark:hover:text-neutral-400"
+					className="group ml-8 transition-colors hover:text-slate-600 dark:hover:text-slate-400"
 				>
 					View All{" "}
 					<IconArrowRight className="inline-block transition-transform ease-in-out group-hover:translate-x-0.5" />
@@ -79,7 +79,7 @@ export default function Home({ posts }) {
 			</OrbContainer>
 
 			<h2 className="my-4 text-2xl font-bold">Newsletter</h2>
-			<p className="my-4 mx-auto max-w-2xl text-xl">
+			<p className="mx-auto my-4 max-w-2xl text-xl">
 				Occasionally, I send out a newsletter to share my thoughts about
 				the latest tech news and other things I find interesting &mdash;
 				I won&apos;t spam you, promise!

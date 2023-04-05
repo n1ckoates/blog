@@ -52,7 +52,7 @@ export default function NewsletterForm({
 	};
 
 	return (
-		<div className="mx-auto max-w-lg rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900 print:hidden md:text-lg">
+		<div className="mx-auto max-w-lg rounded-lg bg-slate-100 p-4 dark:bg-slate-900 print:hidden md:text-lg">
 			<span
 				className={clsx(
 					{ "text-red-600 dark:text-red-400": error },
@@ -70,7 +70,7 @@ export default function NewsletterForm({
 				onSubmit={subscribe}
 			>
 				<input
-					className="grow rounded-md bg-white px-4 py-2 dark:bg-black "
+					className="grow rounded-md bg-slate-50 px-4 py-2 dark:bg-slate-950"
 					type="email"
 					id="email"
 					name="email"

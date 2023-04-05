@@ -24,7 +24,7 @@ export default function Post({ post }) {
 	const MDXContent = useMDXComponent(post.body.code);
 
 	return (
-		<article className="prose prose-lg prose-neutral mx-auto prose-a:text-blue-500 prose-a:decoration-2 prose-a:transition-colors prose-a:ease-in-out hover:prose-a:text-blue-400 prose-pre:bg-neutral-900 dark:prose-invert dark:hover:prose-a:text-blue-600 md:prose-xl lg:prose-2xl">
+		<article className="prose prose-lg prose-slate mx-auto dark:prose-invert md:prose-xl lg:prose-2xl prose-a:text-blue-500 prose-a:decoration-2 prose-a:transition-colors prose-a:ease-in-out hover:prose-a:text-blue-400 prose-pre:bg-slate-900 dark:hover:prose-a:text-blue-600">
 			<div className="md:text-center">
 				<time dateTime={post.date}>{post.formattedDate}</time> &bull;{" "}
 				{post.readingTime} min read

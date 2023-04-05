@@ -23,12 +23,12 @@ export default function Blog({ posts }) {
 					<input
 						type="text"
 						name="search"
-						className="w-full rounded-md border border-neutral-200 py-2 px-4 drop-shadow dark:border-neutral-800 dark:bg-neutral-900"
+						className="w-full rounded-md border border-slate-200 px-4 py-2 drop-shadow dark:border-slate-800 dark:bg-slate-900"
 						placeholder="Search posts..."
 						aria-label="Search posts"
 						onChange={(e) => setSearchTerm(e.target.value)}
 					/>
-					<IconSearch className="absolute top-2 right-4" />
+					<IconSearch className="absolute right-4 top-2" />
 				</div>
 			</div>
 
@@ -41,7 +41,7 @@ export default function Blog({ posts }) {
 					key={post._raw.flattenedPath}
 					className="flex flex-col justify-between gap-1 py-4 transition-transform duration-300 ease-in-out hover:scale-105 lg:flex-row"
 				>
-					<div className="text-neutral-600 dark:text-neutral-400 md:text-lg ">
+					<div className="text-slate-600 dark:text-slate-400 md:text-lg ">
 						<time
 							dateTime={post.date}
 							className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"
@@ -54,7 +54,7 @@ export default function Blog({ posts }) {
 						<h1 className="mb-1 text-xl font-bold md:text-2xl">
 							{post.title}
 						</h1>
-						<h2 className="text-lg text-neutral-600 dark:text-neutral-400 md:text-xl">
+						<h2 className="text-lg text-slate-600 dark:text-slate-400 md:text-xl">
 							{post.summary}
 						</h2>
 					</div>

@@ -10,7 +10,7 @@ export default function NotFound() {
 			</h1>
 			<p>To make up for it, here&apos;s a picture of a cat.</p>
 
-			<div className="relative mx-auto mt-6 w-fit overflow-hidden rounded-md bg-neutral-200 shadow-md dark:bg-neutral-800">
+			<div className="relative mx-auto mt-6 w-fit overflow-hidden rounded-md bg-slate-200 shadow-md dark:bg-slate-800">
 				<IconLoader2
 					className="absolute inset-0 m-auto animate-spin"
 					size={48}
@@ -29,7 +29,7 @@ export default function NotFound() {
 			<div className="mt-8 text-center">
 				<Link
 					href="/"
-					className="rounded-md bg-blue-400 py-4 px-6 transition ease-in-out hover:bg-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700"
+					className="rounded-md bg-blue-400 px-6 py-4 transition ease-in-out hover:bg-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700"
 				>
 					Go home <IconArrowRight className="inline-block" />
 				</Link>
