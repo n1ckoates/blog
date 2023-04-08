@@ -9,7 +9,7 @@ export default function Layout({ children }) {
 
 				<Sidebar />
 
-				<main className="mt-20 grow lg:mt-0">{children}</main>
+				<main className="mt-24 grow lg:mt-0">{children}</main>
 			</div>
 		</>
 	);
