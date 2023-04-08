@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { navLinks, social } from "../metadata";
 
-export default function MobileNav() {
+export default function Menu() {
 	function handleLinkClick() {
 		document.getElementById("nav").checked = false;
 		document.body.style.overflow = "auto";
