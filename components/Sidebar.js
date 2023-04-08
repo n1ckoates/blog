@@ -52,7 +52,11 @@ export default function Sidebar() {
 
 				<div className="fixed bottom-20 flex w-72 flex-row justify-center gap-6">
 					{social.map(({ href, Icon }) => (
-						<a href={href} key={href}>
+						<a
+							href={href}
+							key={href}
+							className="rounded-md p-2 transition ease-in-out hover:bg-slate-300/50 dark:hover:bg-slate-700/50"
+						>
 							<Icon size={28} />
 						</a>
 					))}
