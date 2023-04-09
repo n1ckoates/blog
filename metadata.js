@@ -22,9 +22,9 @@ export const navLinks = [
 
 export const social = [
 	{
-		Icon: IconMail,
-		label: `Email ${name}`,
-		href: `mailto:${email}`,
+		Icon: IconBrandTwitter,
+		label: `Visit ${name} on Twitter`,
+		href: "https://twitter.com/nickoates_",
 	},
 	{
 		Icon: IconBrandGithub,
@@ -32,9 +32,9 @@ export const social = [
 		href: github,
 	},
 	{
-		Icon: IconBrandTwitter,
-		label: `Visit ${name} on Twitter`,
-		href: "https://twitter.com/nickoates_",
+		Icon: IconMail,
+		label: `Email ${name}`,
+		href: `mailto:${email}`,
 	},
 ];
 
