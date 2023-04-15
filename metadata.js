@@ -2,6 +2,9 @@ import {
 	IconMail,
 	IconBrandGithub,
 	IconBrandTwitter,
+	IconNotebook,
+	IconCode,
+	IconHome,
 } from "@tabler/icons-react";
 
 export const name = "Nick Oates";
@@ -11,17 +14,17 @@ export const blogSource = github + "/blog";
 
 export const email = "nick@nickoates.com";
 
-export const navLinks = {
-	Home: "/",
-	Projects: "/projects",
-	Blog: "/blog",
-};
+export const navLinks = [
+	{ title: "Home", href: "/", Icon: IconHome },
+	{ title: "Projects", href: "/projects", Icon: IconCode },
+	{ title: "Blog", href: "/blog", Icon: IconNotebook },
+];
 
 export const social = [
 	{
-		Icon: IconMail,
-		label: `Email ${name}`,
-		href: `mailto:${email}`,
+		Icon: IconBrandTwitter,
+		label: `Visit ${name} on Twitter`,
+		href: "https://twitter.com/nickoates_",
 	},
 	{
 		Icon: IconBrandGithub,
@@ -29,9 +32,9 @@ export const social = [
 		href: github,
 	},
 	{
-		Icon: IconBrandTwitter,
-		label: `Visit ${name} on Twitter`,
-		href: "https://twitter.com/nickoates_",
+		Icon: IconMail,
+		label: `Email ${name}`,
+		href: `mailto:${email}`,
 	},
 ];
 

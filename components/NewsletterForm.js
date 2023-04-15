@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconLoader2, IconNews } from "@tabler/icons-react";
+import { IconLoader2, IconMail } from "@tabler/icons-react";
 import clsx from "clsx";
 
 const formId = process.env.NEXT_PUBLIC_LOOPS_FORM_ID;
@@ -15,9 +15,9 @@ export default function NewsletterForm({
 	const error = state === "error";
 
 	const icon = loading ? (
-		<IconLoader2 className="inline-block animate-spin" />
+		<IconLoader2 className="animate-spin" />
 	) : (
-		<IconNews className="inline-block" />
+		<IconMail className="" />
 	);
 
 	const subscribe = async (e) => {
@@ -52,7 +52,7 @@ export default function NewsletterForm({
 	};
 
 	return (
-		<div className="mx-auto max-w-lg rounded-lg bg-neutral-100 p-4 dark:bg-neutral-900 print:hidden md:text-lg">
+		<div className="mx-auto max-w-lg rounded-lg border border-slate-200 bg-neutral-100/50 p-4 dark:border-slate-800 dark:bg-neutral-900/50 print:hidden md:text-lg">
 			<span
 				className={clsx(
 					{ "text-red-600 dark:text-red-400": error },
@@ -70,7 +70,7 @@ export default function NewsletterForm({
 				onSubmit={subscribe}
 			>
 				<input
-					className="grow rounded-md bg-white px-4 py-2 dark:bg-black "
+					className="grow rounded-md bg-slate-50 px-4 py-2 dark:bg-slate-950"
 					type="email"
 					id="email"
 					name="email"
@@ -80,7 +80,7 @@ export default function NewsletterForm({
 				/>
 
 				<button
-					className="grow rounded-md bg-emerald-300 px-4 py-2 transition ease-in-out hover:bg-emerald-200 dark:bg-emerald-700 dark:hover:bg-emerald-800"
+					className="flex grow items-center justify-center gap-1 rounded-md bg-emerald-300 px-4 py-2 transition ease-in-out hover:bg-emerald-200 dark:bg-emerald-700 dark:hover:bg-emerald-800"
 					disabled={loading}
 					type="submit"
 				>

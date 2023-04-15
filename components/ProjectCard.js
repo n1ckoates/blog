@@ -10,7 +10,7 @@ export default function ProjectCard({
 	noCrop,
 }) {
 	return (
-		<div className="flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100/50 transition-transform ease-in-out hover:scale-[1.01] dark:border-neutral-800 dark:bg-neutral-900/50">
+		<div className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-neutral-100/30 transition-transform ease-in-out hover:scale-[1.01] dark:border-slate-800 dark:bg-neutral-900/30">
 			{cover && (
 				<div className="relative h-48">
 					<Image
@@ -30,7 +30,7 @@ export default function ProjectCard({
 					{Object.entries(links).map(([title, href]) => (
 						<a key={href} href={href} className="group">
 							{title}{" "}
-							<IconArrowUpRight className="inline-block transition ease-in-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+							<IconArrowUpRight className="inline-block transition ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 						</a>
 					))}
 				</div>
