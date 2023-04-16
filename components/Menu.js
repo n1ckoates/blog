@@ -73,11 +73,12 @@ export default function Menu() {
 				</div>
 
 				<div className="fixed bottom-32 flex w-full flex-row justify-center gap-8">
-					{social.map(({ href, Icon }) => (
+					{social.map(({ href, Icon, label }) => (
 						<a
 							href={href}
 							key={href}
 							className="rounded-md p-2 transition ease-in-out hover:bg-slate-300/50 dark:hover:bg-slate-700/50"
+							title={label}
 						>
 							<Icon size={28} />
 						</a>
