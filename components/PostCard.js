@@ -32,7 +32,7 @@ export default function PostCard({
 					{formattedDate} &bull; {readingTime} min read
 				</div>
 
-				<h1 className="max-w-lg text-lg font-bold drop-shadow-sm group-first:text-2xl md:text-2xl md:group-first:text-3xl">
+				<h1 className="max-w-lg text-2xl font-bold drop-shadow-sm md:group-first:text-3xl">
 					<Balancer>{title}</Balancer>
 				</h1>
 			</div>
