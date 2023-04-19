@@ -27,7 +27,7 @@ export default function PostCard({
 				priority
 			/>
 
-			<div className="absolute h-1/2 w-full bg-gradient-to-b from-black/70 p-4">
+			<div className="absolute h-1/2 w-full bg-gradient-to-b from-black/70 p-4 group-first:via-black/70">
 				<div className="text-base drop-shadow-sm">
 					{formattedDate} &bull; {readingTime} min read
 				</div>
