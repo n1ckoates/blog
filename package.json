@@ -33,7 +33,7 @@
 		"@opentelemetry/api": "^1.4.0"
 	},
 	"devDependencies": {
-		"eslint": "^8.39.0",
+		"eslint": "^8.40.0",
 		"eslint-config-next": "^13.3.4",
 		"eslint-config-prettier": "^8.8.0",
 		"prettier": "^2.8.8",
