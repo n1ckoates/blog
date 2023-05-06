@@ -6,7 +6,4 @@ module.exports = withContentlayer({
 	images: {
 		deviceSizes: [320, 448, 640, 768, 896],
 	},
-	experimental: {
-		appDir: false,
-	},
 });
