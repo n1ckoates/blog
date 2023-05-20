@@ -96,7 +96,7 @@ export function getStaticProps() {
 				.sort((a, b) =>
 					a.date > b.date ? -1 : a.date < b.date ? 1 : 0
 				)
-				.slice(0, 5)
+				.slice(0, 2)
 				// Only include fields needed for rendering PostCard on client
 				.map((post) => ({
 					url: post.url,

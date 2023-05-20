@@ -3,6 +3,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeImgSize from "rehype-img-size";
 import readingTime from "reading-time";
 import smartypants from "remark-smartypants";
+import rehypeSlug from "rehype-slug";
 
 function getReadingTime(post) {
 	const minutes = readingTime(post.body.raw).minutes;
@@ -66,6 +67,7 @@ const settings = {
 	rehypePlugins: [
 		rehypeHighlight,
 		[rehypeImgSize, { dir: `${process.cwd()}/public` }],
+		rehypeSlug,
 	],
 	remarkPlugins: [[smartypants, { dashes: true }]],
 };
