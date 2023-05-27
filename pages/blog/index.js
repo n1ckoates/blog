@@ -4,6 +4,7 @@ import { allPosts } from ".contentlayer/generated";
 import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function Blog({ posts }) {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -12,6 +13,8 @@ export default function Blog({ posts }) {
 		const searchContent = post.title + post.summary;
 		return searchContent.toLowerCase().includes(searchTerm.toLowerCase());
 	});
+
+	const [animationParent] = useAutoAnimate();
 
 	return (
 		<>
@@ -36,41 +39,43 @@ export default function Blog({ posts }) {
 			<p className={clsx({ hidden: filteredPosts.length })}>
 				No posts were found with that search term.
 			</p>
-			{filteredPosts.map((post) => (
-				<Link
-					href={post.url}
-					key={post.url}
-					className="group relative mb-4 block overflow-hidden rounded-lg border border-slate-200 drop-shadow dark:border-slate-800 dark:bg-neutral-900/30"
-					aria-label={post.title}
-				>
-					<Image
-						alt={post.coverAlt}
-						src={post.cover}
-						fill
-						className="absolute -z-10 object-cover brightness-50 transition ease-in-out group-hover:scale-105"
-					/>
+			<div ref={animationParent}>
+				{filteredPosts.map((post) => (
+					<Link
+						href={post.url}
+						key={post.url}
+						className="group relative mb-4 block overflow-hidden rounded-lg border border-slate-200 drop-shadow dark:border-slate-800 dark:bg-neutral-900/30"
+						aria-label={post.title}
+					>
+						<Image
+							alt={post.coverAlt}
+							src={post.cover}
+							fill
+							className="absolute -z-10 object-cover brightness-50 transition ease-in-out group-hover:scale-105"
+						/>
 
-					<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-slate-950 p-4 text-white transition-transform duration-300 ease-in-out lg:flex-row">
-						<div className="text-slate-300 md:text-lg ">
-							<time
-								dateTime={post.date}
-								className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"
-							>
-								{post.formattedDate}
-							</time>
-							{post.readingTime} min read
+						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-slate-950 p-4 text-white transition-transform duration-300 ease-in-out lg:flex-row">
+							<div className="text-slate-300 md:text-lg ">
+								<time
+									dateTime={post.date}
+									className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"
+								>
+									{post.formattedDate}
+								</time>
+								{post.readingTime} min read
+							</div>
+							<div className="w-full lg:w-2/3">
+								<h1 className="mb-1 text-xl font-bold md:text-2xl">
+									{post.title}
+								</h1>
+								<h2 className="text-lg text-slate-300 md:text-xl">
+									{post.summary}
+								</h2>
+							</div>
 						</div>
-						<div className="w-full lg:w-2/3">
-							<h1 className="mb-1 text-xl font-bold md:text-2xl">
-								{post.title}
-							</h1>
-							<h2 className="text-lg text-slate-300 md:text-xl">
-								{post.summary}
-							</h2>
-						</div>
-					</div>
-				</Link>
-			))}
+					</Link>
+				))}
+			</div>
 		</>
 	);
 }
