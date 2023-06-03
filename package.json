@@ -16,7 +16,7 @@
 		"@vercel/analytics": "^1.0.1",
 		"autoprefixer": "^10.4.14",
 		"clsx": "^1.2.1",
-		"contentlayer": "^0.3.2",
+		"contentlayer": "^0.3.3",
 		"next": "^13.4.4",
 		"next-contentlayer": "^0.3.2",
 		"next-themes": "^0.2.1",
