@@ -1,8 +1,14 @@
 import { allPosts } from ".contentlayer/generated";
 import Search from "./Search";
+import { name } from "../../metadata";
 
 export const metadata = {
 	title: "Blog Posts",
+	openGraph: {
+		siteName: name,
+		title: "Blog Posts",
+		description: "Aspiring web developer whose code sometimes works.",
+	},
 };
 
 // Remove unneeded fields from posts before sending them to the client

@@ -4,6 +4,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { allPosts } from ".contentlayer/generated";
 import NewsletterForm from "../../../components/NewsletterForm";
 import generateRSS from "../../../rss";
+import { name } from "../../../metadata";
 
 const CustomImage = (props) => (
 	// Alt text is passed in through props
@@ -63,6 +64,7 @@ export function generateMetadata({ params }) {
 		title: post.title,
 		description: post.summary,
 		openGraph: {
+			siteName: name,
 			title: post.title,
 			description: post.summary,
 			images: [

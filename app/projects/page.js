@@ -1,9 +1,14 @@
 import { OrbContainer, Orb } from "../../components/Orb";
 import ProjectCard from "../../components/ProjectCard";
-import { projects, github } from "../../metadata";
+import { projects, github, name } from "../../metadata";
 
 export const metadata = {
 	title: "Projects",
+	openGraph: {
+		siteName: name,
+		title: "Projects",
+		description: "Here's a few of the projects I've worked on.",
+	},
 };
 
 export default function Page() {
