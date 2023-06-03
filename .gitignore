@@ -2,3 +2,4 @@
 /.next/
 /.contentlayer/
 .env
+/public/feed.xml

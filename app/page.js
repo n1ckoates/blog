@@ -14,7 +14,7 @@ function S({ children }) {
 	);
 }
 
-export default function Home({ posts }) {
+export default function Page() {
 	return (
 		<>
 			<OrbContainer>
@@ -68,7 +68,7 @@ export default function Home({ posts }) {
 			</div>
 
 			<div className="mx-auto mb-4 grid grid-cols-2 gap-4 md:grid-cols-3">
-				{posts.map((post) => (
+				{allPosts.slice(0, 2).map((post) => (
 					<PostCard {...post} key={post.url} />
 				))}
 			</div>
@@ -87,25 +87,4 @@ export default function Home({ posts }) {
 			<NewsletterForm />
 		</>
 	);
-}
-
-export function getStaticProps() {
-	return {
-		props: {
-			posts: allPosts
-				.sort((a, b) =>
-					a.date > b.date ? -1 : a.date < b.date ? 1 : 0
-				)
-				.slice(0, 2)
-				// Only include fields needed for rendering PostCard on client
-				.map((post) => ({
-					url: post.url,
-					cover: post.cover,
-					coverAlt: post.coverAlt,
-					formattedDate: post.formattedDate,
-					readingTime: post.readingTime,
-					title: post.title,
-				})),
-		},
-	};
 }

@@ -73,7 +73,7 @@ const settings = {
 };
 
 export default makeSource({
-	contentDirPath: "blog",
+	contentDirPath: "content",
 	documentTypes: [Post],
 	mdx: settings,
 	markdown: settings,

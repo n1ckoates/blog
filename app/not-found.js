@@ -2,6 +2,10 @@ import Link from "next/link";
 import { IconArrowRight, IconLoader2 } from "@tabler/icons-react";
 import Image from "next/image";
 
+export const metadata = {
+	title: "404: That page doesn't exist",
+};
+
 export default function NotFound() {
 	return (
 		<div className="text-lg md:text-xl">
@@ -36,14 +40,4 @@ export default function NotFound() {
 			</div>
 		</div>
 	);
-}
-
-export function getStaticProps() {
-	return {
-		props: {
-			seo: {
-				title: "404: That page doesn't exist",
-			},
-		},
-	};
 }

@@ -10,6 +10,7 @@
 		"next-env.d.ts",
 		"**/*.tsx",
 		"**/*.ts",
-		".contentlayer/generated"
+		".contentlayer/generated",
+		"app/layout.js"
 	]
 }

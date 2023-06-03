@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { IconLoader2, IconMail } from "@tabler/icons-react";
 import clsx from "clsx";
@@ -70,7 +72,7 @@ export default function NewsletterForm({
 				onSubmit={subscribe}
 			>
 				<input
-					className="grow rounded-md bg-slate-50 px-4 py-2 dark:bg-slate-950"
+					className="grow rounded-md bg-neutral-50 px-4 py-2 dark:bg-slate-950"
 					type="email"
 					id="email"
 					name="email"
