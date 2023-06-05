@@ -1,15 +1,12 @@
-import { OrbContainer, Orb } from "../../components/Orb";
-import ProjectCard from "../../components/ProjectCard";
-import { projects, github, name } from "../../metadata";
+import { OrbContainer, Orb } from "components/Orb";
+import ProjectCard from "components/ProjectCard";
+import { projects, github, name } from "metadata";
+import mergeMetadata from "lib/mergeMetadata";
 
-export const metadata = {
+export const metadata = mergeMetadata({
 	title: "Projects",
-	openGraph: {
-		siteName: name,
-		title: "Projects",
-		description: "Here's a few of the projects I've worked on.",
-	},
-};
+	description: "Here's a few of the projects I've worked on.",
+});
 
 export default function Page() {
 	return (

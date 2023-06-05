@@ -1,10 +1,10 @@
 import { allPosts } from ".contentlayer/generated";
 import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
-import PostCard from "../components/PostCard.js";
-import NewsletterForm from "../components/NewsletterForm.js";
-import { OrbContainer, Orb } from "../components/Orb.js";
-import { email } from "../metadata.js";
+import PostCard from "components/PostCard";
+import NewsletterForm from "components/NewsletterForm";
+import { OrbContainer, Orb } from "components/Orb";
+import { email } from "metadata";
 
 function S({ children }) {
 	return (

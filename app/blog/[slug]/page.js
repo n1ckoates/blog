@@ -2,9 +2,9 @@ import Image from "next/image";
 import Balancer from "react-wrap-balancer";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { allPosts } from ".contentlayer/generated";
-import NewsletterForm from "../../../components/NewsletterForm";
-import generateRSS from "../../../rss";
-import { name } from "../../../metadata";
+import NewsletterForm from "components/NewsletterForm";
+import generateRSS from "lib/rss";
+import mergeMetadata from "lib/mergeMetadata";
 
 const CustomImage = (props) => (
 	// Alt text is passed in through props
@@ -60,19 +60,10 @@ export function generateMetadata({ params }) {
 		(post) => post._raw.flattenedPath === params.slug
 	);
 
-	return {
+	return mergeMetadata({
 		title: post.title,
 		description: post.summary,
-		openGraph: {
-			siteName: name,
-			title: post.title,
-			description: post.summary,
-			images: [
-				{
-					url: process.env.NEXT_PUBLIC_URL + post.cover,
-					alt: post.coverAlt,
-				},
-			],
-		},
-	};
+		image: post.cover,
+		imageAlt: post.coverAlt,
+	});
 }

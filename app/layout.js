@@ -1,29 +1,12 @@
-import "../styles/globals.css";
+import "styles/globals.css";
 import Providers from "./providers";
 import localFont from "next/font/local";
-import { name } from "../metadata.js";
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
 import { Analytics } from "@vercel/analytics/react";
+import mergeMetadata from "lib/mergeMetadata";
 
-/** @type {import('next').Metadata} */
-export const metadata = {
-	title: {
-		default: name,
-		template: "%s • " + name,
-	},
-	openGraph: {
-		siteName: name,
-		title: name,
-		description: "Aspiring web developer whose code sometimes works.",
-	},
-	description: "Aspiring web developer whose code sometimes works.",
-	themeColor: "#2563eb",
-	twitter: {
-		card: "summary_large_image",
-	},
-	metadataBase: process.env.NEXT_PUBLIC_URL,
-};
+export const metadata = mergeMetadata();
 
 const BeVietnamPro = localFont({
 	src: "../public/BeVietnamPro.woff2",

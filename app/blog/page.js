@@ -1,6 +1,6 @@
 import { allPosts } from ".contentlayer/generated";
 import Search from "./Search";
-import { name } from "../../metadata";
+import { name } from "metadata";
 
 export const metadata = {
 	title: "Blog Posts",
