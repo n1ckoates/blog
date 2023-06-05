@@ -14,6 +14,10 @@ function S({ children }) {
 	);
 }
 
+const posts = allPosts
+	.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
+	.slice(0, 2);
+
 export default function Page() {
 	return (
 		<>
@@ -68,7 +72,7 @@ export default function Page() {
 			</div>
 
 			<div className="mx-auto mb-4 grid grid-cols-2 gap-4 md:grid-cols-3">
-				{allPosts.slice(0, 2).map((post) => (
+				{posts.map((post) => (
 					<PostCard {...post} key={post.url} />
 				))}
 			</div>
