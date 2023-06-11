@@ -11,17 +11,17 @@
 	},
 	"dependencies": {
 		"@formkit/auto-animate": "^1.0.0-beta.6",
-		"@tabler/icons-react": "2.19.0",
+		"@tabler/icons-react": "2.21.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"@vercel/analytics": "^1.0.1",
 		"autoprefixer": "^10.4.14",
 		"clsx": "^1.2.1",
-		"contentlayer": "^0.3.2",
+		"contentlayer": "^0.3.3",
 		"fuse.js": "^6.6.2",
 		"next": "^13.4.4",
-		"next-contentlayer": "^0.3.2",
+		"next-contentlayer": "^0.3.3",
 		"next-themes": "^0.2.1",
-		"postcss": "^8.4.21",
+		"postcss": "^8.4.24",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-wrap-balancer": "^0.5.0",
@@ -35,9 +35,8 @@
 		"tailwindcss": "^3.3.2"
 	},
 	"devDependencies": {
-		"@types/react": "18.2.7",
-		"eslint": "^8.40.0",
-		"eslint-config-next": "^13.4.3",
+		"eslint": "^8.41.0",
+		"eslint-config-next": "^13.4.4",
 		"eslint-config-prettier": "^8.8.0",
 		"prettier": "^2.8.8",
 		"prettier-plugin-tailwindcss": "^0.3.0"
