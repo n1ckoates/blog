@@ -1,10 +1,10 @@
 import { allPosts } from ".contentlayer/generated";
 import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
-import PostCard from "../components/PostCard.js";
-import NewsletterForm from "../components/NewsletterForm.js";
-import { OrbContainer, Orb } from "../components/Orb.js";
-import { email } from "../metadata.js";
+import PostCard from "components/PostCard";
+import NewsletterForm from "components/NewsletterForm";
+import { OrbContainer, Orb } from "components/Orb";
+import { email } from "metadata";
 
 function S({ children }) {
 	return (
@@ -14,7 +14,11 @@ function S({ children }) {
 	);
 }
 
-export default function Home({ posts }) {
+const posts = allPosts
+	.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
+	.slice(0, 2);
+
+export default function Page() {
 	return (
 		<>
 			<OrbContainer>
@@ -87,25 +91,4 @@ export default function Home({ posts }) {
 			<NewsletterForm />
 		</>
 	);
-}
-
-export function getStaticProps() {
-	return {
-		props: {
-			posts: allPosts
-				.sort((a, b) =>
-					a.date > b.date ? -1 : a.date < b.date ? 1 : 0
-				)
-				.slice(0, 2)
-				// Only include fields needed for rendering PostCard on client
-				.map((post) => ({
-					url: post.url,
-					cover: post.cover,
-					coverAlt: post.coverAlt,
-					formattedDate: post.formattedDate,
-					readingTime: post.readingTime,
-					title: post.title,
-				})),
-		},
-	};
 }

@@ -1,12 +1,18 @@
-import { OrbContainer, Orb } from "../components/Orb";
-import ProjectCard from "../components/ProjectCard";
-import { projects, github } from "../metadata";
+import { OrbContainer, Orb } from "components/Orb";
+import ProjectCard from "components/ProjectCard";
+import { projects, github, name } from "metadata";
+import mergeMetadata from "lib/mergeMetadata";
 
-export default function Projects() {
+export const metadata = mergeMetadata({
+	title: "Projects",
+	description: "Here's a few of the projects I've worked on.",
+});
+
+export default function Page() {
 	return (
 		<>
 			<OrbContainer>
-				<Orb className="right-0 -top-20 bg-fuchsia-400/30 dark:bg-fuchsia-600/30" />
+				<Orb className="-top-20 right-0 bg-fuchsia-400/30 dark:bg-fuchsia-600/30" />
 				<Orb className="right-86 top-40 bg-cyan-400/30 dark:bg-cyan-600/30" />
 			</OrbContainer>
 
@@ -37,14 +43,4 @@ export default function Projects() {
 			</OrbContainer>
 		</>
 	);
-}
-
-export function getStaticProps() {
-	return {
-		props: {
-			seo: {
-				title: "Projects",
-			},
-		},
-	};
 }

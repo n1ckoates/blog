@@ -1,11 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import ThemeSwitch from "./ThemeSwitch";
 import { social, name, navLinks } from "../metadata.js";
-import { useRouter } from "next/router.js";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 function SidebarLink({ title, href, Icon }) {
-	let { pathname } = useRouter();
+	let pathname = usePathname();
 	if (pathname.startsWith("/blog")) pathname = "/blog";
 	const active = pathname === href;
 
@@ -47,7 +49,7 @@ export default function Sidebar() {
 					<ThemeSwitch />
 				</div>
 
-				<div className="mt-6 flex flex-col">
+				<div className="mt-4 flex flex-col">
 					{navLinks.map((data) => (
 						<SidebarLink {...data} key={data.href} />
 					))}

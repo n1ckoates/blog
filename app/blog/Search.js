@@ -1,27 +1,31 @@
+"use client";
+
 import { IconSearch } from "@tabler/icons-react";
 import Link from "next/link";
-import { allPosts } from ".contentlayer/generated";
 import { useState } from "react";
-import clsx from "clsx";
 import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Fuse from "fuse.js";
 
-export default function Blog({ posts }) {
+export default function Search({ title, posts }) {
 	const [searchTerm, setSearchTerm] = useState("");
 
-	const filteredPosts = posts.filter((post) => {
-		const searchContent = post.title + post.summary;
-		return searchContent.toLowerCase().includes(searchTerm.toLowerCase());
+	const fuse = new Fuse(posts, {
+		keys: ["title", "summary", "formattedDate"],
+		threshold: 0.4,
 	});
+
+	let filteredPosts = posts;
+	if (searchTerm) {
+		filteredPosts = fuse.search(searchTerm).map(({ item }) => item);
+	}
 
 	const [animationParent] = useAutoAnimate();
 
 	return (
 		<>
 			<div className="mb-4 flex flex-col justify-between gap-2 lg:flex-row">
-				<h2 className="text-3xl font-extrabold md:text-4xl">
-					Blog Posts
-				</h2>
+				<h2 className="text-3xl font-extrabold md:text-4xl">{title}</h2>
 
 				<div className="relative w-full lg:w-2/3">
 					<input
@@ -36,10 +40,10 @@ export default function Blog({ posts }) {
 				</div>
 			</div>
 
-			<p className={clsx({ hidden: filteredPosts.length })}>
-				No posts were found with that search term.
-			</p>
 			<div ref={animationParent}>
+				{!filteredPosts.length && (
+					<p>No posts were found with that search term.</p>
+				)}
 				{filteredPosts.map((post) => (
 					<Link
 						href={post.url}
@@ -54,7 +58,7 @@ export default function Blog({ posts }) {
 							className="absolute -z-10 object-cover brightness-50 transition ease-in-out group-hover:scale-105"
 						/>
 
-						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-slate-950 p-4 text-white transition-transform duration-300 ease-in-out lg:flex-row">
+						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-slate-950 p-4 text-white ease-in-out lg:flex-row">
 							<div className="text-slate-300 md:text-lg ">
 								<time
 									dateTime={post.date}
@@ -78,26 +82,4 @@ export default function Blog({ posts }) {
 			</div>
 		</>
 	);
-}
-
-export function getStaticProps() {
-	const posts = allPosts
-		.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
-		.map((post) => ({
-			url: post.url,
-			cover: post.cover,
-			coverAlt: post.coverAlt,
-			formattedDate: post.formattedDate,
-			readingTime: post.readingTime,
-			title: post.title,
-			summary: post.summary,
-		}));
-	return {
-		props: {
-			posts,
-			seo: {
-				title: "Blog Posts",
-			},
-		},
-	};
 }
