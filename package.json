@@ -18,7 +18,7 @@
 		"clsx": "^1.2.1",
 		"contentlayer": "^0.3.3",
 		"fuse.js": "^6.6.2",
-		"next": "^13.4.4",
+		"next": "^13.4.5",
 		"next-contentlayer": "^0.3.3",
 		"next-themes": "^0.2.1",
 		"postcss": "^8.4.24",
