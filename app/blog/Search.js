@@ -56,6 +56,8 @@ export default function Search({ title, posts }) {
 							src={post.cover}
 							fill
 							className="absolute -z-10 object-cover brightness-50 transition ease-in-out group-hover:scale-105"
+							placeholder="blur"
+							blurDataURL={post.blurDataURL}
 						/>
 
 						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-slate-950 p-4 text-white ease-in-out lg:flex-row">

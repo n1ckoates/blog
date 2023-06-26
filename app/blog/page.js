@@ -22,6 +22,7 @@ const posts = allPosts
 		readingTime: post.readingTime,
 		title: post.title,
 		summary: post.summary,
+		blurDataURL: post.blurDataURL,
 	}));
 
 export default function Blog() {

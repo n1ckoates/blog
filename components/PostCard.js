@@ -12,6 +12,7 @@ export default function PostCard({
 	formattedDate,
 	readingTime,
 	title,
+	blurDataURL,
 }) {
 	return (
 		<Link
@@ -25,6 +26,8 @@ export default function PostCard({
 				className="object-cover transition ease-in-out group-hover:scale-105"
 				sizes="(max-width: 896px) 100vw, 896px"
 				priority
+				placeholder="blur"
+				blurDataURL={blurDataURL}
 			/>
 
 			<div className="absolute h-min w-full bg-gradient-to-b from-black/70 via-black/70 via-80% p-4 group-first:via-black/70">

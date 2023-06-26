@@ -4,6 +4,8 @@ import rehypeImgSize from "rehype-img-size";
 import readingTime from "reading-time";
 import smartypants from "remark-smartypants";
 import rehypeSlug from "rehype-slug";
+import { getPlaiceholder } from "plaiceholder";
+import fs from "node:fs/promises";
 
 function getReadingTime(post) {
 	const minutes = readingTime(post.body.raw).minutes;
@@ -59,6 +61,17 @@ export const Post = defineDocumentType(() => ({
 				Intl.DateTimeFormat({}, { dateStyle: "long" }).format(
 					new Date(date)
 				),
+		},
+		blurDataURL: {
+			type: "string",
+			resolve: async ({ cover }) => {
+				const image = await fs.readFile(
+					`${process.cwd()}/public${cover}`
+				);
+				return getPlaiceholder(image, { size: 8 }).then(
+					(data) => data.base64
+				);
+			},
 		},
 	},
 }));
