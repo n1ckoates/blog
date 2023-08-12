@@ -46,8 +46,8 @@ export const projects = {
 		description:
 			"Quote book for Discord servers. Built with Node.js, Discord.js, and MongoDB, the bot allows users to add, remove, edit, and search for quotes. You can also add quotes from Discord messages, or generate images from them.",
 		links: {
+			Website: "https://quoter.cc",
 			"Source Code": github + "/quoter",
-			Invite: "https://discord.com/api/oauth2/authorize?client_id=784853298271748136&permissions=19456&scope=bot%20applications.commands",
 		},
 	},
 	"Steam Deck Emulation Guide": {
