@@ -1,6 +1,6 @@
 import { OrbContainer, Orb } from "components/Orb";
 import ProjectCard from "components/ProjectCard";
-import { projects, github, name } from "metadata";
+import { projects, github } from "metadata";
 import mergeMetadata from "lib/mergeMetadata";
 
 export const metadata = mergeMetadata({

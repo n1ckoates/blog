@@ -28,7 +28,12 @@ export default function ProjectCard({
 			{links && (
 				<div className="mt-4 space-x-8 px-6 pb-6 font-bold text-blue-500">
 					{Object.entries(links).map(([title, href]) => (
-						<a key={href} href={href} className="group">
+						<a
+							key={href}
+							href={href}
+							className="group"
+							target="_blank"
+						>
 							{title}{" "}
 							<IconArrowUpRight className="inline-block transition ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 						</a>
