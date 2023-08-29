@@ -96,6 +96,15 @@ export const projects = {
 			Website: "https://needle.gg",
 		},
 	},
+	"dylanmcd.com": {
+		cover: "/images/projects/dylanmcd.png",
+		coverAlt: "Home page of dylanmcd.com",
+		description:
+			"Dylan commissioned me to build his website based on a design he created. I used Astro and Tailwind CSS.",
+		links: {
+			Website: "https://dylanmcd.com",
+		},
+	},
 };
 
 function getURL() {
