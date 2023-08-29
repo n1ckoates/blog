@@ -13,7 +13,7 @@
 		"@formkit/auto-animate": "^1.0.0-beta.6",
 		"@tabler/icons-react": "2.30.0",
 		"@tailwindcss/typography": "^0.5.9",
-		"@vercel/analytics": "^1.0.1",
+		"@vercel/analytics": "^1.0.2",
 		"autoprefixer": "^10.4.15",
 		"clsx": "^2.0.0",
 		"contentlayer": "^0.3.3",
