@@ -64,7 +64,7 @@ export default function Page() {
 
 				<Link
 					href="/blog"
-					className="group ml-8 transition-colors hover:text-slate-600 dark:hover:text-slate-400"
+					className="group ml-8 transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
 				>
 					View All{" "}
 					<IconArrowRight className="inline-block transition-transform ease-in-out group-hover:translate-x-0.5" />

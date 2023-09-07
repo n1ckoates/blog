@@ -31,7 +31,7 @@ export default function Search({ title, posts }) {
 					<input
 						type="text"
 						name="search"
-						className="w-full rounded-md border border-slate-200 px-4 py-2 drop-shadow dark:border-slate-800 dark:bg-slate-900"
+						className="w-full rounded-md border border-zinc-200 px-4 py-2 drop-shadow dark:border-zinc-800 dark:bg-zinc-900"
 						placeholder="Search posts..."
 						aria-label="Search posts"
 						onChange={(e) => setSearchTerm(e.target.value)}
@@ -48,7 +48,7 @@ export default function Search({ title, posts }) {
 					<Link
 						href={post.url}
 						key={post.url}
-						className="group relative mb-4 block overflow-hidden rounded-lg border border-slate-200 drop-shadow dark:border-slate-800 dark:bg-neutral-900/30"
+						className="group relative mb-4 block overflow-hidden rounded-lg border border-zinc-200 drop-shadow dark:border-zinc-800 dark:bg-neutral-900/30"
 						aria-label={post.title}
 					>
 						<Image
@@ -60,8 +60,8 @@ export default function Search({ title, posts }) {
 							blurDataURL={post.blurDataURL}
 						/>
 
-						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-slate-950 p-4 text-white ease-in-out lg:flex-row">
-							<div className="text-slate-300 md:text-lg ">
+						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-zinc-950 p-4 text-white ease-in-out lg:flex-row">
+							<div className="text-zinc-300 md:text-lg ">
 								<time
 									dateTime={post.date}
 									className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"
@@ -74,7 +74,7 @@ export default function Search({ title, posts }) {
 								<h1 className="mb-1 text-xl font-bold md:text-2xl">
 									{post.title}
 								</h1>
-								<h2 className="text-lg text-slate-300 md:text-xl">
+								<h2 className="text-lg text-zinc-300 md:text-xl">
 									{post.summary}
 								</h2>
 							</div>

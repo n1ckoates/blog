@@ -5,6 +5,7 @@ import ThemeSwitch from "./ThemeSwitch";
 import { social, name, navLinks } from "../metadata.js";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 function SidebarLink({ title, href, Icon }) {
 	let pathname = usePathname();
@@ -19,16 +20,26 @@ function SidebarLink({ title, href, Icon }) {
 		>
 			<div
 				className={clsx(
-					"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors ease-in-out",
+					"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors ease-in-out relative",
 					{
-						"bg-slate-300/70 dark:bg-slate-700/70": active,
-						"group-hover:bg-slate-300/50 dark:group-hover:bg-slate-700/50":
+						"text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white":
 							!active,
-					}
+					},
 				)}
 			>
 				<Icon size={32} className="inline-block align-middle" />
 				{title}
+				{active && (
+					<motion.div
+						className="absolute inset-0 bg-zinc-300/70 dark:bg-zinc-700/70 rounded-lg z-[-1]"
+						layoutId="sidebar"
+						transition={{
+							type: "spring",
+							stiffness: 350,
+							damping: 30,
+						}}
+					/>
+				)}
 			</div>
 		</Link>
 	);
@@ -40,7 +51,7 @@ export default function Sidebar() {
 			<div className="sticky top-20 flex flex-col">
 				<div className="flex flex-row items-center">
 					<Link
-						className="w-56 align-middle text-4xl font-bold"
+						className="min-w-[14rem] align-middle text-4xl font-bold"
 						href="/"
 					>
 						{name}
@@ -60,7 +71,7 @@ export default function Sidebar() {
 						<a
 							href={href}
 							key={href}
-							className="rounded-md p-2 transition ease-in-out hover:bg-slate-300/50 dark:hover:bg-slate-700/50"
+							className="rounded-md p-2 transition ease-in-out hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
 							title={label}
 						>
 							<Icon size={28} />

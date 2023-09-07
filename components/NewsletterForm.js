@@ -36,14 +36,14 @@ export default function NewsletterForm({
 					"Content-Type": "application/x-www-form-urlencoded",
 				},
 				method: "POST",
-			}
+			},
 		);
 
 		if (!res.ok) {
 			setMessage(
 				res.status === 400
 					? "Your email address is invalid or you're already subscribed!"
-					: "Something went wrong. Please try again later."
+					: "Something went wrong. Please try again later.",
 			);
 			setState("error");
 			return;
@@ -54,11 +54,11 @@ export default function NewsletterForm({
 	};
 
 	return (
-		<div className="mx-auto max-w-lg rounded-lg border border-slate-200 bg-neutral-100/50 p-4 dark:border-slate-800 dark:bg-neutral-900/50 print:hidden md:text-lg">
+		<div className="mx-auto max-w-lg rounded-lg border border-zinc-200 bg-neutral-100/50 p-4 dark:border-zinc-800 dark:bg-neutral-900/50 print:hidden md:text-lg">
 			<span
 				className={clsx(
 					{ "text-red-600 dark:text-red-400": error },
-					"font-semibold"
+					"font-semibold",
 				)}
 			>
 				{message}
@@ -67,12 +67,12 @@ export default function NewsletterForm({
 			<form
 				className={clsx(
 					"mt-2 flex w-full flex-wrap justify-between gap-2 drop-shadow",
-					{ hidden: success }
+					{ hidden: success },
 				)}
 				onSubmit={subscribe}
 			>
 				<input
-					className="grow rounded-md bg-neutral-50 px-4 py-2 dark:bg-slate-950"
+					className="grow rounded-md bg-neutral-50 px-4 py-2 dark:bg-zinc-950"
 					type="email"
 					id="email"
 					name="email"

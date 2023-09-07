@@ -10,13 +10,14 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@formkit/auto-animate": "^1.0.0-beta.6",
+		"@formkit/auto-animate": "^0.8.0",
 		"@tabler/icons-react": "2.30.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"@vercel/analytics": "^1.0.2",
 		"autoprefixer": "^10.4.15",
 		"clsx": "^2.0.0",
 		"contentlayer": "^0.3.3",
+		"framer-motion": "^10.16.4",
 		"fuse.js": "^6.6.2",
 		"next": "^13.4.18",
 		"next-contentlayer": "^0.3.4",

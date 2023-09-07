@@ -24,19 +24,17 @@ const CustomNewsletterForm = (props) => (
 
 export default function Post({ params }) {
 	const post = allPosts.find(
-		(post) => post._raw.flattenedPath === params.slug
+		(post) => post._raw.flattenedPath === params.slug,
 	);
 	const MDXContent = useMDXComponent(post.body.code);
 
 	return (
-		<article className="prose prose-lg prose-slate mx-auto dark:prose-invert md:prose-2xl prose-a:text-blue-500 prose-a:decoration-2 prose-a:transition-colors prose-a:ease-in-out hover:prose-a:text-blue-400 prose-pre:bg-slate-900 dark:hover:prose-a:text-blue-600">
-			<div className="md:text-center">
-				<time dateTime={post.date}>{post.formattedDate}</time> &bull;{" "}
-				{post.readingTime} min read
-				<h1>
-					<Balancer>{post.title}</Balancer>
-				</h1>
-			</div>
+		<article className="prose prose-lg prose-zinc dark:prose-invert md:prose-xl prose-a:text-blue-500 prose-a:decoration-2 prose-a:transition-colors prose-a:ease-in-out hover:prose-a:text-blue-400 prose-pre:bg-zinc-900 dark:hover:prose-a:text-blue-600">
+			<time dateTime={post.date}>{post.formattedDate}</time> &bull;{" "}
+			{post.readingTime} min read
+			<h1>
+				<Balancer>{post.title}</Balancer>
+			</h1>
 			<MDXContent
 				components={{
 					NewsletterForm: CustomNewsletterForm,
@@ -57,7 +55,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
 	const post = allPosts.find(
-		(post) => post._raw.flattenedPath === params.slug
+		(post) => post._raw.flattenedPath === params.slug,
 	);
 
 	return mergeMetadata({

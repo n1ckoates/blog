@@ -40,7 +40,7 @@ export default function PostCard({
 				</h1>
 			</div>
 
-			<div className="absolute bottom-4 left-4 rounded-lg bg-slate-600/30 px-4 py-2 text-sm backdrop-blur transition hover:bg-slate-600/60 md:text-base">
+			<div className="absolute bottom-4 left-4 rounded-lg bg-zinc-600/30 px-4 py-2 text-sm backdrop-blur transition hover:bg-zinc-600/60 md:text-base">
 				Read post
 			</div>
 		</Link>

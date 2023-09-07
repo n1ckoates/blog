@@ -14,7 +14,7 @@ export default function NotFound() {
 			</h1>
 			<p>To make up for it, here&apos;s a picture of a cat.</p>
 
-			<div className="relative mx-auto mt-6 w-fit overflow-hidden rounded-md bg-slate-200 shadow-md dark:bg-slate-800">
+			<div className="relative mx-auto mt-6 w-fit overflow-hidden rounded-md bg-zinc-200 shadow-md dark:bg-zinc-800">
 				<IconLoader2
 					className="absolute inset-0 m-auto animate-spin"
 					size={48}

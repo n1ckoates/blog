@@ -47,7 +47,7 @@ export default function Menu() {
 
 			<label
 				htmlFor="nav"
-				className="flex items-center rounded-md p-2 transition-colors hover:cursor-pointer hover:bg-slate-300/50 peer-focus-visible:[outline:auto] dark:hover:bg-slate-700/50 lg:mx-auto lg:hidden"
+				className="flex items-center rounded-md p-2 transition-colors hover:cursor-pointer hover:bg-zinc-300/50 peer-focus-visible:[outline:auto] dark:hover:bg-zinc-700/50 lg:mx-auto lg:hidden"
 			>
 				<IconMenu
 					className="[#nav:checked_~_label_&]:hidden"
@@ -59,7 +59,7 @@ export default function Menu() {
 				/>
 			</label>
 			<div className="pointer-events-none absolute left-0 top-0 -z-10 h-screen w-screen bg-white/50 opacity-0 backdrop-blur-lg transition ease-in-out peer-checked:pointer-events-auto peer-checked:opacity-100 dark:bg-black/50 lg:!hidden">
-				<div className="flex flex-col divide-y divide-slate-400/50 p-6 pt-20 text-2xl font-semibold dark:divide-slate-600/50">
+				<div className="flex flex-col divide-y divide-zinc-400/50 p-6 pt-20 text-2xl font-semibold dark:divide-zinc-600/50">
 					{navLinks.map(({ title, href }) => (
 						<Link
 							key={href}
@@ -67,7 +67,7 @@ export default function Menu() {
 							className="group -translate-x-80 py-4 duration-300 [#nav:checked_~_div_&]:translate-x-0 [#nav:checked_~_div_&]:transition [&:nth-child(2)]:delay-75 [&:nth-child(3)]:delay-150"
 							onClick={handleLinkClick}
 						>
-							<div className="transition ease-in-out group-hover:text-slate-600 dark:group-hover:text-slate-400">
+							<div className="transition ease-in-out group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
 								{title}
 							</div>
 						</Link>
@@ -79,7 +79,7 @@ export default function Menu() {
 						<a
 							href={href}
 							key={href}
-							className="rounded-md p-2 transition ease-in-out hover:bg-slate-300/50 dark:hover:bg-slate-700/50"
+							className="rounded-md p-2 transition ease-in-out hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
 							title={label}
 						>
 							<Icon size={28} />
