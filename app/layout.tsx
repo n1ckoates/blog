@@ -8,7 +8,7 @@ import mergeMetadata from "lib/mergeMetadata";
 
 export const metadata = mergeMetadata();
 
-const BeVietnamPro = localFont({
+const MonaSans = localFont({
 	src: "../public/Mona-Sans.woff2",
 });
 
@@ -21,7 +21,7 @@ export default function RootLayout({
 		<html
 			lang="en"
 			suppressHydrationWarning
-			className={`${BeVietnamPro.className} scroll-smooth [scrollbar-gutter:stable]`}
+			className={`${MonaSans.className} scroll-smooth [scrollbar-gutter:stable]`}
 		>
 			<body className="max-w-7xl gap-8 bg-zinc-50 px-6 pb-8 text-black dark:bg-zinc-950 dark:text-white lg:mx-auto lg:flex lg:flex-row lg:py-20 2xl:px-0">
 				<Providers>

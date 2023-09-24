@@ -1,4 +1,3 @@
-import defaultTheme from "tailwindcss/defaultTheme";
 import typography from "@tailwindcss/typography";
 
 module.exports = {
@@ -11,15 +10,5 @@ module.exports = {
 	darkMode: "class",
 	future: {
 		hoverOnlyWhenSupported: true,
-	},
-	theme: {
-		extend: {
-			fontFamily: {
-				sans: [
-					"var(--font-be-vietnam-pro)",
-					...defaultTheme.fontFamily.sans,
-				],
-			},
-		},
 	},
 };
