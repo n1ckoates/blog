@@ -1,4 +1,3 @@
-import { name } from "../metadata";
 import Menu from "./Menu";
 import ThemeSwitch from "./ThemeSwitch";
 import Link from "next/link";
@@ -9,7 +8,7 @@ export default function Navbar() {
 			<Menu />
 
 			<Link className="text-3xl font-semibold" href="/">
-				{name}
+				Nick Oates
 			</Link>
 
 			<ThemeSwitch />

@@ -1,4 +1,5 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+import defaultTheme from "tailwindcss/defaultTheme";
+import typography from "@tailwindcss/typography";
 
 module.exports = {
 	content: [
@@ -6,7 +7,7 @@ module.exports = {
 		"./app/**/*.{js,ts,jsx,tsx}",
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
-	plugins: [require("@tailwindcss/typography")],
+	plugins: [typography],
 	darkMode: "class",
 	future: {
 		hoverOnlyWhenSupported: true,

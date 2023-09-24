@@ -1,12 +1,11 @@
-import { allPosts } from ".contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
 import PostCard from "components/PostCard";
 import NewsletterForm from "components/NewsletterForm";
 import { OrbContainer, Orb } from "components/Orb";
-import { email } from "metadata";
 
-function S({ children }) {
+function S({ children }: { children: React.ReactNode }) {
 	return (
 		<strong className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text font-semibold text-transparent print:text-inherit">
 			{children}
@@ -40,8 +39,11 @@ export default function Page() {
 						<S>my projects page</S>
 					</Link>
 					. If you&apos;d like to get in touch, email me at{" "}
-					<a className="font-semibold" href={`mailto:${email}`}>
-						{email}
+					<a
+						className="font-semibold"
+						href="mailto:nick@nickoates.com"
+					>
+						nick@nickoates.com
 					</a>
 					.
 				</p>

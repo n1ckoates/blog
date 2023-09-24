@@ -12,7 +12,11 @@ const BeVietnamPro = localFont({
 	src: "../public/Mona-Sans.woff2",
 });
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	return (
 		<html
 			lang="en"

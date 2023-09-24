@@ -13,6 +13,14 @@ export default function PostCard({
 	readingTime,
 	title,
 	blurDataURL,
+}: {
+	url: string;
+	cover: string;
+	coverAlt: string;
+	formattedDate: string;
+	readingTime: number;
+	title: string;
+	blurDataURL: string;
 }) {
 	return (
 		<Link

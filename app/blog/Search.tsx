@@ -7,7 +7,13 @@ import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Fuse from "fuse.js";
 
-export default function Search({ title, posts }) {
+export default function Search({
+	title,
+	posts,
+}: {
+	title: string;
+	posts: any[];
+}) {
 	const [searchTerm, setSearchTerm] = useState("");
 
 	const fuse = new Fuse(posts, {

@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import ThemeSwitch from "./ThemeSwitch";
-import { social, name, navLinks } from "../metadata.js";
+import { social, links } from "@/lib/navData";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
-function SidebarLink({ title, href, Icon }) {
+function SidebarLink({ title, href, Icon }: (typeof links)[0]) {
 	let pathname = usePathname();
 	if (pathname.startsWith("/blog")) pathname = "/blog";
 	const active = pathname === href;
@@ -54,14 +54,14 @@ export default function Sidebar() {
 						className="min-w-[14rem] align-middle text-4xl font-bold"
 						href="/"
 					>
-						{name}
+						Nick Oates
 					</Link>
 
 					<ThemeSwitch />
 				</div>
 
 				<div className="mt-4 flex flex-col">
-					{navLinks.map((data) => (
+					{links.map((data) => (
 						<SidebarLink {...data} key={data.href} />
 					))}
 				</div>

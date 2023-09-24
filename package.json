@@ -12,18 +12,18 @@
 	"dependencies": {
 		"@formkit/auto-animate": "^0.8.0",
 		"@tabler/icons-react": "2.30.0",
-		"@tailwindcss/typography": "^0.5.9",
+		"@tailwindcss/typography": "^0.5.10",
 		"@vercel/analytics": "^1.0.2",
 		"autoprefixer": "^10.4.15",
 		"clsx": "^2.0.0",
-		"contentlayer": "^0.3.3",
+		"contentlayer": "^0.3.4",
 		"framer-motion": "^10.16.4",
 		"fuse.js": "^6.6.2",
-		"next": "^13.4.18",
+		"next": "^13.5.2",
 		"next-contentlayer": "^0.3.4",
 		"next-themes": "^0.2.1",
 		"plaiceholder": "^3.0.0",
-		"postcss": "^8.4.29",
+		"postcss": "^8.4.30",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-wrap-balancer": "^1.1.0",
@@ -33,14 +33,17 @@
 		"rehype-slug": "^5.1.0",
 		"remark-smartypants": "^2.0.0",
 		"rss": "^1.2.2",
-		"sharp": "^0.32.5",
+		"sharp": "^0.32.6",
 		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
-		"eslint": "^8.47.0",
-		"eslint-config-next": "^13.4.19",
+		"@types/rss": "^0.0.30",
+		"@types/react": "18.2.22",
+		"eslint": "^8.49.0",
+		"eslint-config-next": "^13.5.2",
 		"eslint-config-prettier": "^9.0.0",
-		"prettier": "^3.0.2",
-		"prettier-plugin-tailwindcss": "^0.5.3"
+		"prettier": "^3.0.3",
+		"prettier-plugin-tailwindcss": "^0.5.4",
+		"typescript": "5.2.2"
 	}
 }

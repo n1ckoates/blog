@@ -8,8 +8,12 @@ const formId = process.env.NEXT_PUBLIC_LOOPS_FORM_ID;
 
 export default function NewsletterForm({
 	title = "Subscribe to my newsletter",
+}: {
+	title?: string;
 }) {
-	const [state, setState] = useState(null);
+	const [state, setState] = useState<"loading" | "success" | "error" | null>(
+		null,
+	);
 	const [message, setMessage] = useState(title);
 
 	const loading = state === "loading";
@@ -22,11 +26,18 @@ export default function NewsletterForm({
 		<IconMail className="" />
 	);
 
-	const subscribe = async (e) => {
+	const subscribe = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setState("loading");
 
-		const email = e.target.email.value;
+		const formData = new FormData(e.target as HTMLFormElement);
+		const email = formData.get("email");
+
+		if (!email || typeof email !== "string") {
+			setMessage("Please enter an email address.");
+			setState("error");
+			return;
+		}
 
 		const res = await fetch(
 			"https://app.loops.so/api/newsletter-form/" + formId,

@@ -40,6 +40,7 @@ export const Post = defineDocumentType(() => ({
 		},
 		summary: {
 			type: "string",
+			required: true,
 		},
 		tags: {
 			type: "list",
@@ -59,17 +60,17 @@ export const Post = defineDocumentType(() => ({
 			type: "string",
 			resolve: ({ date }) =>
 				Intl.DateTimeFormat({}, { dateStyle: "long" }).format(
-					new Date(date)
+					new Date(date),
 				),
 		},
 		blurDataURL: {
 			type: "string",
 			resolve: async ({ cover }) => {
 				const image = await fs.readFile(
-					`${process.cwd()}/public${cover}`
+					`${process.cwd()}/public${cover}`,
 				);
 				return getPlaiceholder(image, { size: 8 }).then(
-					(data) => data.base64
+					(data) => data.base64,
 				);
 			},
 		},

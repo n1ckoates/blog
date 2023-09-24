@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Balancer from "react-wrap-balancer";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { allPosts } from ".contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 import NewsletterForm from "components/NewsletterForm";
 import generateRSS from "lib/rss";
 import mergeMetadata from "lib/mergeMetadata";
+import { notFound } from "next/navigation";
 
-const CustomImage = (props) => (
+const CustomImage = (props: any) => (
 	// Alt text is passed in through props
 	// eslint-disable-next-line jsx-a11y/alt-text
 	<Image
@@ -16,20 +17,27 @@ const CustomImage = (props) => (
 	/>
 );
 
-const CustomNewsletterForm = (props) => (
+const CustomNewsletterForm = ({
+	title = "Like what you're reading?",
+}: {
+	title?: string;
+}) => (
 	<div className="not-prose text-base text-black dark:text-white">
-		<NewsletterForm title="Like what you're reading?" {...props} />
+		<NewsletterForm title={title} />
 	</div>
 );
 
-export default function Post({ params }) {
+export default function Post({ params }: { params: { slug: string } }) {
 	const post = allPosts.find(
 		(post) => post._raw.flattenedPath === params.slug,
 	);
+
+	if (!post) notFound();
+
 	const MDXContent = useMDXComponent(post.body.code);
 
 	return (
-		<article className="prose prose-lg prose-zinc dark:prose-invert md:prose-xl prose-a:text-blue-500 prose-a:decoration-2 prose-a:transition-colors prose-a:ease-in-out hover:prose-a:text-blue-400 prose-pre:bg-zinc-900 dark:hover:prose-a:text-blue-600">
+		<article className="prose prose-lg prose-zinc dark:prose-invert md:prose-xl prose-a:text-blue-500 prose-a:decoration-2 prose-a:transition-colors prose-a:ease-in-out hover:prose-a:text-blue-400 prose-pre:bg-zinc-900 dark:hover:prose-a:text-blue-600 prose-h1:tracking-tight">
 			<time dateTime={post.date}>{post.formattedDate}</time> &bull;{" "}
 			{post.readingTime} min read
 			<h1>
@@ -49,14 +57,16 @@ export function generateStaticParams() {
 	generateRSS();
 
 	return allPosts.map((post) => ({
-		slug: post.slug,
+		slug: post._raw.flattenedPath,
 	}));
 }
 
-export function generateMetadata({ params }) {
+export function generateMetadata({ params }: { params: { slug: string } }) {
 	const post = allPosts.find(
 		(post) => post._raw.flattenedPath === params.slug,
 	);
+
+	if (!post) return mergeMetadata();
 
 	return mergeMetadata({
 		title: post.title,

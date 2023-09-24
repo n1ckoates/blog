@@ -1,17 +1,15 @@
-import { allPosts } from ".contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 import RSS from "rss";
-import { name } from "metadata";
 import { writeFileSync } from "fs";
-
-const URL = process.env.NEXT_PUBLIC_URL;
+import url from "@/lib/siteURL";
 
 export default function generateRSS() {
 	const feed = new RSS({
-		title: name,
+		title: "Nick Oates",
 		description: "I write about tech and other things I find interesting.",
-		feed_url: URL + "/feed.xml",
-		site_url: URL,
-		image_url: URL + "/blue.png",
+		feed_url: url + "/feed.xml",
+		site_url: url,
+		image_url: url + "/blue.png",
 		language: "en",
 		categories: ["Blog", "Programming"],
 	});

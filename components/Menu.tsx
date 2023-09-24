@@ -3,15 +3,16 @@
 import { IconMenu, IconX } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect } from "react";
-import { navLinks, social } from "../metadata";
+import { links, social } from "../lib/navData";
 
 export default function Menu() {
 	function handleLinkClick() {
-		document.getElementById("nav").checked = false;
+		const checkbox = document.getElementById("nav") as HTMLInputElement;
+		checkbox.checked = false;
 		document.body.style.overflow = "auto";
 	}
 
-	function handleStateChange(e) {
+	function handleStateChange(e: React.ChangeEvent<HTMLInputElement>) {
 		if (e.target.checked) {
 			document.body.style.overflow = "hidden";
 		} else {
@@ -23,7 +24,10 @@ export default function Menu() {
 	useEffect(() => {
 		function handleResize() {
 			if (window.innerWidth >= 1024) {
-				document.getElementById("nav").checked = false;
+				const checkbox = document.getElementById(
+					"nav",
+				) as HTMLInputElement;
+				checkbox.checked = false;
 				document.body.style.overflow = "auto";
 			}
 		}
@@ -60,7 +64,7 @@ export default function Menu() {
 			</label>
 			<div className="pointer-events-none absolute left-0 top-0 -z-10 h-screen w-screen bg-white/50 opacity-0 backdrop-blur-lg transition ease-in-out peer-checked:pointer-events-auto peer-checked:opacity-100 dark:bg-black/50 lg:!hidden">
 				<div className="flex flex-col divide-y divide-zinc-400/50 p-6 pt-20 text-2xl font-semibold dark:divide-zinc-600/50">
-					{navLinks.map(({ title, href }) => (
+					{links.map(({ title, href }) => (
 						<Link
 							key={href}
 							href={href}
