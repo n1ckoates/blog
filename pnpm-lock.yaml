@@ -14,9 +14,6 @@ dependencies:
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.3.3)
-  '@types/rss':
-    specifier: ^0.0.30
-    version: 0.0.30
   '@vercel/analytics':
     specifier: ^1.0.2
     version: 1.0.2
@@ -88,6 +85,9 @@ devDependencies:
   '@types/react':
     specifier: 18.2.22
     version: 18.2.22
+  '@types/rss':
+    specifier: ^0.0.30
+    version: 0.0.30
   eslint:
     specifier: ^8.49.0
     version: 8.50.0
@@ -1165,7 +1165,7 @@ packages:
 
   /@types/rss@0.0.30:
     resolution: {integrity: sha512-RnWs98qajbcAZqie6EWYraJ2N+1Q1Wy9KN7HcVPJ//sYJGVjLjvkChZdeQPwf88xAcNUCcLXt6Zz3kiid7s/yw==}
-    dev: false
+    dev: true
 
   /@types/scheduler@0.16.3:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
