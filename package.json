@@ -17,7 +17,6 @@
 		"autoprefixer": "^10.4.15",
 		"clsx": "^2.0.0",
 		"contentlayer": "^0.3.4",
-		"framer-motion": "^10.16.4",
 		"fuse.js": "^6.6.2",
 		"next": "^13.5.2",
 		"next-contentlayer": "^0.3.4",
@@ -37,8 +36,8 @@
 		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
-		"@types/rss": "^0.0.30",
 		"@types/react": "18.2.22",
+		"@types/rss": "^0.0.30",
 		"eslint": "^8.49.0",
 		"eslint-config-next": "^13.5.2",
 		"eslint-config-prettier": "^9.0.0",

@@ -5,7 +5,6 @@ import ThemeSwitch from "./ThemeSwitch";
 import { social, links } from "@/lib/navData";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 
 function SidebarLink({ title, href, Icon }: (typeof links)[0]) {
 	let pathname = usePathname();
@@ -20,26 +19,16 @@ function SidebarLink({ title, href, Icon }: (typeof links)[0]) {
 		>
 			<div
 				className={clsx(
-					"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors ease-in-out relative",
+					"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors ease-in-out",
 					{
-						"text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white":
+						"group-hover:bg-zinc-300/50 dark:group-hover:bg-zinc-700/50 text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white":
 							!active,
+						"bg-zinc-300/70 dark:bg-zinc-700/70": active,
 					},
 				)}
 			>
 				<Icon size={32} className="inline-block align-middle" />
 				{title}
-				{active && (
-					<motion.div
-						className="absolute inset-0 bg-zinc-300/70 dark:bg-zinc-700/70 rounded-lg z-[-1]"
-						layoutId="sidebar"
-						transition={{
-							type: "spring",
-							stiffness: 350,
-							damping: 30,
-						}}
-					/>
-				)}
 			</div>
 		</Link>
 	);
