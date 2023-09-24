@@ -1,11 +1,10 @@
-import { allPosts } from ".contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 import Search from "./Search";
-import { name } from "metadata";
 
 export const metadata = {
 	title: "Blog Posts",
 	openGraph: {
-		siteName: name,
+		siteName: "Nick Oates",
 		title: "Blog Posts",
 		description: "Aspiring web developer whose code sometimes works.",
 	},

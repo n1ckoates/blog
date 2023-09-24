@@ -8,10 +8,17 @@ export default function ProjectCard({
 	description,
 	links,
 	noCrop,
+}: {
+	cover?: string;
+	coverAlt?: string;
+	name: string;
+	description: string;
+	links?: Record<string, string>;
+	noCrop?: boolean;
 }) {
 	return (
-		<div className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-neutral-100/30 transition-transform ease-in-out hover:scale-[1.01] dark:border-slate-800 dark:bg-neutral-900/30">
-			{cover && (
+		<div className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-neutral-100/30 transition-transform ease-in-out hover:scale-[1.01] dark:border-zinc-800 dark:bg-neutral-900/30">
+			{cover && coverAlt && (
 				<div className="relative h-48">
 					<Image
 						alt={coverAlt}

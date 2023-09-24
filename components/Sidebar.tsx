@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import ThemeSwitch from "./ThemeSwitch";
-import { social, name, navLinks } from "../metadata.js";
+import { social, links } from "@/lib/navData";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
-function SidebarLink({ title, href, Icon }) {
+function SidebarLink({ title, href, Icon }: (typeof links)[0]) {
 	let pathname = usePathname();
 	if (pathname.startsWith("/blog")) pathname = "/blog";
 	const active = pathname === href;
@@ -21,10 +21,10 @@ function SidebarLink({ title, href, Icon }) {
 				className={clsx(
 					"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors ease-in-out",
 					{
-						"bg-slate-300/70 dark:bg-slate-700/70": active,
-						"group-hover:bg-slate-300/50 dark:group-hover:bg-slate-700/50":
+						"group-hover:bg-zinc-300/50 dark:group-hover:bg-zinc-700/50 text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white":
 							!active,
-					}
+						"bg-zinc-300/70 dark:bg-zinc-700/70": active,
+					},
 				)}
 			>
 				<Icon size={32} className="inline-block align-middle" />
@@ -40,17 +40,17 @@ export default function Sidebar() {
 			<div className="sticky top-20 flex flex-col">
 				<div className="flex flex-row items-center">
 					<Link
-						className="w-56 align-middle text-4xl font-bold"
+						className="min-w-[14rem] align-middle text-4xl font-bold"
 						href="/"
 					>
-						{name}
+						Nick Oates
 					</Link>
 
 					<ThemeSwitch />
 				</div>
 
 				<div className="mt-4 flex flex-col">
-					{navLinks.map((data) => (
+					{links.map((data) => (
 						<SidebarLink {...data} key={data.href} />
 					))}
 				</div>
@@ -60,7 +60,7 @@ export default function Sidebar() {
 						<a
 							href={href}
 							key={href}
-							className="rounded-md p-2 transition ease-in-out hover:bg-slate-300/50 dark:hover:bg-slate-700/50"
+							className="rounded-md p-2 transition ease-in-out hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
 							title={label}
 						>
 							<Icon size={28} />

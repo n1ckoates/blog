@@ -1,44 +1,13 @@
-import {
-	IconMail,
-	IconBrandGithub,
-	IconBrandTwitter,
-	IconNotebook,
-	IconCode,
-	IconHome,
-} from "@tabler/icons-react";
+import { OrbContainer, Orb } from "components/Orb";
+import ProjectCard from "components/ProjectCard";
+import mergeMetadata from "lib/mergeMetadata";
 
-export const name = "Nick Oates";
+export const metadata = mergeMetadata({
+	title: "Projects",
+	description: "Here's a few of the projects I've worked on.",
+});
 
-export const github = "https://github.com/n1ckoates";
-export const blogSource = github + "/blog";
-
-export const email = "nick@nickoates.com";
-
-export const navLinks = [
-	{ title: "Home", href: "/", Icon: IconHome },
-	{ title: "Projects", href: "/projects", Icon: IconCode },
-	{ title: "Blog", href: "/blog", Icon: IconNotebook },
-];
-
-export const social = [
-	{
-		Icon: IconBrandTwitter,
-		label: `Visit ${name} on Twitter`,
-		href: "https://twitter.com/nickoates_",
-	},
-	{
-		Icon: IconBrandGithub,
-		label: `Visit ${name} on GitHub`,
-		href: github,
-	},
-	{
-		Icon: IconMail,
-		label: `Email ${name}`,
-		href: `mailto:${email}`,
-	},
-];
-
-export const projects = {
+const projects = {
 	Quoter: {
 		cover: "/images/projects/quoter.png",
 		coverAlt: "Quoter's logo.",
@@ -47,7 +16,7 @@ export const projects = {
 			"Quote book for Discord servers. Built with Node.js, Discord.js, and MongoDB, the bot allows users to add, remove, edit, and search for quotes. You can also add quotes from Discord messages, or generate images from them.",
 		links: {
 			Website: "https://quoter.cc",
-			"Source Code": github + "/quoter",
+			"Source Code": "https://github.com/n1ckoates/quoter",
 		},
 	},
 	"Steam Deck Emulation Guide": {
@@ -57,7 +26,7 @@ export const projects = {
 		description:
 			"A comprehensive guide to emulating video games on the Steam Deck. I wrote step-by-step instructions on how to install and configure a range of emulators, as well as how to add individual games to your Steam library for a streamlined gaming experience.",
 		links: {
-			"Visit Guide": github + "/steamdeck-emulation",
+			"Visit Guide": "https://github.com/n1ckoates/steamdeck-emulation",
 		},
 	},
 	"nickoates.com": {
@@ -66,7 +35,7 @@ export const projects = {
 		description:
 			"The site you're on! I built my blog with Next.js, Tailwind CSS, Contentlayer, and MDX. Hosted on Vercel.",
 		links: {
-			"Source Code": blogSource,
+			"Source Code": "https://github.com/n1ckoates/blog",
 		},
 	},
 	"Peroxaan Website": {
@@ -107,16 +76,39 @@ export const projects = {
 	},
 };
 
-function getURL() {
-	if (process.env.NEXT_PUBLIC_URL) {
-		return process.env.NEXT_PUBLIC_URL;
-	}
+export default function Page() {
+	return (
+		<>
+			<OrbContainer>
+				<Orb className="-top-20 right-0 bg-fuchsia-400/30 dark:bg-fuchsia-600/30" />
+				<Orb className="right-86 top-40 bg-cyan-400/30 dark:bg-cyan-600/30" />
+			</OrbContainer>
 
-	if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-		return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-	}
+			<h2 className="mb-4 text-3xl font-extrabold md:text-4xl">
+				Projects
+			</h2>
 
-	return "http://localhost:3000";
+			<p className="mb-4 max-w-2xl text-lg md:text-xl">
+				Here&apos;s a few of the projects I&apos;ve worked on. To see
+				everything I&apos;ve contributed to, check out{" "}
+				<a
+					href="https://github.com/n1ckoates"
+					className="text-blue-600 transition-colors ease-in-out hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+				>
+					my GitHub profile
+				</a>
+				.
+			</p>
+
+			<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+				{Object.entries(projects).map(([name, data]) => (
+					<ProjectCard key={name} name={name} {...data} />
+				))}
+			</div>
+
+			<OrbContainer>
+				<Orb className="-top-52 left-52 bg-emerald-400/30 dark:bg-emerald-600/30" />
+			</OrbContainer>
+		</>
+	);
 }
-
-export const url = getURL();

@@ -1,17 +1,22 @@
-import { name, url } from "metadata";
+import url from "@/lib/siteURL";
+import { Metadata } from "next";
 
 export default function mergeMetadata({
 	title,
 	description,
 	image,
 	imageAlt,
+}: {
+	title?: string;
+	description?: string;
+	image?: string;
+	imageAlt?: string;
 } = {}) {
-	/** @type {import('next').Metadata} */
-	const metadata = {
-		title: title ? `${title} • ${name}` : name,
+	const metadata: Metadata = {
+		title: title ? `${title} • Nick Oates` : "Nick Oates",
 		openGraph: {
-			siteName: name,
-			title: title ?? name,
+			siteName: "Nick Oates",
+			title: title ?? "Nick Oates",
 			description:
 				description ??
 				"Aspiring web developer whose code sometimes works.",
@@ -29,7 +34,7 @@ export default function mergeMetadata({
 			card: "summary_large_image",
 			site: "@nickoates_",
 		},
-		metadataBase: url,
+		metadataBase: new URL(url),
 	};
 
 	return metadata;

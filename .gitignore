@@ -3,3 +3,4 @@
 /.contentlayer/
 .env
 /public/feed.xml
+next-env.d.ts
