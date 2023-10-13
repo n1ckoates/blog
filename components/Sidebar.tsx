@@ -21,7 +21,7 @@ function SidebarLink({ title, href, Icon }: (typeof links)[0]) {
 				className={clsx(
 					"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors ease-in-out",
 					{
-						"group-hover:bg-zinc-300/50 dark:group-hover:bg-zinc-700/50 text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white":
+						"text-zinc-700 hover:text-black group-hover:bg-zinc-300/50 dark:text-zinc-300 dark:hover:text-white dark:group-hover:bg-zinc-700/50":
 							!active,
 						"bg-zinc-300/70 dark:bg-zinc-700/70": active,
 					},

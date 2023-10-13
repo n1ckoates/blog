@@ -8,5 +8,5 @@ module.exports = withContentlayer({
 	},
 	experimental: {
 		optimizePackageImports: ["@tabler/icons-react"],
-	}
+	},
 });
