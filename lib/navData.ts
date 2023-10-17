@@ -1,10 +1,14 @@
 import {
 	IconMail,
 	IconBrandGithub,
-	IconBrandTwitter,
 	IconNotebook,
 	IconCode,
 	IconHome,
+	IconCloud,
+	IconCloudFilled,
+	IconBrandGithubFilled,
+	IconMailFilled,
+	TablerIconsProps,
 } from "@tabler/icons-react";
 
 export const links = [
@@ -13,20 +17,30 @@ export const links = [
 	{ title: "Blog", href: "/blog", Icon: IconNotebook },
 ];
 
-export const social = [
+interface SocialLink {
+	Icon: (props: TablerIconsProps) => JSX.Element;
+	IconFilled: (props: TablerIconsProps) => JSX.Element;
+	label: string;
+	href: string;
+}
+
+export const social: SocialLink[] = [
 	{
-		Icon: IconBrandTwitter,
-		label: `Visit Nick Oates on Twitter`,
-		href: "https://twitter.com/nickoates_",
+		Icon: IconCloud,
+		IconFilled: IconCloudFilled,
+		label: "Visit Nick Oates on Bluesky",
+		href: "https://bsky.app/profile/nickoates.com",
 	},
 	{
 		Icon: IconBrandGithub,
-		label: `Visit Nick Oates on GitHub`,
+		IconFilled: IconBrandGithubFilled,
+		label: "Visit Nick Oates on GitHub",
 		href: "https://github.com/n1ckoates",
 	},
 	{
 		Icon: IconMail,
-		label: `Email Nick Oates`,
+		IconFilled: IconMailFilled,
+		label: "Email Nick Oates",
 		href: "mailto:nick@nickoates.com",
 	},
 ];

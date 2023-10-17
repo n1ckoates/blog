@@ -56,14 +56,22 @@ export default function Sidebar() {
 				</div>
 
 				<div className="fixed bottom-20 flex w-72 flex-row justify-center gap-6">
-					{social.map(({ href, Icon, label }) => (
+					{social.map(({ href, Icon, IconFilled, label }) => (
 						<a
 							href={href}
 							key={href}
-							className="rounded-md p-2 transition ease-in-out hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
+							className="group relative h-11 w-11 rounded-md p-2 transition ease-in-out hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
 							title={label}
+							target="_blank"
 						>
-							<Icon size={28} />
+							<Icon
+								size={28}
+								className="absolute transition ease-in-out group-hover:opacity-0"
+							/>
+							<IconFilled
+								size={28}
+								className="absolute opacity-0 transition ease-in-out group-hover:opacity-100"
+							/>
 						</a>
 					))}
 				</div>
