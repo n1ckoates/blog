@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@formkit/auto-animate':
-    specifier: ^0.8.0
-    version: 0.8.0
+    specifier: ^0.8.1
+    version: 0.8.1
   '@tabler/icons-react':
     specifier: 2.40.0
     version: 2.40.0(react@18.2.0)
@@ -554,8 +554,8 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: false
 
-  /@formkit/auto-animate@0.8.0:
-    resolution: {integrity: sha512-G8f7489ka0mWyi+1IEZT+xgIwcpWtRMmE2x+IrVoQ+KM1cP6VDj/TbujZjwxdb0P8w8b16/qBfViRmydbYHwMw==}
+  /@formkit/auto-animate@0.8.1:
+    resolution: {integrity: sha512-0/Z2cuNXWVVIG/l0SpcHAWFhGdvLJ8DRvEfRWvmojtmRWfEy+LWNwgDazbZqY0qQYtkHcoEK3jBLkhiZaB/4Ig==}
     dev: false
 
   /@grpc/grpc-js@1.9.9:
