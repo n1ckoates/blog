@@ -37,7 +37,7 @@
 	},
 	"devDependencies": {
 		"@types/react": "18.2.37",
-		"@types/rss": "^0.0.31",
+		"@types/rss": "^0.0.32",
 		"eslint": "^8.53.0",
 		"eslint-config-next": "^14.0.2",
 		"eslint-config-prettier": "^9.0.0",
