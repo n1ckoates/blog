@@ -26,6 +26,7 @@ export default function PostCard({
 		<Link
 			href={url}
 			className="group relative h-60 overflow-hidden rounded-xl text-white first:col-span-2 only:col-span-full max-md:last:even:col-span-full md:h-80 md:last:[&:nth-child(3)]:col-span-full last:[&:nth-child(4)]:col-span-2"
+			aria-label={title}
 		>
 			<Image
 				src={cover}
@@ -48,7 +49,11 @@ export default function PostCard({
 				</h1>
 			</div>
 
-			<div className="absolute bottom-4 left-4 rounded-lg bg-zinc-600/30 px-4 py-2 text-sm backdrop-blur transition hover:bg-zinc-600/60 md:text-base">
+			{/* This is a <div> instead of a <Link> because the card itself is a Link */}
+			<div
+				className="absolute bottom-4 left-4 rounded-lg bg-zinc-600/30 px-4 py-2 text-sm font-semibold backdrop-blur transition hover:bg-zinc-600/60 md:text-base"
+				aria-hidden
+			>
 				Read post
 			</div>
 		</Link>
