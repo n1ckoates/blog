@@ -18,7 +18,7 @@ export default function generateRSS() {
 		feed.item({
 			title: post.title,
 			description: post.summary,
-			url: URL + post.url,
+			url: url + post.url,
 			guid: post._raw.flattenedPath,
 			date: post.date,
 		});
