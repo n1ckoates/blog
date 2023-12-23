@@ -44,5 +44,18 @@
 		"prettier": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.7",
 		"typescript": "5.2.2"
+	},
+	"prettier": {
+		"useTabs": true,
+		"tabWidth": 4,
+		"plugins": [
+			"prettier-plugin-tailwindcss"
+		]
+	},
+	"eslintConfig": {
+		"extends": [
+			"next/core-web-vitals",
+			"prettier"
+		]
 	}
 }
