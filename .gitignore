@@ -1,6 +1,15 @@
-/node_modules/
-/.next/
-/.contentlayer/
-.env
-/public/feed.xml
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
 next-env.d.ts
+
+# Contentlayer build
+.contentlayer/
+
+# Environment variables
+.env
+
+# RSS feed build
+public/feed.xml
