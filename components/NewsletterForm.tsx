@@ -23,7 +23,7 @@ export default function NewsletterForm({
 	const icon = loading ? (
 		<IconLoader2 className="animate-spin" />
 	) : (
-		<IconMail className="" />
+		<IconMail />
 	);
 
 	const subscribe = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -65,7 +65,7 @@ export default function NewsletterForm({
 	};
 
 	return (
-		<div className="mx-auto max-w-lg rounded-lg border border-zinc-200 bg-neutral-100/50 p-4 dark:border-zinc-800 dark:bg-neutral-900/50 print:hidden md:text-lg">
+		<div className="mx-auto max-w-lg rounded-3xl border border-zinc-400/50 bg-neutral-100/50 p-4 dark:border-zinc-600/50 dark:bg-neutral-900/50 print:hidden md:text-lg">
 			<span
 				className={clsx(
 					{ "text-red-600 dark:text-red-400": error },
@@ -77,23 +77,24 @@ export default function NewsletterForm({
 
 			<form
 				className={clsx(
-					"mt-2 flex w-full flex-wrap justify-between gap-2 drop-shadow",
+					"mt-2 flex w-full flex-wrap justify-between gap-2",
 					{ hidden: success },
 				)}
 				onSubmit={subscribe}
 			>
 				<input
-					className="grow rounded-md bg-neutral-50 px-4 py-2 dark:bg-zinc-950"
+					className="box-border flex grow flex-row items-center justify-center gap-2 rounded-xl border border-zinc-400/50 bg-white px-4 py-2 placeholder-zinc-500 drop-shadow-sm hover:border-zinc-500/50 disabled:opacity-70 dark:border-zinc-600/50 dark:bg-zinc-900 dark:placeholder-zinc-500 dark:hover:border-zinc-500/50"
 					type="email"
 					id="email"
 					name="email"
 					placeholder="Enter your email..."
 					required
 					disabled={loading}
+					aria-label="Email address"
 				/>
 
 				<button
-					className="flex grow items-center justify-center gap-1 rounded-md bg-emerald-300 px-4 py-2 transition ease-in-out hover:bg-emerald-200 dark:bg-emerald-700 dark:hover:bg-emerald-800"
+					className="box-border flex grow cursor-default flex-row items-center justify-center gap-2 rounded-xl border-t border-white/30 bg-gradient-to-b from-teal-600 to-teal-800 px-4 py-2 font-semibold text-white drop-shadow-sm active:opacity-70 enabled:hover:from-teal-500 enabled:hover:to-teal-700 disabled:opacity-70 dark:from-teal-700 dark:to-teal-900 dark:enabled:hover:from-teal-600 dark:enabled:hover:to-teal-800"
 					disabled={loading}
 					type="submit"
 				>
