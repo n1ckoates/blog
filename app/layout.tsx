@@ -8,6 +8,10 @@ import mergeMetadata from "lib/mergeMetadata";
 
 export const metadata = mergeMetadata();
 
+export const viewport = {
+	themeColor: "#2563eb",
+};
+
 const MonaSans = localFont({
 	src: "../public/Mona-Sans.woff2",
 });

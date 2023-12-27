@@ -29,7 +29,6 @@ export default function mergeMetadata({
 		},
 		description:
 			description ?? "Aspiring web developer whose code sometimes works.",
-		themeColor: "#2563eb",
 		twitter: {
 			card: "summary_large_image",
 			site: "@nickoates_",
