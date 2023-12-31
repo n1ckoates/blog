@@ -6,13 +6,26 @@ import { useState } from "react";
 import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Fuse from "fuse.js";
+import type { BlogPost } from "@/lib/blog";
+
+type PartialBlogPost = Pick<
+	BlogPost,
+	| "slug"
+	| "cover"
+	| "coverAlt"
+	| "date"
+	| "readingTime"
+	| "title"
+	| "summary"
+	| "blurDataURL"
+>;
 
 export default function Search({
 	title,
 	posts,
 }: {
 	title: string;
-	posts: any[];
+	posts: PartialBlogPost[];
 }) {
 	const [searchTerm, setSearchTerm] = useState("");
 
@@ -52,8 +65,8 @@ export default function Search({
 				)}
 				{filteredPosts.map((post) => (
 					<Link
-						href={post.url}
-						key={post.url}
+						href={"/blog/" + post.slug}
+						key={post.slug}
 						className="group relative mb-4 block overflow-hidden rounded-lg border border-zinc-200 drop-shadow dark:border-zinc-800 dark:bg-neutral-900/30"
 						aria-label={post.title}
 					>
@@ -69,10 +82,12 @@ export default function Search({
 						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-zinc-950 p-4 text-white ease-in-out lg:flex-row">
 							<div className="text-zinc-300 md:text-lg ">
 								<time
-									dateTime={post.date}
+									dateTime={post.date.toISOString()}
 									className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"
 								>
-									{post.formattedDate}
+									{post.date.toLocaleDateString(undefined, {
+										dateStyle: "long",
+									})}
 								</time>
 								{post.readingTime} min read
 							</div>

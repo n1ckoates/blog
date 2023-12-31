@@ -1,6 +1,5 @@
-const { withContentlayer } = require("next-contentlayer");
-
-module.exports = withContentlayer({
+/** @type {import('next').NextConfig} */
+const config = {
 	reactStrictMode: true,
 	swcMinify: true,
 	images: {
@@ -9,4 +8,6 @@ module.exports = withContentlayer({
 	experimental: {
 		optimizePackageImports: ["@tabler/icons-react"],
 	},
-});
+};
+
+export default config;

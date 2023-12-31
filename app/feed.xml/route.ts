@@ -1,9 +1,8 @@
-import { allPosts } from "contentlayer/generated";
+import { getAllPosts } from "@/lib/blog";
 import RSS from "rss";
-import { writeFileSync } from "fs";
 import url from "@/lib/siteURL";
 
-export default function generateRSS() {
+export async function GET() {
 	const feed = new RSS({
 		title: "Nick Oates",
 		description: "I write about tech and other things I find interesting.",
@@ -14,15 +13,16 @@ export default function generateRSS() {
 		categories: ["Blog", "Programming"],
 	});
 
+	const allPosts = await getAllPosts();
 	allPosts.forEach((post) => {
 		feed.item({
 			title: post.title,
 			description: post.summary,
-			url: url + post.url,
-			guid: post._raw.flattenedPath,
+			url: `${url}/blog/${post.slug}`,
+			guid: post.slug,
 			date: post.date,
 		});
 	});
 
-	writeFileSync("./public/feed.xml", feed.xml({ indent: true }));
+	return new Response(feed.xml({ indent: true }));
 }
