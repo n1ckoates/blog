@@ -3,5 +3,6 @@
 	"extends": ["config:recommended"],
 	"commitMessagePrefix": "⬆️",
 	"commitMessageTopic": "{{depName}}",
-	"branchPrefix": "deps/"
+	"branchPrefix": "deps/",
+	"dependencyDashboard": false
 }
