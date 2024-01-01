@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { getAllPosts } from "@/lib/blog";
 import CustomMDX from "@/components/CustomMDX";
 
+export const dynamicParams = false;
+
 export default async function Post({ params }: { params: { slug: string } }) {
 	const allPosts = await getAllPosts();
 	const post = allPosts.find((post) => post.slug === params.slug);
