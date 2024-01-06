@@ -1,13 +1,54 @@
-import { social } from "@/lib/navData";
 import clsx from "clsx";
+import {
+	IconMail,
+	IconBrandGithub,
+	IconBrandTwitter,
+	IconBrandGithubFilled,
+	IconBrandTwitterFilled,
+	IconMailFilled,
+	TablerIconsProps,
+	IconBrandBluesky,
+} from "@tabler/icons-react";
+
+const iconColors = {
+	blue: "hover:text-blue-600 dark:hover:text-blue-400",
+	purple: "hover:text-purple-600 dark:hover:text-purple-400",
+	red: "hover:text-red-600 dark:hover:text-red-400",
+};
+
+interface SocialLink {
+	Icon: (props: TablerIconsProps) => JSX.Element;
+	IconFilled: (props: TablerIconsProps) => JSX.Element;
+	label: string;
+	href: string;
+	color: keyof typeof iconColors;
+}
+
+const social: SocialLink[] = [
+	{
+		Icon: IconBrandTwitter,
+		IconFilled: IconBrandTwitterFilled,
+		label: "Visit Nick Oates on Twitter",
+		href: "https://twitter.com/nickoates_",
+		color: "blue",
+	},
+	{
+		Icon: IconBrandGithub,
+		IconFilled: IconBrandGithubFilled,
+		label: "Visit Nick Oates on GitHub",
+		href: "https://github.com/n1ckoates",
+		color: "purple",
+	},
+	{
+		Icon: IconMail,
+		IconFilled: IconMailFilled,
+		label: "Email Nick Oates",
+		href: "mailto:nick@nickoates.com",
+		color: "red",
+	},
+];
 
 export default function SocialIcons() {
-	const iconColors = {
-		blue: "hover:text-blue-600 dark:hover:text-blue-400",
-		purple: "hover:text-purple-600 dark:hover:text-purple-400",
-		red: "hover:text-red-600 dark:hover:text-red-400",
-	};
-
 	return social.map(({ href, Icon, IconFilled, label, color }) => (
 		<a
 			href={href}
