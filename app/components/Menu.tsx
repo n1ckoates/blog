@@ -13,14 +13,17 @@ export default function Menu({
 	open: boolean;
 	setOpen: (open: boolean) => void;
 }) {
-	const main = document && document.getElementById("main");
+	if (typeof window !== "undefined") {
+		const main = document.getElementById("main") as HTMLElement;
+		const body = document.body;
 
-	if (open && main) {
-		main.inert = true;
-		document?.body.classList.add("overflow-hidden");
-	} else if (main) {
-		main.inert = false;
-		document?.body.classList.remove("overflow-hidden");
+		if (open) {
+			main.inert = true;
+			body.classList.add("overflow-hidden");
+		} else {
+			main.inert = false;
+			body.classList.remove("overflow-hidden");
+		}
 	}
 
 	useEffect(() => {
