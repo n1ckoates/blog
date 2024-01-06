@@ -20,7 +20,7 @@ export default function ThemeSwitch() {
 		<button
 			aria-label="Switch themes"
 			onClick={toggleTheme}
-			className="noscript-hidden flex items-center rounded-md p-2 transition-colors hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
+			className="flex items-center rounded-md p-2 transition-colors hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
 		>
 			<Icon size={24} />
 		</button>
