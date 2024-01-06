@@ -1,102 +1,92 @@
 "use client";
 
-import { IconMenu, IconX } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect } from "react";
-import { links, social } from "../lib/navData";
+import { links } from "@/lib/navData";
+import clsx from "clsx";
+import SocialIcons from "@/components/SocialIcons";
 
-export default function Menu() {
-	function handleLinkClick() {
-		const checkbox = document.getElementById("nav") as HTMLInputElement;
-		checkbox.checked = false;
-		document.body.style.overflow = "auto";
+export default function Menu({
+	open,
+	setOpen,
+}: {
+	open: boolean;
+	setOpen: (open: boolean) => void;
+}) {
+	const main = document && document.getElementById("main");
+
+	if (open && main) {
+		main.inert = true;
+		document?.body.classList.add("overflow-hidden");
+	} else if (main) {
+		main.inert = false;
+		document?.body.classList.remove("overflow-hidden");
 	}
 
-	function handleStateChange(e: React.ChangeEvent<HTMLInputElement>) {
-		if (e.target.checked) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "auto";
-		}
-	}
-
-	// Close mobile nav when window is resized to desktop
 	useEffect(() => {
 		function handleResize() {
 			if (window.innerWidth >= 1024) {
-				const checkbox = document.getElementById(
-					"nav",
-				) as HTMLInputElement;
-				checkbox.checked = false;
-				document.body.style.overflow = "auto";
+				setOpen(false);
 			}
 		}
 
 		window.addEventListener("resize", handleResize);
-
 		return () => window.removeEventListener("resize", handleResize);
-	}, []);
+	}, [setOpen]);
 
 	return (
 		<>
-			<label htmlFor="nav" className="sr-only lg:hidden">
-				Toggle navigation
-			</label>
-			<input
-				type="checkbox"
-				id="nav"
-				className="peer sr-only lg:hidden"
-				onChange={handleStateChange}
-			/>
-
-			<label
-				htmlFor="nav"
-				className="flex items-center rounded-md p-2 transition-colors hover:cursor-pointer hover:bg-zinc-300/50 peer-focus-visible:[outline:auto] dark:hover:bg-zinc-700/50 lg:mx-auto lg:hidden"
+			<button
+				aria-label="Toggle navigation"
+				aria-expanded={open}
+				onClick={() => setOpen(!open)}
+				className="grid size-10 items-center justify-center gap-1.5 rounded-md p-4 transition-colors hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
 			>
-				<IconMenu
-					className="[#nav:checked_~_label_&]:hidden"
-					size={24}
+				<span
+					className={clsx(
+						"h-0.5 w-4 rounded-full bg-black transition ease-in-out dark:bg-white",
+						{ "translate-y-1 rotate-45 scale-125": open },
+					)}
 				/>
-				<IconX
-					className="hidden [#nav:checked_~_label_&]:inline"
-					size={24}
+				<span
+					className={clsx(
+						"h-0.5 w-4 rounded-full bg-black transition ease-in-out dark:bg-white",
+						{ "-translate-y-1 -rotate-45 scale-125": open },
+					)}
 				/>
-			</label>
-			<div className="pointer-events-none absolute left-0 top-0 -z-10 h-screen w-screen bg-white/50 opacity-0 backdrop-blur-lg transition ease-in-out peer-checked:pointer-events-auto peer-checked:opacity-100 dark:bg-black/50 lg:!hidden">
-				<div className="flex flex-col divide-y divide-zinc-400/50 p-6 pt-20 text-2xl font-semibold dark:divide-zinc-600/50">
+			</button>
+
+			<div
+				className={clsx(
+					"absolute left-0 top-0 -z-10 h-screen w-screen bg-white/50 backdrop-blur-lg transition ease-in-out dark:bg-black/50",
+					{ "pointer-events-none opacity-0": !open },
+				)}
+			>
+				<div className="flex flex-col divide-y divide-zinc-400/50 p-6 pt-16 text-2xl font-semibold dark:divide-zinc-600/50">
 					{links.map(({ title, href }) => (
 						<Link
 							key={href}
 							href={href}
-							className="group -translate-x-80 py-4 duration-300 [#nav:checked_~_div_&]:translate-x-0 [#nav:checked_~_div_&]:transition [&:nth-child(2)]:delay-75 [&:nth-child(3)]:delay-150"
-							onClick={handleLinkClick}
+							className="group py-4"
+							onClick={() => setOpen(false)}
 						>
-							<div className="transition ease-in-out group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
-								{title}
+							<div
+								className={clsx({
+									"transition ease-in-out group-[:nth-of-type(2)]:delay-100 group-[:nth-of-type(3)]:delay-200":
+										open,
+									"-translate-x-40": !open,
+								})}
+							>
+								<span className="transition-colors ease-in-out group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
+									{title}
+								</span>
 							</div>
 						</Link>
 					))}
 				</div>
 
 				<div className="fixed bottom-32 flex w-full flex-row justify-center gap-8">
-					{social.map(({ href, Icon, IconFilled, label }) => (
-						<a
-							href={href}
-							key={href}
-							className="group relative h-11 w-11 rounded-md p-2 transition ease-in-out hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
-							title={label}
-							target="_blank"
-						>
-							<Icon
-								size={28}
-								className="absolute transition ease-in-out group-hover:opacity-0"
-							/>
-							<IconFilled
-								size={28}
-								className="absolute opacity-0 transition ease-in-out group-hover:opacity-100"
-							/>
-						</a>
-					))}
+					<SocialIcons />
 				</div>
 			</div>
 		</>

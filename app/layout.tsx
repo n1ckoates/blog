@@ -33,7 +33,9 @@ export default function RootLayout({
 
 					<Sidebar />
 
-					<main className="mt-24 grow lg:mt-0">{children}</main>
+					<main id="main" className="mt-16 grow lg:mt-0">
+						{children}
+					</main>
 				</Providers>
 
 				<Analytics />
