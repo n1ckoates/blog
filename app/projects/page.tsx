@@ -128,7 +128,10 @@ export default function Page() {
 
 function ProjectCard([name, data]: [string, Project]) {
 	return (
-		<div className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-neutral-100/30 transition-transform ease-in-out hover:scale-[1.01] dark:border-zinc-800 dark:bg-neutral-900/30">
+		<div
+			className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-neutral-100/30 transition-transform ease-in-out hover:scale-[1.01] dark:border-zinc-800 dark:bg-neutral-900/30"
+			key={name}
+		>
 			{data.cover && data.coverAlt && (
 				<div className="relative h-48">
 					<Image
