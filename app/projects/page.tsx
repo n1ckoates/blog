@@ -1,24 +1,34 @@
 import { OrbContainer, Orb } from "@/components/Orb";
-import ProjectCard from "@/components/ProjectCard";
 import mergeMetadata from "@/lib/mergeMetadata";
+import { IconExternalLink } from "@tabler/icons-react";
+import Image from "next/image";
 
 export const metadata = mergeMetadata({
 	title: "Projects",
 	description: "Here's a few of the projects I've worked on.",
 });
 
-const projects = {
+interface Project {
+	cover?: string;
+	coverAlt?: string;
+	noCrop?: boolean;
+	description: string;
+	links?: Record<string, string>;
+}
+
+const projects: Record<string, Project> = {
 	Quoter: {
 		cover: "/images/projects/quoter.png",
-		coverAlt: "Quoter's logo.",
+		coverAlt: "Quoter's logo, a speech bubble with three dots inside.",
 		noCrop: true,
 		description:
-			"Quote book for Discord servers. Built with Node.js, Discord.js, and MongoDB, the bot allows users to add, remove, edit, and search for quotes. You can also add quotes from Discord messages, or generate images from them.",
+			"Quote book for Discord servers, Built with Discord.js, MongoDB, and Typescript. The bot allows users to add, remove, edit, and search for quotes. You can also add quotes from Discord messages, or generate images from them. I created the bot, which has grown to over 1,600 servers and 190,000+ users.",
 		links: {
 			Website: "https://quoter.cc",
-			"Source Code": "https://github.com/n1ckoates/quoter",
+			"Source Code": "https://github.com/quoter/quoter",
 		},
 	},
+
 	"Steam Deck Emulation Guide": {
 		cover: "/images/projects/steam-deck.jpg",
 		coverAlt:
@@ -29,15 +39,17 @@ const projects = {
 			"Visit Guide": "https://github.com/n1ckoates/steamdeck-emulation",
 		},
 	},
+
 	"nickoates.com": {
 		cover: "/images/projects/blog.png",
 		coverAlt: "Home page of nickoates.com",
 		description:
-			"The site you're on! I built my blog with Next.js, Tailwind CSS, Contentlayer, and MDX. Hosted on Vercel.",
+			"The site you're on! I built my blog with Next.js, Tailwind CSS, Typescript, and MDX. Hosted on Vercel.",
 		links: {
 			"Source Code": "https://github.com/n1ckoates/blog",
 		},
 	},
+
 	"Peroxaan Website": {
 		cover: "/images/projects/peroxaan.png",
 		coverAlt: "Home page of Peroxaan.com",
@@ -48,13 +60,15 @@ const projects = {
 			"Source Code": "https://github.com/peroxaan/website",
 		},
 	},
+
 	"talon.link": {
 		description:
 			"I rebuilt the backend for talon.link, a link shortening service for the Talon app. I moved the API to a serverless architecture (on Cloudflare Workers), greatly improving performance while reducing costs.",
 		links: {
-			"Learn more": "https://peroxaan.com/talon",
+			Website: "https://talonapp.xyz",
 		},
 	},
+
 	Needle: {
 		cover: "/images/projects/needle.jpg",
 		coverAlt:
@@ -65,6 +79,7 @@ const projects = {
 			Website: "https://needle.gg",
 		},
 	},
+
 	"dylanmcd.com": {
 		cover: "/images/projects/dylanmcd.png",
 		coverAlt: "Home page of dylanmcd.com",
@@ -93,7 +108,7 @@ export default function Page() {
 				everything I&apos;ve contributed to, check out{" "}
 				<a
 					href="https://github.com/n1ckoates"
-					className="text-blue-600 transition-colors ease-in-out hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+					className="font-semibold text-blue-600 hover:underline dark:text-blue-400"
 				>
 					my GitHub profile
 				</a>
@@ -101,14 +116,51 @@ export default function Page() {
 			</p>
 
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-				{Object.entries(projects).map(([name, data]) => (
-					<ProjectCard key={name} name={name} {...data} />
-				))}
+				{Object.entries(projects).map(ProjectCard)}
 			</div>
 
 			<OrbContainer>
 				<Orb className="-top-52 left-52 bg-emerald-400/30 dark:bg-emerald-600/30" />
 			</OrbContainer>
 		</>
+	);
+}
+
+function ProjectCard([name, data]: [string, Project]) {
+	return (
+		<div className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-neutral-100/30 transition-transform ease-in-out hover:scale-[1.01] dark:border-zinc-800 dark:bg-neutral-900/30">
+			{data.cover && data.coverAlt && (
+				<div className="relative h-48">
+					<Image
+						alt={data.coverAlt}
+						src={data.cover}
+						fill
+						className={
+							data.noCrop ? "object-contain" : "object-cover"
+						}
+					/>
+				</div>
+			)}
+
+			<h1 className="px-6 pt-6 text-2xl font-bold">{name}</h1>
+			<p className="prose grow px-6 dark:prose-invert">
+				{data.description}
+			</p>
+
+			{data.links && (
+				<div className="mt-4 flex flex-row gap-8 px-6 pb-6">
+					{Object.entries(data.links).map(([title, href]) => (
+						<a
+							key={href}
+							href={href}
+							className="flex flex-row items-center gap-1 font-semibold text-blue-600 hover:underline dark:text-blue-400"
+							target="_blank"
+						>
+							{title} <IconExternalLink size={20} />
+						</a>
+					))}
+				</div>
+			)}
+		</div>
 	);
 }
