@@ -2,6 +2,7 @@ import { OrbContainer, Orb } from "@/components/Orb";
 import mergeMetadata from "@/lib/mergeMetadata";
 import { IconExternalLink } from "@tabler/icons-react";
 import Image from "next/image";
+import sharp from "sharp";
 
 export const metadata = mergeMetadata({
 	title: "Projects",
@@ -141,6 +142,7 @@ function ProjectCard([name, data]: [string, Project]) {
 						className={
 							data.noCrop ? "object-contain" : "object-cover"
 						}
+						sizes="(max-width:768px) 100vw, 470px"
 					/>
 				</div>
 			)}
