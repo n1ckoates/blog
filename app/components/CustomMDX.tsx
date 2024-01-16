@@ -6,6 +6,7 @@ import path from "path";
 import React from "react";
 import smartypants from "remark-smartypants";
 import sharp from "sharp";
+import { highlight } from "sugar-high";
 
 async function CustomImage(props: any) {
 	const sharpImage = sharp(path.join(process.cwd(), "public", props.src));
@@ -54,6 +55,11 @@ const CustomNewsletterForm = ({
 	</div>
 );
 
+function CustomCode({ children, ...props }: any) {
+	const html = highlight(children);
+	return <code {...props} dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
 function createHeadingComponent(level: number) {
 	return function CustomHeading({
 		children,
@@ -87,6 +93,7 @@ export default function CustomMDX({ source }: { source: string }) {
 			components={{
 				img: CustomImage,
 				a: CustomLink,
+				code: CustomCode,
 				h1: createHeadingComponent(1),
 				h2: createHeadingComponent(2),
 				h3: createHeadingComponent(3),

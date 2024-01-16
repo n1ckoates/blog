@@ -3,6 +3,7 @@ import mergeMetadata from "@/lib/mergeMetadata";
 import { notFound } from "next/navigation";
 import { getAllPosts } from "@/lib/blog";
 import CustomMDX from "@/components/CustomMDX";
+import "./code.css";
 
 export const dynamicParams = false;
 
@@ -12,7 +13,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
 	if (!post) notFound();
 
 	return (
-		<article className="prose prose-lg prose-zinc md:prose-xl dark:prose-invert prose-h1:tracking-tight prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-blue-400">
+		<article className="prose prose-lg prose-zinc md:prose-xl dark:prose-invert prose-h1:tracking-tight prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-pre:bg-zinc-100 dark:prose-a:text-blue-400 dark:prose-pre:bg-zinc-900">
 			<time dateTime={post.date.toISOString()}>
 				{post.date.toLocaleDateString(undefined, { dateStyle: "long" })}
 			</time>{" "}
