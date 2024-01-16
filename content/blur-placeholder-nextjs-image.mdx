@@ -1,0 +1,48 @@
+---
+title: Creating blur placeholders for Next.js images
+date: 2024-01-16 12:30:00 -08:00
+summary: A simple guide to create blur placeholders for Next.js images, using sharp.
+cover: /images/blog/blur-placeholder-nextjs-image.jpg
+coverAlt: Abstract purple metallic arches
+---
+
+When users visit my blog, I don't want them to see an empty space while an image loads. Instead, I want to show a blurred, low-quality version of the image as a placeholder. This is a common technique used by many websites, and [Next.js' Image component](https://nextjs.org/docs/app/api-reference/components/image) has built-in support for these placeholders.
+
+My blog uses [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to render MDX files into React components. This library allows me to map HTML tags to React components, which lets me replace `img` with a `CustomImage` component.
+
+```jsx
+<MDXRemote
+	source="![An image](https://example.com/image.jpg)"
+	components={{ img: CustomImage}}
+/>
+```
+
+The `CustomImage` component receives the regular `img` props, and uses `sharp` to generate a low-quality version of the image. Sharp is also used to get the width and height of the image, which is required by the `next/image` component to [prevent layout shifts](https://nextjs.org/docs/app/building-your-application/optimizing/images#image-sizing). Then, the low-quality image is converted to a base64 string and passed to the `next/image` component as the `placeholder` prop.
+
+```jsx
+import Image from "next/image";
+import sharp from "sharp";
+
+async function CustomImage(props) {
+	const sharpImage = sharp(path.join(process.cwd(), "public", props.src)); // Get image path
+	const { width, height } = await sharpImage.metadata(); // Get image dimensions
+
+	const placeholder = await sharpImage.resize(10).toBuffer(); // Resize to 10px wide
+	const base64 = placeholder.toString("base64"); // Convert to base64 string
+	const blurDataURL = `data:image/png;base64,${base64}`; // Prepend data URL
+
+	return (
+		<Image
+			{...props} // Pass through original props, e.g. `alt`
+			placeholder="blur"
+			blurDataURL={blurDataURL}
+			width={width}
+			height={height}
+			className="rounded-lg drop-shadow-sm"
+			sizes="(max-width: 896px) 100vw, 896px"
+		/>
+	);
+}
+```
+
+It's also useful to add styles and other props to the base `next/image` component -- I've added a border radius and drop shadow, and set the `sizes` prop to prevent the image from being larger than the viewport.
