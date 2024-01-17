@@ -17,7 +17,7 @@ My blog uses [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to 
 />
 ```
 
-The `CustomImage` component receives the regular `img` props, and uses `sharp` to generate a low-quality version of the image. Sharp is also used to get the width and height of the image, which is required by the `next/image` component to [prevent layout shifts](https://nextjs.org/docs/app/building-your-application/optimizing/images#image-sizing). Then, the low-quality image is converted to a base64 string and passed to the `next/image` component as the `placeholder` prop.
+The `CustomImage` component receives the regular `img` props, and uses `sharp` to generate a low-quality version of the image. Sharp is also used to get the width and height of the image, which is required by the `next/image` component to [prevent layout shifts](https://nextjs.org/docs/app/building-your-application/optimizing/images#image-sizing). Then, the low-quality image is converted to a base64 string and passed to the `next/image` component as the `blurDataURL` prop.
 
 ```jsx
 import Image from "next/image";
