@@ -24,5 +24,7 @@ export async function GET() {
 		});
 	});
 
-	return new Response(feed.xml({ indent: true }));
+	return new Response(feed.xml({ indent: true }), {
+		headers: { "Content-Type": "application/xml" },
+	});
 }
