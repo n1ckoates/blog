@@ -65,7 +65,7 @@ export default function NewsletterForm({
 	};
 
 	return (
-		<div className="mx-auto max-w-lg rounded-3xl border border-zinc-400/50 bg-neutral-100/50 p-4 dark:border-zinc-600/50 dark:bg-neutral-900/50 print:hidden md:text-lg">
+		<div className="mx-auto max-w-lg rounded-3xl border border-zinc-400/50 bg-neutral-100/50 p-4 dark:border-zinc-600/50 dark:bg-neutral-900/50 md:text-lg print:hidden">
 			<span
 				className={clsx(
 					{ "text-red-600 dark:text-red-400": error },
