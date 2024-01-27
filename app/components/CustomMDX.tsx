@@ -89,7 +89,7 @@ function createHeadingComponent(level: number) {
 
 function CustomTweet({ id }: { id: string }) {
 	return (
-		<div className="not-prose mx-auto">
+		<div className="not-prose flex justify-center">
 			<Tweet id={id} />
 		</div>
 	);
