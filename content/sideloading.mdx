@@ -1,0 +1,76 @@
+---
+title: Thoughts on Sideloading
+date: 2024-01-27 12:00:00 -08:00
+summary: Apple has announced that they will allow sideloading apps on iOS... sort of. Here are my thoughts on the matter.
+cover: /images/blog/sideloading.jpg
+coverAlt: Photo of an Apple store
+---
+
+![Photo of an Apple store](/images/blog/sideloading.jpg)
+
+Earlier this week, [Apple announced a suite of changes](https://www.apple.com/newsroom/2024/01/apple-announces-changes-to-ios-safari-and-the-app-store-in-the-european-union/) coming to iOS to comply with the Digital Markets Act in the EU. The most notable change is that Apple will allow app distribution outside of their App Store, through third-party app marketplaces. This is a huge change that, up until a few years ago, would have been unthinkable, and it will have massive implications for the future of iOS.
+
+Here are my thoughts.
+
+## Some context
+
+Apple takes a 30% cut of purchases made through their payment system. There's some exceptions to this -- like if you're selling a physical good, or if you're a small business -- but for the most part, Apple takes a cut of every transaction. Now, if you want to release an app on the App Store, you _have_ to use their payment system. And, up until a few days ago, you weren't even allowed to tell your users that they could pay you outside of the App Store.
+
+This has clearly worked out well for Apple; [they make billions of dollars every year from the App Store](https://www.cnbc.com/2021/01/08/apples-app-store-had-gross-sales-around-64-billion-in-2020.html), mostly by sitting in the middle of every transaction. While I disagree with some of these policies, I don't think any of them are inherently anti-competitive. After all, it's Apple's App Store and they should be able to set their own rules. The issue is that the App Store is the _only_ way to install apps on iOS. So, **if developers want to do business with [over a billion iOS users](https://www.theverge.com/2021/1/27/22253162/iphone-users-total-number-billion-apple-tim-cook-q1-2021), they have to give Apple 30% of their revenue**.
+
+This restricts both developers' and consumers' freedom to choose how they want to do business.
+
+-   Yes, developers _could_ create their own platform, but it's unrealistic to expect that to happen just to avoid Apple's fees. And because of how tightly coupled Apple's ecosystem is, you would have to create an entirely new ecosystem if you wanted to actually compete with them.
+-   Yes, consumers _could_ switch to Android, but you shouldn't have to give up your iPhone just because you want to use a different payment system.
+
+<Tweet id="1706037044693074133" />
+
+One of those developers was Epic Games, the company that makes Fortnite. They wanted to sell in-game currency directly to their users, instead of going through Apple's payment system. So, [Epic purposefully violated Apple's rules by releasing an update to Fortnite that allowed users to pay them directly.](https://arstechnica.com/tech-policy/2020/08/epic-gives-fortnite-players-discounts-for-skirting-apple-google-fees/) Apple responded by removing Fortnite from the App Store, and in turn, Epic sued Apple.
+
+Epic Games lost the lawsuit pretty badly, but I think it's fair to say that they set off a chain of litigation and legal action -- including the Digital Markets act, which led to Apple's announcement this week.
+
+## Apple's announcement
+
+[The Digital Markets Act](https://en.wikipedia.org/wiki/Digital_Markets_Act) is a recently passed EU regulation that controls how "gatekeeper" platforms like Apple and Google can operate. It's a pretty long and complicated document, but the gist is that it's trying to prevent companies like Apple from abusing their power to stifle competition. One of the ways it does this is by requiring that gatekeepers allow third-party app stores on their platforms.
+
+Apple has long argued against this, saying that it would make iOS less secure, and that they provide a lot of value to developers in exchange for their 30% cut. I think there's some weight to this claim, but Apple obviously has a large financial incentive to keep the App Store the only way to install apps on iOS. So, when it came time to comply with the Digital Markets Act, Apple had to find a way to allow third-party app stores, while still maintaining control over the platform.
+
+The workaround Apple came up with was to create two sets of business terms for developers in the EU to choose from.
+
+1. **The "old" terms**, which are the same as they were before this announcement. You can only distribute your app through the App Store, and you have to use Apple's payment system.
+
+2. **The "new" terms**, which allow you to distribute your app through third-party stores, and use third-party payment systems.
+
+The catch is that the "new" terms come with a ton of new policies that make it as hard as possible for developers to use them.
+
+1. **You have to pay Apple €0.50 for every annual app install past 1 million**. This means that if you can't generate €1 in profit from every two users, you're losing money. If your app gets five million installs, you owe Apple over $2 million.
+
+2. **You still have to pay Apple a commission on third-party payments**. If you use a third-party payment system, you have to record every transaction with Apple, and pay them 10-17% of it.
+
+3. **You need to take out a $1,000,000 line of credit to create a third-party app store**. This prevents all but the largest companies from creating their own app stores.
+
+4. **Apple still has to approve every app on your store**. Through their Notarization process, Apple will check apps for malware, and verify the identity of the developer. You're still not able to install apps that Apple doesn't approve of.
+
+**This is malicious compliance at its finest.** I'm certain there will be further legal challenges to these terms, but for now, this is what we have to work with.
+
+## What should Apple have done?
+
+At the end of the day, Apple is a large business, and they're going to do what's best for their bottom line. I'm not surprised by the terms they chose. Still, here's what I wish they had done instead. I think it would have been a lot better for developers and consumers, while upholding the strong privacy and security standards that Apple is known for.
+
+1. **Add Notarization to iOS.** Notarization is a process that Apple uses on macOS to check apps for malware, and verify the identity of the developer. It's a great way to prevent malware, while still allowing users to install apps from anywhere. This is the same system that Microsoft uses on Windows. Notarized apps could be installed from anywhere; a downloaded `.ipa` file, a third-party app store, or even a website. I think it's fine if Apple charges a reasonable fee for this service, but it should not be per-install.
+
+2. **Keep the App Store as is.** The App Store's policies are only an issue because it's the only way to install apps on iOS. I disagree with a number of their policies, but that's the great thing about competition -- you can choose a different way to get your apps. Apple could continue to require their payment system, prevent browser engines other than WebKit, and all of the other restrictions they have. But, they would have to compete with other app stores that don't have those restrictions.
+
+3. **Open up the platform.** There's no reason why apps shouldn't be able to use NFC or just-in-time compilation. Additionally, more types of default apps -- like SMS and Maps -- should be able to be changed.
+
+4. **Sideload non-notarized apps.** It's ridiculous that there's still no way to install apps that Apple has not approved of in some way. This should be an advanced option that requires a computer to install apps from, but it should definitely possible.
+
+## Conclusion
+
+[Apple's business is built on the idea that they can control every aspect of the user experience.](https://www.youtube.com/watch?v=vbi1Rb5-4ZU) They make the hardware, the software, and the services. They control the App Store, and they control the payment system. It's fair to say that Apple would not be the company they are today if they didn't have this level of control, and I overall think that Apple, developers, and consumers have benefited from it. They shouldn't be forced to totally give up this control. I just think they should have to compete for it.
+
+---
+
+_Most of these issues also apply to Google and Android, but I'm focusing on Apple and iOS because they're the ones who made the announcement._
+
+_Cover photo by [Bangyu Wang](https://unsplash.com/photos/grayscale-photo-of-hanging-heart-shaped-pendant-lamp-omoCm0bvNW4)_
