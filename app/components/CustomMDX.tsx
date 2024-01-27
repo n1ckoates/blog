@@ -7,6 +7,7 @@ import React from "react";
 import smartypants from "remark-smartypants";
 import sharp from "sharp";
 import { highlight } from "sugar-high";
+import { Tweet } from "react-tweet";
 
 async function CustomImage(props: any) {
 	const sharpImage = sharp(path.join(process.cwd(), "public", props.src));
@@ -86,6 +87,14 @@ function createHeadingComponent(level: number) {
 	};
 }
 
+function CustomTweet({ id }: { id: string }) {
+	return (
+		<div className="not-prose mx-auto">
+			<Tweet id={id} />
+		</div>
+	);
+}
+
 export default function CustomMDX({ source }: { source: string }) {
 	return (
 		<MDXRemote
@@ -101,6 +110,7 @@ export default function CustomMDX({ source }: { source: string }) {
 				h5: createHeadingComponent(5),
 				h6: createHeadingComponent(6),
 				NewsletterForm: CustomNewsletterForm,
+				Tweet: CustomTweet,
 			}}
 			options={{
 				mdxOptions: {

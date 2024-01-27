@@ -1,56 +1,57 @@
 {
-	"private": true,
-	"scripts": {
-		"dev": "next dev --turbo",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
-		"format": "prettier --write ."
-	},
-	"dependencies": {
-		"@formkit/auto-animate": "^0.8.1",
-		"@tabler/icons-react": "2.46.0",
-		"@tailwindcss/typography": "^0.5.10",
-		"@vercel/analytics": "^1.1.1",
-		"autoprefixer": "^10.4.16",
-		"clsx": "^2.0.0",
-		"fuse.js": "^7.0.0",
-		"gray-matter": "^4.0.3",
-		"next": "14.1.0",
-		"next-mdx-remote": "^4.4.1",
-		"next-themes": "^0.2.1",
-		"postcss": "^8.4.32",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-wrap-balancer": "^1.1.0",
-		"remark-smartypants": "^2.0.0",
-		"rss": "^1.2.2",
-		"sharp": "0.33.2",
-		"sugar-high": "^0.5.6",
-		"tailwindcss": "^3.4.0"
-	},
-	"devDependencies": {
-		"@types/node": "^20.10.5",
-		"@types/react": "18.2.48",
-		"@types/rss": "^0.0.32",
-		"eslint": "^8.56.0",
-		"eslint-config-next": "^14.0.4",
-		"eslint-config-prettier": "^9.1.0",
-		"prettier": "^3.1.1",
-		"prettier-plugin-tailwindcss": "^0.5.9",
-		"typescript": "5.3.3"
-	},
-	"prettier": {
-		"useTabs": true,
-		"tabWidth": 4,
-		"plugins": [
-			"prettier-plugin-tailwindcss"
-		]
-	},
-	"eslintConfig": {
-		"extends": [
-			"next/core-web-vitals",
-			"prettier"
-		]
-	}
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@formkit/auto-animate": "^0.8.1",
+    "@tabler/icons-react": "2.46.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "@vercel/analytics": "^1.1.1",
+    "autoprefixer": "^10.4.16",
+    "clsx": "^2.0.0",
+    "fuse.js": "^7.0.0",
+    "gray-matter": "^4.0.3",
+    "next": "14.1.0",
+    "next-mdx-remote": "^4.4.1",
+    "next-themes": "^0.2.1",
+    "postcss": "^8.4.32",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-tweet": "^3.2.0",
+    "react-wrap-balancer": "^1.1.0",
+    "remark-smartypants": "^2.0.0",
+    "rss": "^1.2.2",
+    "sharp": "0.33.2",
+    "sugar-high": "^0.5.6",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/react": "18.2.48",
+    "@types/rss": "^0.0.32",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "typescript": "5.3.3"
+  },
+  "prettier": {
+    "useTabs": true,
+    "tabWidth": 4,
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "next/core-web-vitals",
+      "prettier"
+    ]
+  }
 }

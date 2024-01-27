@@ -13,7 +13,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
 	if (!post) notFound();
 
 	return (
-		<article className="prose prose-lg prose-zinc dark:prose-invert md:prose-xl prose-h1:tracking-tight prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-pre:bg-zinc-100 dark:prose-a:text-blue-400 dark:prose-pre:bg-zinc-900">
+		<article className="prose prose-lg prose-zinc mx-auto dark:prose-invert md:prose-xl prose-h1:tracking-tight prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-pre:bg-zinc-100 dark:prose-a:text-blue-400 dark:prose-pre:bg-zinc-900 lg:mx-0">
 			<time dateTime={post.date.toISOString()}>
 				{post.date.toLocaleDateString(undefined, { dateStyle: "long" })}
 			</time>{" "}
