@@ -30,6 +30,7 @@ export default function mergeMetadata({
 		description:
 			description ?? "Aspiring web developer whose code sometimes works.",
 		twitter: {
+			title: title ?? "Nick Oates",
 			card: "summary_large_image",
 			site: "@nickoates_",
 		},
