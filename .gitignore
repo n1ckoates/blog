@@ -7,3 +7,5 @@ next-env.d.ts
 
 # Environment variables
 .env
+.vercel
+.env*.local
