@@ -57,7 +57,7 @@ const projects: Record<string, Project> = {
 		description:
 			"I was commissioned to rebuild the website for Peroxaan, a small app development company. I unified the newsroom with the main website, improved SEO, and overhauled the design.",
 		links: {
-			Website: "https://peroxaan.com",
+			Website: "https://archive.peroxaan.com",
 			"Source Code": "https://github.com/peroxaan/website",
 		},
 	},
@@ -88,6 +88,17 @@ const projects: Record<string, Project> = {
 			"Dylan commissioned me to build his website based on a design he created. I used Astro and Tailwind CSS.",
 		links: {
 			Website: "https://dylanmcd.com",
+		},
+	},
+
+	"Magic Spell": {
+		cover: "/images/projects/magic-spell.png",
+		coverAlt: "Screenshot of Magic Spell",
+		description:
+			"I built this demo of the Vercel AI SDK in collaboration with Guillermo Rauch at Vercel. It edits or writes text based on a prompt, using Groq for ultra-fast inference and streaming.",
+		links: {
+			Website: "https://magic-spell.vercel.app",
+			"Source Code": "https://github.com/ai-ng/magic-spell",
 		},
 	},
 };
