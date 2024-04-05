@@ -6,9 +6,8 @@ import {
 	IconBrandGithubFilled,
 	IconBrandTwitterFilled,
 	IconMailFilled,
-	TablerIconsProps,
-	IconBrandBluesky,
 } from "@tabler/icons-react";
+import type { ReactNode } from "react";
 
 const iconColors = {
 	blue: "hover:text-blue-600 dark:hover:text-blue-400",
@@ -16,9 +15,11 @@ const iconColors = {
 	red: "hover:text-red-600 dark:hover:text-red-400",
 };
 
+// TODO: Switch to `Icon` type from `@tabler/icons-react` when this bug is fixed:
+// https://github.com/tabler/tabler-icons/issues/1077
 interface SocialLink {
-	Icon: (props: TablerIconsProps) => JSX.Element;
-	IconFilled: (props: TablerIconsProps) => JSX.Element;
+	Icon: (props: any) => ReactNode;
+	IconFilled: (props: any) => ReactNode;
 	label: string;
 	href: string;
 	color: keyof typeof iconColors;
