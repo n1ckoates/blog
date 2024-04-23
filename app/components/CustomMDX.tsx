@@ -114,7 +114,7 @@ export default function CustomMDX({ source }: { source: string }) {
 			}}
 			options={{
 				mdxOptions: {
-					remarkPlugins: [[smartypants, { dashes: true }]],
+					remarkPlugins: [[smartypants, { dashes: true }]] as any,
 				},
 			}}
 		/>
