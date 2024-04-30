@@ -7,45 +7,28 @@ import {
 	IconBrandTwitterFilled,
 	IconMailFilled,
 } from "@tabler/icons-react";
-import type { ReactNode } from "react";
 
-const iconColors = {
-	blue: "hover:text-blue-600 dark:hover:text-blue-400",
-	purple: "hover:text-purple-600 dark:hover:text-purple-400",
-	red: "hover:text-red-600 dark:hover:text-red-400",
-};
-
-// TODO: Switch to `Icon` type from `@tabler/icons-react` when this bug is fixed:
-// https://github.com/tabler/tabler-icons/issues/1077
-interface SocialLink {
-	Icon: (props: any) => ReactNode;
-	IconFilled: (props: any) => ReactNode;
-	label: string;
-	href: string;
-	color: keyof typeof iconColors;
-}
-
-const social: SocialLink[] = [
+const social = [
 	{
 		Icon: IconBrandTwitter,
 		IconFilled: IconBrandTwitterFilled,
 		label: "Visit Nick Oates on Twitter",
 		href: "https://twitter.com/nickoates_",
-		color: "blue",
+		color: "hover:text-blue-600 dark:hover:text-blue-400",
 	},
 	{
 		Icon: IconBrandGithub,
 		IconFilled: IconBrandGithubFilled,
 		label: "Visit Nick Oates on GitHub",
 		href: "https://github.com/n1ckoates",
-		color: "purple",
+		color: "hover:text-purple-600 dark:hover:text-purple-400",
 	},
 	{
 		Icon: IconMail,
 		IconFilled: IconMailFilled,
 		label: "Email Nick Oates",
 		href: "mailto:nick@nickoates.com",
-		color: "red",
+		color: "hover:text-red-600 dark:hover:text-red-400",
 	},
 ];
 
@@ -56,7 +39,7 @@ export default function SocialIcons() {
 			key={href}
 			className={clsx(
 				"group relative h-11 w-11 rounded-md p-2 transition ease-in-out hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50",
-				iconColors[color],
+				color,
 			)}
 			title={label}
 			target="_blank"
