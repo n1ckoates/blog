@@ -8,7 +8,7 @@ export async function GET() {
 		description: "I write about tech and other things I find interesting.",
 		feed_url: url + "/feed.xml",
 		site_url: url,
-		image_url: url + "/blue.png",
+		image_url: url + "/favicon.ico",
 		language: "en",
 		categories: ["Blog", "Programming"],
 	});
