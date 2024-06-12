@@ -1,0 +1,23 @@
+---
+title: Getting verified on Gmail and Apple Mail
+date: 2024-06-12 9:30:00 -07:00
+summary: Using an S/MIME certificate, you can get a verified check mark next to your name in Gmail, Apple Mail, and more.
+cover: /images/blog/verified-email.webp
+coverAlt: Assortment of white and yellow envelopes
+---
+
+I posted a tweet about being verified on Apple Mail, and a few people were asking me how I did it, so I figured I'd document the steps here.
+
+<Tweet id="1800751313405555167" />
+
+1. To get started, you'll need an **S/MIME certificate** -- it's sort of like a TLS/SSL certificate, but for email. It's used to sign a message so that the recipient can verify you actually wrote it. S/MIME certificates normally cost money, but you can **get a free one from [Actalis](https://extrassl.actalis.it/portal/uapub/freemail?lang=en). Make sure to note down the password when saving the certificate, because you'll need it for the next step.**
+
+2. **Get an email client that supports signing emails.** Most web-based clients don't support this feature, but desktop ones do. I'd recommend [Outlook](https://outlook.com/) or [Thunderbird](https://www.thunderbird.net/).
+
+    - **For Outlook**, follow [the guide from Microsoft](https://support.microsoft.com/en-us/office/encrypt-messages-by-using-s-mime-in-outlook-on-the-web-878c79fc-7088-4b39-966f-14512658f480).
+    - **For Thunderbird**, follow [this guide from SSL Dragon](https://www.ssldragon.com/how-to/install-s-mime-thunderbird/).
+    - **If you're using another email client**, you'll have to search online, but the steps are usually quite similar -- go to settings, find something about encryption or security, and import the certificate.
+
+3. **Send an email!** You might have to choose to sign the message when sending, but it's on by default for most email clients.
+
+4. **View the email** in an email client that checks the signature. Apple Mail and Gmail both do this, and will show a verified check when an email is signed. Other clients show a lock icon, or don't do anything at all.
