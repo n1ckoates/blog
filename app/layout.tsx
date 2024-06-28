@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import mergeMetadata from "@/lib/mergeMetadata";
 import { ThemeProvider } from "next-themes";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
 				</ThemeProvider>
 
 				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);

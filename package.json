@@ -12,6 +12,7 @@
     "@tabler/icons-react": "3.2.0",
     "@tailwindcss/typography": "^0.5.12",
     "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.12",
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.1",
     "fuse.js": "^7.0.0",
