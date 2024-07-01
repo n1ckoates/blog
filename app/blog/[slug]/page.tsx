@@ -1,15 +1,14 @@
 import Balancer from "react-wrap-balancer";
 import mergeMetadata from "@/lib/mergeMetadata";
 import { notFound } from "next/navigation";
-import { getAllPosts } from "@/lib/blog";
 import CustomMDX from "@/components/CustomMDX";
+import { allPosts } from "content-collections";
 import "./code.css";
 
-export const dynamicParams = false;
+export const dynamicParams = false; // Blog posts are static, don't attempt to generate dynamic routes
 
 export default async function Post({ params }: { params: { slug: string } }) {
-	const allPosts = await getAllPosts();
-	const post = allPosts.find((post) => post.slug === params.slug);
+	const post = allPosts.find((post) => post._meta.path === params.slug);
 	if (!post) notFound();
 
 	return (
@@ -21,14 +20,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
 			<h1>
 				<Balancer>{post.title}</Balancer>
 			</h1>
-			<CustomMDX source={post.content} />
+			<CustomMDX code={post.mdx} />
 		</article>
 	);
 }
 
 export async function generateStaticParams() {
-	const allPosts = await getAllPosts();
-	return allPosts.map((post) => ({ slug: post.slug }));
+	return allPosts.map((post) => ({ slug: post._meta.path }));
 }
 
 export async function generateMetadata({
@@ -36,8 +34,7 @@ export async function generateMetadata({
 }: {
 	params: { slug: string };
 }) {
-	const allPosts = await getAllPosts();
-	const post = allPosts.find((post) => post.slug === params.slug);
+	const post = allPosts.find((post) => post._meta.path === params.slug);
 
 	if (!post) return mergeMetadata();
 

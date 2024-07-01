@@ -1,10 +1,9 @@
 import NewsletterForm from "@/components/NewsletterForm";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXContent } from "@content-collections/mdx/react";
 import Image from "next/image";
 import Link from "next/link";
 import path from "path";
 import React from "react";
-import smartypants from "remark-smartypants";
 import sharp from "sharp";
 import { highlight } from "sugar-high";
 import { Tweet } from "react-tweet";
@@ -95,10 +94,10 @@ function CustomTweet({ id }: { id: string }) {
 	);
 }
 
-export default function CustomMDX({ source }: { source: string }) {
+export default function CustomMDX({ code }: { code: string }) {
 	return (
-		<MDXRemote
-			source={source}
+		<MDXContent
+			code={code}
 			components={{
 				img: CustomImage,
 				a: CustomLink,
@@ -111,11 +110,6 @@ export default function CustomMDX({ source }: { source: string }) {
 				h6: createHeadingComponent(6),
 				NewsletterForm: CustomNewsletterForm,
 				Tweet: CustomTweet,
-			}}
-			options={{
-				mdxOptions: {
-					remarkPlugins: [[smartypants, { dashes: true }]] as any,
-				},
 			}}
 		/>
 	);
