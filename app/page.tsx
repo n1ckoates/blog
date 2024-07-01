@@ -2,7 +2,7 @@ import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
 import NewsletterForm from "@/components/NewsletterForm";
 import { OrbContainer, Orb } from "@/components/Orb";
-import { getAllPosts } from "@/lib/blog";
+import { allPosts } from "content-collections";
 import Image from "next/image";
 import Balancer from "react-wrap-balancer";
 
@@ -89,17 +89,16 @@ export default async function Page() {
 }
 
 async function PostGrid() {
-	const allPosts = await getAllPosts();
 	const posts = allPosts.slice(0, 2);
 
 	return (
 		<div className="mx-auto grid grid-cols-2 gap-4 md:grid-cols-3">
 			{posts.map((post) => (
 				<Link
-					href={"/blog/" + post.slug}
+					href={"/blog/" + post._meta.path}
 					className="group relative h-60 overflow-hidden rounded-xl text-white first:col-span-2 only:col-span-full max-md:last:even:col-span-full md:h-80 md:last:[&:nth-child(3)]:col-span-full last:[&:nth-child(4)]:col-span-2"
 					aria-label={post.title}
-					key={post.slug}
+					key={post._meta.path}
 				>
 					<Image
 						src={post.cover}
