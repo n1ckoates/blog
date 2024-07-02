@@ -1,8 +1,8 @@
 import { OrbContainer, Orb } from "@/components/Orb";
+import getBlurDataURL from "@/lib/getBlurDataURL";
 import mergeMetadata from "@/lib/mergeMetadata";
 import { IconExternalLink } from "@tabler/icons-react";
 import Image from "next/image";
-import sharp from "sharp";
 
 export const metadata = mergeMetadata({
 	title: "Projects",
@@ -138,7 +138,7 @@ export default function Page() {
 	);
 }
 
-function ProjectCard([name, data]: [string, Project]) {
+async function ProjectCard([name, data]: [string, Project]) {
 	return (
 		<div
 			className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-neutral-100/30 backdrop-blur transition-transform ease-in-out hover:scale-[1.01] dark:border-zinc-800 dark:bg-neutral-900/30"
@@ -154,6 +154,8 @@ function ProjectCard([name, data]: [string, Project]) {
 							data.noCrop ? "object-contain" : "object-cover"
 						}
 						sizes="(max-width:768px) 100vw, 470px"
+						placeholder="blur"
+						blurDataURL={await getBlurDataURL(data.cover)}
 					/>
 				</div>
 			)}
