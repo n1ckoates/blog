@@ -4,7 +4,6 @@ import NewsletterForm from "@/components/NewsletterForm";
 import { OrbContainer, Orb } from "@/components/Orb";
 import allPosts from "@/lib/posts";
 import Image from "next/image";
-import Balancer from "react-wrap-balancer";
 
 function S({ children }: { children: React.ReactNode }) {
 	return (
@@ -119,8 +118,8 @@ async function PostGrid() {
 							&bull; {post.readingTime} min read
 						</div>
 
-						<h1 className="max-w-lg text-2xl font-bold drop-shadow-sm md:group-first:text-3xl">
-							<Balancer>{post.title}</Balancer>
+						<h1 className="max-w-lg text-balance text-2xl font-bold drop-shadow-sm md:group-first:text-3xl">
+							{post.title}
 						</h1>
 					</div>
 

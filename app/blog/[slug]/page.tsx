@@ -1,4 +1,3 @@
-import Balancer from "react-wrap-balancer";
 import mergeMetadata from "@/lib/mergeMetadata";
 import { notFound } from "next/navigation";
 import CustomMDX from "@/components/CustomMDX";
@@ -17,9 +16,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
 				{post.date.toLocaleDateString(undefined, { dateStyle: "long" })}
 			</time>{" "}
 			&bull; {post.readingTime} min read
-			<h1>
-				<Balancer>{post.title}</Balancer>
-			</h1>
+			<h1 className="text-balance">{post.title}</h1>
 			<CustomMDX code={post.mdx} />
 		</article>
 	);
