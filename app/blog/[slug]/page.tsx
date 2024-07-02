@@ -2,7 +2,7 @@ import Balancer from "react-wrap-balancer";
 import mergeMetadata from "@/lib/mergeMetadata";
 import { notFound } from "next/navigation";
 import CustomMDX from "@/components/CustomMDX";
-import { allPosts } from "content-collections";
+import allPosts from "@/lib/posts";
 import "./code.css";
 
 export const dynamicParams = false; // Blog posts are static, don't attempt to generate dynamic routes

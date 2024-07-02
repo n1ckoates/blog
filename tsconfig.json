@@ -19,8 +19,7 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./app/*"],
-			"content-collections": ["./app/lib/.content-collections/generated"]
+			"@/*": ["./app/*"]
 		}
 	},
 	"include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],

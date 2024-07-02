@@ -1,4 +1,4 @@
-import { allPosts } from "content-collections";
+import allPosts from "@/lib/posts";
 import RSS from "rss";
 import url from "@/lib/siteURL";
 

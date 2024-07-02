@@ -2,7 +2,7 @@ import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
 import NewsletterForm from "@/components/NewsletterForm";
 import { OrbContainer, Orb } from "@/components/Orb";
-import { allPosts } from "content-collections";
+import allPosts from "@/lib/posts";
 import Image from "next/image";
 import Balancer from "react-wrap-balancer";
 

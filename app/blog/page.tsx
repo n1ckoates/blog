@@ -1,5 +1,5 @@
 import Search from "./Search";
-import { allPosts } from "content-collections";
+import allPosts from "@/lib/posts";
 
 export const metadata = {
 	title: "Blog Posts",
