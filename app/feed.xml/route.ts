@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog";
+import allPosts from "@/lib/posts";
 import RSS from "rss";
 import url from "@/lib/siteURL";
 
@@ -13,13 +13,12 @@ export async function GET() {
 		categories: ["Blog", "Programming"],
 	});
 
-	const allPosts = await getAllPosts();
 	allPosts.forEach((post) => {
 		feed.item({
 			title: post.title,
 			description: post.summary,
-			url: `${url}/blog/${post.slug}`,
-			guid: post.slug,
+			url: `${url}/blog/${post._meta.path}`,
+			guid: post._meta.path,
 			date: post.date,
 		});
 	});

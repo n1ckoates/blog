@@ -6,19 +6,17 @@ import { useState } from "react";
 import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Fuse from "fuse.js";
-import type { BlogPost } from "@/lib/blog";
 
-type PartialBlogPost = Pick<
-	BlogPost,
-	| "slug"
-	| "cover"
-	| "coverAlt"
-	| "date"
-	| "readingTime"
-	| "title"
-	| "summary"
-	| "blurDataURL"
->;
+type PartialBlogPost = {
+	slug: string;
+	cover: string;
+	coverAlt: string;
+	date: Date;
+	readingTime: number;
+	title: string;
+	summary: string;
+	blurDataURL: string;
+}
 
 export default function Search({
 	title,
@@ -30,7 +28,7 @@ export default function Search({
 	const [searchTerm, setSearchTerm] = useState("");
 
 	const fuse = new Fuse(posts, {
-		keys: ["title", "summary", "formattedDate"],
+		keys: ["title", "summary"],
 		threshold: 0.4,
 	});
 

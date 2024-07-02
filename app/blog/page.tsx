@@ -1,5 +1,5 @@
 import Search from "./Search";
-import { getAllPosts } from "@/lib/blog";
+import allPosts from "@/lib/posts";
 
 export const metadata = {
 	title: "Blog Posts",
@@ -11,11 +11,9 @@ export const metadata = {
 };
 
 export default async function Blog() {
-	const allPosts = await getAllPosts();
-
 	// Remove unneeded fields from posts before sending them to the client
 	const posts = allPosts.map((post) => ({
-		slug: post.slug,
+		slug: post._meta.path,
 		cover: post.cover,
 		coverAlt: post.coverAlt,
 		date: post.date,

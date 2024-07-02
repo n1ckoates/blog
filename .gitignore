@@ -9,3 +9,6 @@ next-env.d.ts
 .env
 .vercel
 .env*.local
+
+# Content
+.content-collections/
