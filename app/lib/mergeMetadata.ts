@@ -1,4 +1,3 @@
-import url from "@/lib/siteURL";
 import { Metadata } from "next";
 
 export default function mergeMetadata({
@@ -34,7 +33,6 @@ export default function mergeMetadata({
 			card: "summary_large_image",
 			site: "@nickoates_",
 		},
-		metadataBase: new URL(url),
 	};
 
 	return metadata;
