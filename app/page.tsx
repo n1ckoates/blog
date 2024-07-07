@@ -125,7 +125,7 @@ async function PostGrid() {
 
 					{/* This is a <div> instead of a <Link> because the card itself is a Link */}
 					<div
-						className="absolute bottom-4 left-4 rounded-lg bg-zinc-600/30 px-4 py-2 text-sm font-semibold backdrop-blur transition hover:bg-zinc-600/60 md:text-base"
+						className="absolute bottom-4 left-4 rounded-lg bg-zinc-400/70 px-4 py-2 text-sm font-semibold backdrop-blur transition hover:bg-zinc-400/40 dark:bg-zinc-600/30 dark:hover:bg-zinc-600/60 md:text-base"
 						aria-hidden
 					>
 						Read post
