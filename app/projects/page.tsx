@@ -19,46 +19,47 @@ interface Project {
 
 const projects: Record<string, Project> = {
 	Quoter: {
-		cover: "/images/projects/quoter.png",
+		cover: "quoter.png",
 		coverAlt: "Quoter's logo, a speech bubble with three dots inside.",
 		noCrop: true,
 		description:
-			"Quote book for Discord servers, Built with Discord.js, MongoDB, and Typescript. The bot allows users to add, remove, edit, and search for quotes. You can also add quotes from Discord messages, or generate images from them. I created the bot, which has grown to over 1,600 servers and 190,000+ users.",
+			"Quote book for Discord servers, built with Discord.js, MongoDB, and Typescript. The bot allows users to add, remove, edit, and search for quotes. You can also add quotes from Discord messages, or generate images from them. I created the bot, which has grown to over 2,000 servers and 200,000+ users.",
 		links: {
 			Website: "https://quoter.cc",
 			"Source Code": "https://github.com/quoter/quoter",
 		},
 	},
 
-	"Steam Deck Emulation Guide": {
-		cover: "/images/projects/steam-deck.jpg",
-		coverAlt:
-			"Close-up of the Steam Deck's front right side on a blue and purple background.",
+	"2txt": {
+		cover: "2txt.webp",
+		coverAlt: "Screenshot of 2txt: an area to drop an image file.",
 		description:
-			"A comprehensive guide to emulating video games on the Steam Deck. I wrote step-by-step instructions on how to install and configure a range of emulators, as well as how to add individual games to your Steam library for a streamlined gaming experience.",
+			"Image to text converter, built with Anthropic Claude and the Vercel AI SDK. You can upload an image and get a description of it (for use as alt text), while extracting text from it.",
 		links: {
-			"Visit Guide": "https://github.com/n1ckoates/steamdeck-emulation",
+			Website: "https://2txt.vercel.app",
+			"Source Code": "https://github.com/ai-ng/2txt",
+		},
+	},
+
+	Swift: {
+		cover: "swift.webp",
+		coverAlt:
+			"A text input that says 'Ask me anything' with a submit button.",
+		description:
+			"Fast voice assistant built with Cartesia's Sonic model, with OpenAI Whisper and Meta Llama3 on Groq. Less than 1 second of latency between user and AI speech.",
+		links: {
+			Website: "https://swift-ai.vercel.app",
+			"Source Code": "https://github.com/ai-ng/swift",
 		},
 	},
 
 	"nickoates.com": {
-		cover: "/images/projects/blog.png",
+		cover: "blog.png",
 		coverAlt: "Home page of nickoates.com",
 		description:
 			"The site you're on! I built my blog with Next.js, Tailwind CSS, Typescript, and MDX. Hosted on Vercel.",
 		links: {
 			"Source Code": "https://github.com/n1ckoates/blog",
-		},
-	},
-
-	"Peroxaan Website": {
-		cover: "/images/projects/peroxaan.png",
-		coverAlt: "Home page of Peroxaan.com",
-		description:
-			"I was commissioned to rebuild the website for Peroxaan, a small app development company. I unified the newsroom with the main website, improved SEO, and overhauled the design.",
-		links: {
-			Website: "https://archive.peroxaan.com",
-			"Source Code": "https://github.com/peroxaan/website",
 		},
 	},
 
@@ -71,7 +72,7 @@ const projects: Record<string, Project> = {
 	},
 
 	Needle: {
-		cover: "/images/projects/needle.jpg",
+		cover: "needle.jpg",
 		coverAlt:
 			"Discord screenshot showing automatic thread creation with Needle.",
 		description:
@@ -82,7 +83,7 @@ const projects: Record<string, Project> = {
 	},
 
 	"dylanmcd.com": {
-		cover: "/images/projects/dylanmcd.png",
+		cover: "dylanmcd.png",
 		coverAlt: "Home page of dylanmcd.com",
 		description:
 			"Dylan commissioned me to build his website based on a design he created. I used Astro and Tailwind CSS.",
@@ -92,13 +93,24 @@ const projects: Record<string, Project> = {
 	},
 
 	"Magic Spell": {
-		cover: "/images/projects/magic-spell.png",
+		cover: "magic-spell.png",
 		coverAlt: "Screenshot of Magic Spell",
 		description:
 			"I built this demo of the Vercel AI SDK in collaboration with Guillermo Rauch at Vercel. It edits or writes text based on a prompt, using Groq for ultra-fast inference and streaming.",
 		links: {
 			Website: "https://magic-spell.vercel.app",
 			"Source Code": "https://github.com/ai-ng/magic-spell",
+		},
+	},
+
+	"Steam Deck Emulation Guide": {
+		cover: "steam-deck.jpg",
+		coverAlt:
+			"Close-up of the Steam Deck's front right side on a blue and purple background.",
+		description:
+			"A comprehensive guide to emulating video games on the Steam Deck. I wrote step-by-step instructions on how to install and configure a range of emulators, as well as how to add individual games to your Steam library for a streamlined gaming experience.",
+		links: {
+			"Visit Guide": "https://github.com/n1ckoates/steamdeck-emulation",
 		},
 	},
 };
@@ -148,14 +160,16 @@ async function ProjectCard([name, data]: [string, Project]) {
 				<div className="relative h-48">
 					<Image
 						alt={data.coverAlt}
-						src={data.cover}
+						src={"/images/projects/" + data.cover}
 						fill
 						className={
 							data.noCrop ? "object-contain" : "object-cover"
 						}
 						sizes="(max-width:768px) 100vw, 470px"
 						placeholder="blur"
-						blurDataURL={await getBlurDataURL(data.cover)}
+						blurDataURL={await getBlurDataURL(
+							"/images/projects/" + data.cover,
+						)}
 					/>
 				</div>
 			)}
