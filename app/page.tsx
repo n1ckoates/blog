@@ -95,7 +95,7 @@ async function PostGrid() {
 			{posts.map((post) => (
 				<Link
 					href={"/blog/" + post._meta.path}
-					className="group relative h-60 overflow-hidden rounded-xl text-white first:col-span-2 only:col-span-full max-md:last:even:col-span-full md:h-80 md:last:[&:nth-child(3)]:col-span-full last:[&:nth-child(4)]:col-span-2"
+					className="group relative h-60 overflow-hidden rounded-xl first:col-span-2 only:col-span-full max-md:last:even:col-span-full md:h-80 md:last:[&:nth-child(3)]:col-span-full last:[&:nth-child(4)]:col-span-2"
 					aria-label={post.title}
 					key={post._meta.path}
 				>
@@ -110,7 +110,7 @@ async function PostGrid() {
 						blurDataURL={post.blurDataURL}
 					/>
 
-					<div className="absolute h-min w-full bg-gradient-to-b from-black/70 via-black/70 via-80% p-4 group-first:via-black/70">
+					<div className="absolute h-min w-full bg-gradient-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/60">
 						<div className="text-base drop-shadow-sm">
 							{post.date.toLocaleDateString(undefined, {
 								dateStyle: "long",
