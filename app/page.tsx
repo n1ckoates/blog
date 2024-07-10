@@ -64,7 +64,7 @@ export default async function Page() {
 					href="/blog"
 					className="group flex items-center gap-1 text-zinc-700 transition-colors hover:text-zinc-600 dark:text-zinc-300 dark:hover:text-zinc-400"
 				>
-					View All{" "}
+					View All
 					<IconArrowRight
 						size={20}
 						className="transition-transform ease-in-out group-hover:translate-x-0.5"
@@ -113,8 +113,8 @@ async function PostGrid() {
 						blurDataURL={post.blurDataURL}
 					/>
 
-					<div className="absolute h-min w-full bg-gradient-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/60">
-						<div className="text-base drop-shadow-sm">
+					<div className="absolute w-full bg-gradient-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/60">
+						<div className="text-zinc-800 drop-shadow-sm dark:text-zinc-200">
 							{post.date.toLocaleDateString(undefined, {
 								dateStyle: "long",
 							})}{" "}
@@ -128,7 +128,7 @@ async function PostGrid() {
 
 					{/* This is a <div> instead of a <Link> because the card itself is a Link */}
 					<div
-						className="absolute bottom-4 left-4 rounded-lg bg-zinc-400/70 px-4 py-2 text-sm font-semibold backdrop-blur transition hover:bg-zinc-400/40 dark:bg-zinc-600/30 dark:hover:bg-zinc-600/60 md:text-base"
+						className="absolute bottom-4 left-4 rounded-lg bg-zinc-300/40 px-4 py-2 text-sm font-medium backdrop-blur transition hover:bg-zinc-400/60 dark:bg-zinc-700/40 dark:hover:bg-zinc-600/60 md:text-base"
 						aria-hidden
 					>
 						Read post
