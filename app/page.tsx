@@ -57,15 +57,18 @@ export default async function Page() {
 				</p>
 			</div>
 
-			<div className="my-4 flex items-baseline justify-between">
+			<div className="my-4 flex items-center justify-between">
 				<h2 className="text-2xl font-bold">Blog Posts</h2>
 
 				<Link
 					href="/blog"
-					className="group ml-8 transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+					className="group flex items-center gap-1 text-zinc-700 transition-colors hover:text-zinc-600 dark:text-zinc-300 dark:hover:text-zinc-400"
 				>
 					View All{" "}
-					<IconArrowRight className="inline-block transition-transform ease-in-out group-hover:translate-x-0.5" />
+					<IconArrowRight
+						size={20}
+						className="transition-transform ease-in-out group-hover:translate-x-0.5"
+					/>
 				</Link>
 			</div>
 
