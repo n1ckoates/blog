@@ -46,6 +46,7 @@ export default function NewsletterForm({
 					placeholder="Enter your email..."
 					required
 					aria-label="Email address"
+					autoComplete="email"
 				/>
 
 				<SubmitButton />
