@@ -2,20 +2,26 @@
 
 import { IconLoader2, IconMail } from "@tabler/icons-react";
 import clsx from "clsx";
-import { useFormState, useFormStatus } from "react-dom";
 import { subscribe, type State } from "@/lib/actions";
+import { useActionState } from "react";
 
 export default function NewsletterForm({
 	title = "Subscribe to my newsletter",
 }: {
 	title?: string;
 }) {
-	const [{ message, status }, formAction] = useFormState<State, FormData>(
-		subscribe,
-		{
-			status: "idle",
-			message: title,
-		},
+	const [{ message, status }, formAction, isPending] = useActionState<
+		State,
+		FormData
+	>(subscribe, {
+		status: "idle",
+		message: title,
+	});
+
+	const icon = isPending ? (
+		<IconLoader2 className="animate-spin" />
+	) : (
+		<IconMail />
 	);
 
 	return (
@@ -49,28 +55,14 @@ export default function NewsletterForm({
 					autoComplete="email"
 				/>
 
-				<SubmitButton />
+				<button
+					className="box-border flex grow cursor-default flex-row items-center justify-center gap-2 rounded-xl border-t border-white/30 bg-gradient-to-b from-teal-600 to-teal-800 px-4 py-2 font-semibold text-white drop-shadow-sm active:opacity-70 enabled:hover:from-teal-500 enabled:hover:to-teal-700 disabled:opacity-70 dark:from-teal-700 dark:to-teal-900 dark:enabled:hover:from-teal-600 dark:enabled:hover:to-teal-800"
+					disabled={isPending}
+					type="submit"
+				>
+					{icon} Subscribe
+				</button>
 			</form>
 		</div>
-	);
-}
-
-function SubmitButton() {
-	const { pending } = useFormStatus();
-
-	const icon = pending ? (
-		<IconLoader2 className="animate-spin" />
-	) : (
-		<IconMail />
-	);
-
-	return (
-		<button
-			className="box-border flex grow cursor-default flex-row items-center justify-center gap-2 rounded-xl border-t border-white/30 bg-gradient-to-b from-teal-600 to-teal-800 px-4 py-2 font-semibold text-white drop-shadow-sm active:opacity-70 enabled:hover:from-teal-500 enabled:hover:to-teal-700 disabled:opacity-70 dark:from-teal-700 dark:to-teal-900 dark:enabled:hover:from-teal-600 dark:enabled:hover:to-teal-800"
-			disabled={pending}
-			type="submit"
-		>
-			{icon} Subscribe
-		</button>
 	);
 }
