@@ -113,7 +113,7 @@ async function PostGrid() {
 						blurDataURL={post.blurDataURL}
 					/>
 
-					<div className="absolute w-full bg-gradient-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/60">
+					<div className="absolute w-full bg-gradient-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/50">
 						<div className="text-zinc-800 drop-shadow-sm dark:text-zinc-200">
 							{post.date.toLocaleDateString(undefined, {
 								dateStyle: "long",
