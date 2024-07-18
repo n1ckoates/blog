@@ -56,6 +56,7 @@ export default function NotFound() {
 					className="box-border flex grow cursor-default flex-row items-center justify-center gap-2 rounded-xl border-t border-white/30 bg-gradient-to-b from-zinc-200 to-zinc-400 px-4 py-2 font-semibold drop-shadow-sm active:opacity-70 enabled:hover:from-zinc-100 enabled:hover:to-zinc-300 disabled:opacity-70 dark:from-zinc-700 dark:to-zinc-900 dark:enabled:hover:from-zinc-600 dark:enabled:hover:to-zinc-800"
 					onClick={handleClick}
 					disabled={loading}
+					type="button"
 				>
 					<IconCat />
 					New Cat

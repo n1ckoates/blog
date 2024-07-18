@@ -21,6 +21,7 @@ export default function ThemeSwitch() {
 			aria-label="Switch themes"
 			onClick={toggleTheme}
 			className="flex items-center rounded-md p-2 transition-colors hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
+			type="button"
 		>
 			<Icon size={24} />
 		</button>

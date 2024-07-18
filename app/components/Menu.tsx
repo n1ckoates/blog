@@ -44,6 +44,7 @@ export default function Menu({
 				aria-expanded={open}
 				onClick={() => setOpen(!open)}
 				className="grid size-10 items-center justify-center gap-1.5 rounded-md p-4 transition-colors hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
+				type="button"
 			>
 				<span
 					className={clsx(
