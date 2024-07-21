@@ -1,7 +1,7 @@
 import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
 import remarkSmartypants from "remark-smartypants";
-import getBlurDataURL from "@/lib/getBlurDataURL";
+import getBlurDataURL from "./getBlurDataURL";
 
 const posts = defineCollection({
 	name: "posts",
