@@ -53,13 +53,35 @@ const projects: Record<string, Project> = {
 		},
 	},
 
+	"Ruby Website": {
+		cover: "ruby.webp",
+		coverAlt: "Screenshot of the Ruby website",
+		description:
+			"I designed and built the website for Ruby, a news app for Apple devices. It includes a marketing page and a blog. Built with Next.js, Tailwind CSS, and Content Collections.",
+		links: {
+			Website: "https://rubyapp.co",
+			"Source Code": "https://github.com/getRubyApp/website",
+		},
+	},
+
 	"nickoates.com": {
-		cover: "blog.png",
+		cover: "blog.webp",
 		coverAlt: "Home page of nickoates.com",
 		description:
 			"The site you're on! I built my blog with Next.js, Tailwind CSS, Typescript, and MDX. Hosted on Vercel.",
 		links: {
 			"Source Code": "https://github.com/n1ckoates/blog",
+		},
+	},
+
+	"Magic Spell": {
+		cover: "magic-spell.png",
+		coverAlt: "Screenshot of Magic Spell",
+		description:
+			"I built this demo of the Vercel AI SDK in collaboration with Guillermo Rauch at Vercel. It edits or writes text based on a prompt, using Groq for ultra-fast inference and streaming.",
+		links: {
+			Website: "https://magic-spell.vercel.app",
+			"Source Code": "https://github.com/ai-ng/magic-spell",
 		},
 	},
 
@@ -89,17 +111,6 @@ const projects: Record<string, Project> = {
 			"Dylan commissioned me to build his website based on a design he created. I used Astro and Tailwind CSS.",
 		links: {
 			Website: "https://dylanmcd.com",
-		},
-	},
-
-	"Magic Spell": {
-		cover: "magic-spell.png",
-		coverAlt: "Screenshot of Magic Spell",
-		description:
-			"I built this demo of the Vercel AI SDK in collaboration with Guillermo Rauch at Vercel. It edits or writes text based on a prompt, using Groq for ultra-fast inference and streaming.",
-		links: {
-			Website: "https://magic-spell.vercel.app",
-			"Source Code": "https://github.com/ai-ng/magic-spell",
 		},
 	},
 
