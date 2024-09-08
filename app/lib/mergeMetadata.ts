@@ -33,6 +33,11 @@ export default function mergeMetadata({
 			card: "summary_large_image",
 			site: "@nickoates_",
 		},
+		alternates: {
+			types: {
+				"application/rss+xml": "/feed.xml",
+			}
+		}
 	};
 
 	return metadata;
