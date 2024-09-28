@@ -6,6 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Fuse from "fuse.js";
+import TextInput from "@/components/TextInput";
 
 type PartialBlogPost = {
 	slug: string;
@@ -16,7 +17,7 @@ type PartialBlogPost = {
 	title: string;
 	summary: string;
 	blurDataURL: string;
-}
+};
 
 export default function Search({
 	title,
@@ -45,10 +46,9 @@ export default function Search({
 				<h2 className="text-3xl font-extrabold md:text-4xl">{title}</h2>
 
 				<div className="relative w-full lg:w-2/3">
-					<input
-						type="text"
+					<TextInput
 						name="search"
-						className="w-full rounded-md border border-zinc-200 px-4 py-2 drop-shadow dark:border-zinc-800 dark:bg-zinc-900"
+						className="w-full rounded-md"
 						placeholder="Search posts..."
 						aria-label="Search posts"
 						onChange={(e) => setSearchTerm(e.target.value)}
@@ -78,7 +78,7 @@ export default function Search({
 						/>
 
 						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-zinc-950 p-4 text-white ease-in-out lg:flex-row">
-							<div className="text-zinc-300 md:text-lg ">
+							<div className="text-zinc-300 md:text-lg">
 								<time
 									dateTime={post.date.toISOString()}
 									className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"

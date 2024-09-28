@@ -4,6 +4,7 @@ import { IconLoader2, IconMail } from "@tabler/icons-react";
 import clsx from "clsx";
 import { subscribe, type State } from "@/lib/actions";
 import { useActionState } from "react";
+import TextInput from "@/components/TextInput";
 
 export default function NewsletterForm({
 	title = "Subscribe to my newsletter",
@@ -44,8 +45,8 @@ export default function NewsletterForm({
 				)}
 				action={formAction}
 			>
-				<input
-					className="box-border flex grow flex-row items-center justify-center gap-2 rounded-xl border border-zinc-400/50 bg-white px-4 py-2 placeholder-zinc-500 drop-shadow-sm hover:border-zinc-500/50 disabled:opacity-70 dark:border-zinc-600/50 dark:bg-zinc-900 dark:placeholder-zinc-500 dark:hover:border-zinc-500/50"
+				<TextInput
+					className="grow rounded-xl"
 					type="email"
 					id="email"
 					name="email"
