@@ -36,8 +36,8 @@ export default function mergeMetadata({
 		alternates: {
 			types: {
 				"application/rss+xml": "/feed.xml",
-			}
-		}
+			},
+		},
 	};
 
 	return metadata;

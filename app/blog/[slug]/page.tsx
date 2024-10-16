@@ -6,8 +6,11 @@ import "./code.css";
 
 export const dynamicParams = false; // Blog posts are static, don't attempt to generate dynamic routes
 
-export default async function Post({ params }: { params: { slug: string } }) {
-	const post = allPosts.find((post) => post._meta.path === params.slug);
+type Props = { params: Promise<{ slug: string }> };
+
+export default async function Post(props: Props) {
+	const { slug } = await props.params;
+	const post = allPosts.find((post) => post._meta.path === slug);
 	if (!post) notFound();
 
 	return (
@@ -26,12 +29,9 @@ export async function generateStaticParams() {
 	return allPosts.map((post) => ({ slug: post._meta.path }));
 }
 
-export async function generateMetadata({
-	params,
-}: {
-	params: { slug: string };
-}) {
-	const post = allPosts.find((post) => post._meta.path === params.slug);
+export async function generateMetadata(props: Props) {
+	const { slug } = await props.params;
+	const post = allPosts.find((post) => post._meta.path === slug);
 
 	if (!post) return mergeMetadata();
 
