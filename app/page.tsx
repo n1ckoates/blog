@@ -23,22 +23,19 @@ export default async function Page() {
 
 			<div className="max-w-3xl space-y-4 text-xl md:text-2xl">
 				<p>
-					<S>Hello! I&apos;m Nick</S>, an aspiring web developer whose
-					code sometimes works. Right now, I&apos;m focused on
-					mastering various web technologies, and I&apos;m excited to
-					see where those skills can take me in the future!
+					<S>Hello! I&apos;m Nick</S>, an aspiring web developer whose code
+					sometimes works. Right now, I&apos;m focused on mastering various web
+					technologies, and I&apos;m excited to see where those skills can take
+					me in the future!
 				</p>
 				<p>
-					I enjoy designing and building cool things, and my best work
-					is displayed over on{" "}
+					I enjoy designing and building cool things, and my best work is
+					displayed over on{" "}
 					<Link href="/projects">
 						<S>my projects page</S>
 					</Link>
 					. If you&apos;d like to get in touch, email me at{" "}
-					<a
-						className="font-semibold"
-						href="mailto:nick@nickoates.com"
-					>
+					<a className="font-semibold" href="mailto:nick@nickoates.com">
 						nick@nickoates.com
 					</a>
 					.
@@ -52,8 +49,8 @@ export default async function Page() {
 					<a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">
 						<S>open-source software</S>
 					</a>
-					, and I believe that those values are essential to a healthy
-					web. Thanks for stopping by my website!
+					, and I believe that those values are essential to a healthy web.
+					Thanks for stopping by my website!
 				</p>
 			</div>
 
@@ -81,9 +78,9 @@ export default async function Page() {
 
 			<h2 className="my-4 text-2xl font-bold">Newsletter</h2>
 			<p className="mx-auto my-4 max-w-2xl text-xl">
-				Occasionally, I send out a newsletter to share my thoughts about
-				the latest tech news and other things I find interesting &mdash;
-				I won&apos;t spam you, promise!
+				Occasionally, I send out a newsletter to share my thoughts about the
+				latest tech news and other things I find interesting &mdash; I
+				won&apos;t spam you, promise!
 			</p>
 			<NewsletterForm />
 		</>

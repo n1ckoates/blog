@@ -39,10 +39,9 @@ export default function NewsletterForm({
 			</span>
 
 			<form
-				className={clsx(
-					"mt-2 flex w-full flex-wrap justify-between gap-2",
-					{ hidden: status === "success" },
-				)}
+				className={clsx("mt-2 flex w-full flex-wrap justify-between gap-2", {
+					hidden: status === "success",
+				})}
 				action={formAction}
 			>
 				<TextInput

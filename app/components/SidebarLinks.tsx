@@ -23,15 +23,11 @@ export default function SidebarLinks() {
 							{
 								"text-zinc-700 hover:text-black group-hover:bg-zinc-300/50 dark:text-zinc-300 dark:hover:text-white dark:group-hover:bg-zinc-700/50":
 									pathname !== link.href,
-								"bg-zinc-300/70 dark:bg-zinc-700/70":
-									pathname === link.href,
+								"bg-zinc-300/70 dark:bg-zinc-700/70": pathname === link.href,
 							},
 						)}
 					>
-						<link.Icon
-							size={32}
-							className="inline-block align-middle"
-						/>
+						<link.Icon size={32} className="inline-block align-middle" />
 						{link.title}
 					</div>
 				</Link>

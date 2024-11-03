@@ -43,8 +43,7 @@ const projects: Record<string, Project> = {
 
 	Swift: {
 		cover: "swift.webp",
-		coverAlt:
-			"A text input that says 'Ask me anything' with a submit button.",
+		coverAlt: "A text input that says 'Ask me anything' with a submit button.",
 		description:
 			"Fast voice assistant built with Cartesia's Sonic model, with OpenAI Whisper and Meta Llama3 on Groq. Less than 1 second of latency between user and AI speech.",
 		links: {
@@ -134,13 +133,11 @@ export default function Page() {
 				<Orb className="right-86 top-40 bg-cyan-400/30 dark:bg-cyan-600/30" />
 			</OrbContainer>
 
-			<h2 className="mb-4 text-3xl font-extrabold md:text-4xl">
-				Projects
-			</h2>
+			<h2 className="mb-4 text-3xl font-extrabold md:text-4xl">Projects</h2>
 
 			<p className="mb-4 max-w-2xl text-lg md:text-xl">
-				Here&apos;s a few of the projects I&apos;ve worked on. To see
-				everything I&apos;ve contributed to, check out{" "}
+				Here&apos;s a few of the projects I&apos;ve worked on. To see everything
+				I&apos;ve contributed to, check out{" "}
 				<a
 					href="https://github.com/n1ckoates"
 					className="font-semibold text-blue-600 hover:underline dark:text-blue-400"
@@ -173,22 +170,16 @@ async function ProjectCard([name, data]: [string, Project]) {
 						alt={data.coverAlt}
 						src={"/images/projects/" + data.cover}
 						fill
-						className={
-							data.noCrop ? "object-contain" : "object-cover"
-						}
+						className={data.noCrop ? "object-contain" : "object-cover"}
 						sizes="(max-width:768px) 100vw, 470px"
 						placeholder="blur"
-						blurDataURL={await getBlurDataURL(
-							"/images/projects/" + data.cover,
-						)}
+						blurDataURL={await getBlurDataURL("/images/projects/" + data.cover)}
 					/>
 				</div>
 			)}
 
 			<h1 className="px-6 pt-6 text-2xl font-bold">{name}</h1>
-			<p className="prose grow px-6 dark:prose-invert">
-				{data.description}
-			</p>
+			<p className="prose grow px-6 dark:prose-invert">{data.description}</p>
 
 			{data.links && (
 				<div className="mt-4 flex flex-row gap-8 px-6 pb-6">

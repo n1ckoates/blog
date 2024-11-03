@@ -17,8 +17,7 @@ export default function mergeMetadata({
 			siteName: "Nick Oates",
 			title: title ?? "Nick Oates",
 			description:
-				description ??
-				"Aspiring web developer whose code sometimes works.",
+				description ?? "Aspiring web developer whose code sometimes works.",
 			images: {
 				url: image ?? "/images/card-image.png",
 				alt:

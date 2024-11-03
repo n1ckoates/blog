@@ -11,10 +11,7 @@ export function OrbContainer({ children }: { children: React.ReactNode }) {
 export function Orb({ className }: { className?: string }) {
 	return (
 		<div
-			className={clsx(
-				className,
-				"absolute h-72 w-72 rounded-full blur-3xl",
-			)}
+			className={clsx(className, "absolute h-72 w-72 rounded-full blur-3xl")}
 		/>
 	);
 }
