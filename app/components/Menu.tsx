@@ -28,9 +28,7 @@ export default function Menu({
 
 	useEffect(() => {
 		function handleResize() {
-			if (window.innerWidth >= 1024) {
-				setOpen(false);
-			}
+			if (window.innerWidth >= 1024) setOpen(false);
 		}
 
 		window.addEventListener("resize", handleResize);
