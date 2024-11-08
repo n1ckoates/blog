@@ -10,7 +10,11 @@ import { ThemeProvider } from "next-themes";
 export const metadata = mergeMetadata();
 
 export const viewport = {
-	themeColor: "#2563eb",
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "#fafafa" },
+		{ media: "(prefers-color-scheme: dark)", color: "#09090b" },
+		{ color: "#2563eb" },
+	],
 };
 
 const monaSans = Mona_Sans({ subsets: ["latin"] });
