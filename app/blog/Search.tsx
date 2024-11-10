@@ -65,12 +65,12 @@ export default function Search(props: {
 							alt={post.coverAlt}
 							src={post.cover}
 							fill
-							className="absolute -z-10 object-cover brightness-50 transition ease-in-out group-hover:scale-105"
+							className="absolute -z-10 object-cover brightness-50 transition group-hover:scale-105"
 							placeholder="blur"
 							blurDataURL={post.blurDataURL}
 						/>
 
-						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-zinc-950 p-4 text-white ease-in-out lg:flex-row">
+						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-zinc-950 p-4 text-white lg:flex-row">
 							<div className="text-zinc-300 md:text-lg">
 								<time
 									dateTime={post.date.toISOString()}

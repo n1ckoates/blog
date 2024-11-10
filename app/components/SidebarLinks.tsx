@@ -19,7 +19,7 @@ export default function SidebarLinks() {
 				>
 					<div
 						className={clsx(
-							"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors ease-in-out",
+							"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors",
 							{
 								"text-zinc-700 hover:text-black group-hover:bg-zinc-200 dark:text-zinc-300 dark:hover:text-white dark:group-hover:bg-zinc-800":
 									pathname !== link.href,

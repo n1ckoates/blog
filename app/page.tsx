@@ -59,7 +59,7 @@ export default async function Page() {
 					View All
 					<IconArrowRight
 						size={20}
-						className="transition-transform ease-in-out group-hover:translate-x-0.5"
+						className="transition-transform group-hover:translate-x-0.5"
 					/>
 				</Link>
 			</div>
@@ -98,7 +98,7 @@ async function PostGrid() {
 						src={post.cover}
 						alt={post.coverAlt}
 						fill
-						className="object-cover transition ease-in-out group-hover:scale-105"
+						className="object-cover transition group-hover:scale-105"
 						sizes="(max-width: 896px) 100vw, 896px"
 						priority
 						placeholder="blur"

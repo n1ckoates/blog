@@ -161,7 +161,7 @@ export default function Page() {
 async function ProjectCard([name, data]: [string, Project]) {
 	return (
 		<div
-			className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-neutral-100/30 backdrop-blur transition-transform ease-in-out hover:scale-[1.01] dark:border-zinc-800 dark:bg-neutral-900/30"
+			className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-neutral-100/30 backdrop-blur transition-transform hover:scale-[1.01] dark:border-zinc-800 dark:bg-neutral-900/30"
 			key={name}
 		>
 			{data.cover && data.coverAlt && (

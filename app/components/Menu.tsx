@@ -46,13 +46,13 @@ export default function Menu({
 			>
 				<span
 					className={clsx(
-						"h-0.5 w-4 rounded-full bg-black transition ease-in-out dark:bg-white",
+						"h-0.5 w-4 rounded-full bg-black transition dark:bg-white",
 						{ "translate-y-1 rotate-45 scale-125": open },
 					)}
 				/>
 				<span
 					className={clsx(
-						"h-0.5 w-4 rounded-full bg-black transition ease-in-out dark:bg-white",
+						"h-0.5 w-4 rounded-full bg-black transition dark:bg-white",
 						{ "-translate-y-1 -rotate-45 scale-125": open },
 					)}
 				/>
@@ -60,7 +60,7 @@ export default function Menu({
 
 			<div
 				className={clsx(
-					"absolute left-0 top-0 -z-10 h-screen w-screen bg-white/50 backdrop-blur-lg transition ease-in-out dark:bg-black/50",
+					"absolute left-0 top-0 -z-10 h-screen w-screen bg-white/50 backdrop-blur-lg transition dark:bg-black/50",
 					{ "pointer-events-none opacity-0": !open },
 				)}
 			>
@@ -74,12 +74,12 @@ export default function Menu({
 						>
 							<div
 								className={clsx({
-									"transition ease-in-out group-[:nth-of-type(2)]:delay-100 group-[:nth-of-type(3)]:delay-200":
+									"transition group-[:nth-of-type(2)]:delay-100 group-[:nth-of-type(3)]:delay-200":
 										open,
 									"-translate-x-40": !open,
 								})}
 							>
-								<span className="transition-colors ease-in-out group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
+								<span className="transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
 									{title}
 								</span>
 							</div>
