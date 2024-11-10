@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import Fuse from "fuse.js";
 import TextInput from "@/components/TextInput";
+import { useFuzzySearchList } from "@nozbe/microfuzz/react";
 
 type PartialBlogPost = {
 	slug: string;
@@ -19,31 +19,24 @@ type PartialBlogPost = {
 	blurDataURL: string;
 };
 
-export default function Search({
-	title,
-	posts,
-}: {
+export default function Search(props: {
 	title: string;
 	posts: PartialBlogPost[];
 }) {
-	const [searchTerm, setSearchTerm] = useState("");
-
-	const fuse = new Fuse(posts, {
-		keys: ["title", "summary"],
-		threshold: 0.4,
-	});
-
-	let filteredPosts = posts;
-	if (searchTerm) {
-		filteredPosts = fuse.search(searchTerm).map(({ item }) => item);
-	}
-
+	const [queryText, setQueryText] = useState("");
 	const [animationParent] = useAutoAnimate();
+
+	const filteredPosts = useFuzzySearchList({
+		list: props.posts,
+		queryText,
+		getText: (item) => [item.title, item.summary],
+		mapResultItem: ({ item }) => ({ post: item }),
+	});
 
 	return (
 		<>
 			<div className="mb-4 flex flex-col justify-between gap-2 lg:flex-row">
-				<h2 className="text-3xl font-extrabold md:text-4xl">{title}</h2>
+				<h2 className="text-3xl font-extrabold md:text-4xl">{props.title}</h2>
 
 				<div className="relative w-full lg:w-2/3">
 					<TextInput
@@ -51,7 +44,7 @@ export default function Search({
 						className="w-full rounded-md"
 						placeholder="Search posts..."
 						aria-label="Search posts"
-						onChange={(e) => setSearchTerm(e.target.value)}
+						onChange={(e) => setQueryText(e.target.value)}
 					/>
 					<IconSearch className="absolute right-4 top-2" />
 				</div>
@@ -61,7 +54,7 @@ export default function Search({
 				{!filteredPosts.length && (
 					<p>No posts were found with that search term.</p>
 				)}
-				{filteredPosts.map((post) => (
+				{filteredPosts.map(({ post }) => (
 					<Link
 						href={"/blog/" + post.slug}
 						key={post.slug}
