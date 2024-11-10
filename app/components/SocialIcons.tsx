@@ -12,14 +12,14 @@ const social = [
 	{
 		Icon: IconBrandTwitter,
 		IconFilled: IconBrandTwitterFilled,
-		label: "Visit Nick Oates on Twitter",
+		label: "Nick Oates on Twitter",
 		href: "https://twitter.com/nickoates_",
 		color: "text-blue-600 dark:text-blue-400",
 	},
 	{
 		Icon: IconBrandGithub,
 		IconFilled: IconBrandGithubFilled,
-		label: "Visit Nick Oates on GitHub",
+		label: "Nick Oates on GitHub",
 		href: "https://github.com/n1ckoates",
 		color: "text-purple-600 dark:text-purple-400",
 	},
