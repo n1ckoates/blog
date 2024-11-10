@@ -16,8 +16,7 @@ export default function mergeMetadata({
 		openGraph: {
 			siteName: "Nick Oates",
 			title: title ?? "Nick Oates",
-			description:
-				description ?? "Aspiring web developer whose code sometimes works.",
+			description: description ?? "Web developer whose code sometimes works.",
 			images: {
 				url: image ?? "/images/card-image.png",
 				alt:
@@ -25,8 +24,7 @@ export default function mergeMetadata({
 					"Text reading 'Nick Oates' on a blue to purple gradient background.",
 			},
 		},
-		description:
-			description ?? "Aspiring web developer whose code sometimes works.",
+		description: description ?? "Web developer whose code sometimes works.",
 		twitter: {
 			title: title ?? "Nick Oates",
 			card: "summary_large_image",

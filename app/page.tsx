@@ -23,13 +23,8 @@ export default async function Page() {
 
 			<div className="max-w-3xl space-y-4 text-xl md:text-2xl">
 				<p>
-					<S>Hello! I&apos;m Nick</S>, an aspiring web developer whose code
-					sometimes works. Right now, I&apos;m focused on mastering various web
-					technologies, and I&apos;m excited to see where those skills can take
-					me in the future!
-				</p>
-				<p>
-					I enjoy designing and building cool things, and my best work is
+					<S>Hello! I&apos;m Nick</S>, a web developer whose code sometimes
+					works. I enjoy designing and building cool things, and my best work is
 					displayed over on{" "}
 					<Link href="/projects">
 						<S>my projects page</S>

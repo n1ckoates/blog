@@ -1,14 +1,8 @@
 import Search from "./Search";
 import allPosts from "@/lib/posts";
+import mergeMetadata from "@/lib/mergeMetadata";
 
-export const metadata = {
-	title: "Blog Posts",
-	openGraph: {
-		siteName: "Nick Oates",
-		title: "Blog Posts",
-		description: "Aspiring web developer whose code sometimes works.",
-	},
-};
+export const metadata = mergeMetadata({ title: "Blog Posts" });
 
 export default async function Blog() {
 	// Remove unneeded fields from posts before sending them to the client
