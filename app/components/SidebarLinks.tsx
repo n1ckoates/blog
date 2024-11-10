@@ -21,9 +21,9 @@ export default function SidebarLinks() {
 						className={clsx(
 							"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors ease-in-out",
 							{
-								"text-zinc-700 hover:text-black group-hover:bg-zinc-300/50 dark:text-zinc-300 dark:hover:text-white dark:group-hover:bg-zinc-700/50":
+								"text-zinc-700 hover:text-black group-hover:bg-zinc-200 dark:text-zinc-300 dark:hover:text-white dark:group-hover:bg-zinc-800":
 									pathname !== link.href,
-								"bg-zinc-300/70 dark:bg-zinc-700/70": pathname === link.href,
+								"bg-zinc-200 dark:bg-zinc-800": pathname === link.href,
 							},
 						)}
 					>
