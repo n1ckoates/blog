@@ -36,7 +36,10 @@ export default function Navbar() {
 		>
 			<Menu open={open} setOpen={setOpen} />
 
-			<Link className="text-3xl font-semibold" href="/">
+			<Link
+				className="text-3xl font-semibold transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+				href="/"
+			>
 				Nick Oates
 			</Link>
 
