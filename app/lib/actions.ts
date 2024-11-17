@@ -32,9 +32,7 @@ export async function subscribe(
 				Authorization: `Bearer ${RESEND_API_KEY}`,
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({
-				email,
-			}),
+			body: JSON.stringify({ email }),
 		},
 	);
 

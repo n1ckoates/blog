@@ -10,8 +10,8 @@ export default function mergeMetadata({
 	description?: string;
 	image?: string;
 	imageAlt?: string;
-} = {}) {
-	const metadata: Metadata = {
+} = {}): Metadata {
+	return {
 		title: title ? `${title} • Nick Oates` : "Nick Oates",
 		openGraph: {
 			siteName: "Nick Oates",
@@ -36,6 +36,4 @@ export default function mergeMetadata({
 			},
 		},
 	};
-
-	return metadata;
 }
