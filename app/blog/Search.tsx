@@ -1,7 +1,7 @@
 "use client";
 
 import { IconSearch } from "@tabler/icons-react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { useState } from "react";
 import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -71,7 +71,12 @@ export default function Search(props: {
 						/>
 
 						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-zinc-950 p-4 text-white lg:flex-row">
-							<div className="text-zinc-300 md:text-lg">
+							<div
+								className="text-zinc-300 md:text-lg"
+								style={{
+									viewTransitionName: `${post.slug}-time`,
+								}}
+							>
 								<time
 									dateTime={post.date.toISOString()}
 									className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"
@@ -83,7 +88,12 @@ export default function Search(props: {
 								{post.readingTime} min read
 							</div>
 							<div className="w-full lg:w-2/3">
-								<h1 className="mb-1 text-xl font-bold md:text-2xl">
+								<h1
+									className="mb-1 text-xl font-bold md:text-2xl"
+									style={{
+										viewTransitionName: `${post.slug}-title`,
+									}}
+								>
 									{post.title}
 								</h1>
 								<h2 className="text-lg text-zinc-300 md:text-xl">

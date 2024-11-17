@@ -4,6 +4,7 @@ import NewsletterForm from "@/components/NewsletterForm";
 import { OrbContainer, Orb } from "@/components/Orb";
 import allPosts from "@/lib/posts";
 import Image from "next/image";
+import { Link as TransitionLink } from "next-view-transitions";
 
 function S({ children }: { children: React.ReactNode }) {
 	return (
@@ -88,7 +89,7 @@ async function PostGrid() {
 	return (
 		<div className="mx-auto grid grid-cols-2 gap-4 md:grid-cols-3">
 			{posts.map((post) => (
-				<Link
+				<TransitionLink
 					href={"/blog/" + post._meta.path}
 					className="group relative h-60 overflow-hidden rounded-xl first:col-span-2 only:col-span-full max-md:last:even:col-span-full md:h-80 md:last:[&:nth-child(3)]:col-span-full last:[&:nth-child(4)]:col-span-2"
 					aria-label={post.title}
@@ -106,14 +107,24 @@ async function PostGrid() {
 					/>
 
 					<div className="absolute w-full bg-gradient-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/50">
-						<div className="text-zinc-800 drop-shadow-sm dark:text-zinc-200">
+						<p
+							className="text-zinc-800 drop-shadow-sm dark:text-zinc-200"
+							style={{
+								viewTransitionName: `${post._meta.path}-time`,
+							}}
+						>
 							{post.date.toLocaleDateString(undefined, {
 								dateStyle: "long",
 							})}{" "}
 							&bull; {post.readingTime} min read
-						</div>
+						</p>
 
-						<h1 className="max-w-lg text-balance text-2xl font-bold drop-shadow-sm md:group-first:text-3xl">
+						<h1
+							className="max-w-lg text-balance text-2xl font-bold drop-shadow-sm md:group-first:text-3xl"
+							style={{
+								viewTransitionName: `${post._meta.path}-title`,
+							}}
+						>
 							{post.title}
 						</h1>
 					</div>
@@ -125,7 +136,7 @@ async function PostGrid() {
 					>
 						Read post
 					</div>
-				</Link>
+				</TransitionLink>
 			))}
 		</div>
 	);
