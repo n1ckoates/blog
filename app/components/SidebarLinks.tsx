@@ -18,14 +18,11 @@ export default function SidebarLinks() {
 					className="group w-56 py-1 text-2xl font-semibold"
 				>
 					<div
-						className={clsx(
-							"flex items-center gap-4 rounded-lg px-4 py-2 transition-colors",
-							{
-								"text-zinc-700 hover:text-black group-hover:bg-zinc-200 dark:text-zinc-300 dark:hover:text-white dark:group-hover:bg-zinc-800":
-									pathname !== link.href,
-								"bg-zinc-200 dark:bg-zinc-800": pathname === link.href,
-							},
-						)}
+						className={clsx("flex items-center gap-4 rounded-lg px-4 py-2", {
+							"text-zinc-700 hover:text-black group-hover:bg-zinc-200 dark:text-zinc-300 dark:hover:text-white dark:group-hover:bg-zinc-800":
+								pathname !== link.href,
+							"bg-zinc-200 dark:bg-zinc-800": pathname === link.href,
+						})}
 					>
 						<link.Icon size={32} className="inline-block align-middle" />
 						{link.title}
