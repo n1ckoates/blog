@@ -13,7 +13,7 @@ const social = [
 		Icon: IconBrandTwitter,
 		IconFilled: IconBrandTwitterFilled,
 		label: "Nick Oates on Twitter",
-		href: "https://twitter.com/nickoates_",
+		href: "https://x.com/nickoates_",
 		color: "text-blue-600 dark:text-blue-400",
 	},
 	{
