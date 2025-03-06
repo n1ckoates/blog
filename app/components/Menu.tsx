@@ -74,7 +74,7 @@ export default function Menu({
 						>
 							<div
 								className={clsx({
-									"transition group-[:nth-of-type(2)]:delay-100 group-[:nth-of-type(3)]:delay-200":
+									"transition group-nth-of-type-2:delay-100 group-nth-of-type-3:delay-200":
 										open,
 									"-translate-x-40": !open,
 								})}

@@ -8,7 +8,7 @@ import { Link as TransitionLink } from "next-view-transitions";
 
 function S({ children }: { children: React.ReactNode }) {
 	return (
-		<strong className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text font-semibold text-transparent print:text-inherit">
+		<strong className="bg-linear-to-r from-purple-500 to-blue-500 bg-clip-text font-semibold text-transparent print:text-inherit">
 			{children}
 		</strong>
 	);
@@ -91,7 +91,7 @@ async function PostGrid() {
 			{posts.map((post) => (
 				<TransitionLink
 					href={"/blog/" + post._meta.path}
-					className="group relative h-60 overflow-hidden rounded-xl first:col-span-2 only:col-span-full max-md:last:even:col-span-full md:h-80 md:last:[&:nth-child(3)]:col-span-full last:[&:nth-child(4)]:col-span-2"
+					className="group relative h-60 overflow-hidden rounded-xl first:col-span-2 only:col-span-full max-md:last:even:col-span-full md:h-80 md:last:nth-3:col-span-full last:nth-4:col-span-2"
 					aria-label={post.title}
 					key={post._meta.path}
 				>
@@ -106,9 +106,9 @@ async function PostGrid() {
 						blurDataURL={post.blurDataURL}
 					/>
 
-					<div className="absolute w-full bg-gradient-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/50">
+					<div className="absolute w-full bg-linear-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/50">
 						<p
-							className="text-zinc-800 drop-shadow-sm dark:text-zinc-200"
+							className="text-zinc-800 drop-shadow-xs dark:text-zinc-200"
 							style={{
 								viewTransitionName: `${post._meta.path}-time`,
 							}}
@@ -120,7 +120,7 @@ async function PostGrid() {
 						</p>
 
 						<h1
-							className="max-w-lg text-balance text-2xl font-bold drop-shadow-sm md:group-first:text-3xl"
+							className="max-w-lg text-balance text-2xl font-bold drop-shadow-xs md:group-first:text-3xl"
 							style={{
 								viewTransitionName: `${post._meta.path}-title`,
 							}}
@@ -131,7 +131,7 @@ async function PostGrid() {
 
 					{/* This is a <div> instead of a <Link> because the card itself is a Link */}
 					<div
-						className="absolute bottom-4 left-4 rounded-lg bg-zinc-300/40 px-4 py-2 text-sm font-medium backdrop-blur transition hover:bg-zinc-400/60 dark:bg-zinc-700/40 dark:hover:bg-zinc-600/60 md:text-base"
+						className="absolute bottom-4 left-4 rounded-lg bg-zinc-300/40 px-4 py-2 text-sm font-medium backdrop-blur-sm transition hover:bg-zinc-400/60 dark:bg-zinc-700/40 dark:hover:bg-zinc-600/60 md:text-base"
 						aria-hidden
 					>
 						Read post

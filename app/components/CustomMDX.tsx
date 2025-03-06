@@ -25,7 +25,7 @@ async function CustomImage(props: any) {
 			blurDataURL={blurDataURL}
 			width={width}
 			height={height}
-			className="rounded-lg drop-shadow-sm"
+			className="rounded-lg drop-shadow-xs"
 			sizes="(max-width: 896px) 100vw, 896px"
 		/>
 	);
@@ -77,7 +77,7 @@ function createHeadingComponent(level: number) {
 			<Heading id={slug} className="relative w-fit">
 				<a
 					href={`#${slug}`}
-					className="absolute ml-[-1em] h-full w-[calc(100%+1em)] no-underline before:inline-block before:scale-90 before:text-zinc-400 before:opacity-0 before:transition before:content-['#'] hover:before:scale-100 hover:before:opacity-100 before:dark:text-zinc-600"
+					className="absolute ml-[-1em] h-full w-[calc(100%+1em)] no-underline before:inline-block before:scale-90 before:text-zinc-400 before:opacity-0 before:transition before:content-['#'] hover:before:scale-100 hover:before:opacity-100 dark:before:text-zinc-600"
 					aria-hidden
 				/>
 				{children}

@@ -26,9 +26,9 @@ export default function Navbar() {
 	return (
 		<nav
 			className={clsx(
-				"fixed left-0 top-0 z-50 flex w-full items-center justify-between px-4 py-2 before:absolute before:left-0 before:-z-10 before:h-full before:w-full before:rounded-b-2xl before:border-b before:bg-zinc-50/70 before:backdrop-blur-lg before:transition before:dark:bg-zinc-950/70 lg:hidden",
+				"fixed left-0 top-0 z-50 flex w-full items-center justify-between px-4 py-2 before:absolute before:left-0 before:-z-10 before:h-full before:w-full before:rounded-b-2xl before:border-b before:bg-zinc-50/70 before:backdrop-blur-lg before:transition dark:before:bg-zinc-950/70 lg:hidden",
 				{
-					"before:border-zinc-200/70 before:opacity-100 before:drop-shadow-lg before:dark:border-zinc-800/70":
+					"before:border-zinc-200/70 before:opacity-100 before:drop-shadow-lg dark:before:border-zinc-800/70":
 						solid,
 					"before:border-transparent before:opacity-0": !solid,
 				},

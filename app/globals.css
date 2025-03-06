@@ -1,16 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@layer utilities {
-	.bg-grid {
-		background-size: 20px 20px;
-		background-image: linear-gradient(
-				to right,
-				currentColor 1px,
-				transparent 1px
-			),
-			linear-gradient(to bottom, currentColor 1px, transparent 1px);
-		background-attachment: fixed;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
 	}
+}
+
+@utility bg-grid {
+	background-size: 20px 20px;
+	background-image: linear-gradient(to right, currentColor 1px, transparent 1px),
+		linear-gradient(to bottom, currentColor 1px, transparent 1px);
+	background-attachment: fixed;
 }

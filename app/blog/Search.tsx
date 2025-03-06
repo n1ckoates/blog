@@ -58,7 +58,7 @@ export default function Search(props: {
 					<Link
 						href={"/blog/" + post.slug}
 						key={post.slug}
-						className="group relative mb-4 block overflow-hidden rounded-lg border border-zinc-200 drop-shadow dark:border-zinc-800 dark:bg-neutral-900/30"
+						className="group relative mb-4 block overflow-hidden rounded-lg border border-zinc-200 drop-shadow-sm dark:border-zinc-800 dark:bg-neutral-900/30"
 						aria-label={post.title}
 					>
 						<Image
@@ -70,7 +70,7 @@ export default function Search(props: {
 							blurDataURL={post.blurDataURL}
 						/>
 
-						<div className="flex flex-col justify-between gap-1 bg-gradient-to-b from-transparent to-zinc-950 p-4 text-white lg:flex-row">
+						<div className="flex flex-col justify-between gap-1 bg-linear-to-b from-transparent to-zinc-950 p-4 text-white lg:flex-row">
 							<div
 								className="text-zinc-300 md:text-lg"
 								style={{

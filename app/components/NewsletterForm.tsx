@@ -26,7 +26,7 @@ export default function NewsletterForm({
 	);
 
 	return (
-		<div className="mx-auto max-w-lg rounded-3xl border border-zinc-400/50 bg-neutral-100/50 p-4 backdrop-blur dark:border-zinc-600/50 dark:bg-neutral-900/50 md:text-lg print:hidden">
+		<div className="mx-auto max-w-lg rounded-3xl border border-zinc-400/50 bg-neutral-100/50 p-4 backdrop-blur-sm dark:border-zinc-600/50 dark:bg-neutral-900/50 md:text-lg print:hidden">
 			<span
 				className={clsx(
 					{
@@ -56,7 +56,7 @@ export default function NewsletterForm({
 				/>
 
 				<button
-					className="box-border flex grow cursor-default flex-row items-center justify-center gap-2 rounded-xl border-t border-white/30 bg-gradient-to-b from-teal-600 to-teal-800 px-4 py-2 font-semibold text-white drop-shadow-sm active:opacity-70 enabled:hover:from-teal-500 enabled:hover:to-teal-700 disabled:opacity-70 dark:from-teal-700 dark:to-teal-900 dark:enabled:hover:from-teal-600 dark:enabled:hover:to-teal-800"
+					className="box-border flex grow cursor-default flex-row items-center justify-center gap-2 rounded-xl border-t border-white/30 bg-linear-to-b from-teal-600 to-teal-800 px-4 py-2 font-semibold text-white drop-shadow-xs active:opacity-70 enabled:hover:from-teal-500 enabled:hover:to-teal-700 disabled:opacity-70 dark:from-teal-700 dark:to-teal-900 dark:enabled:hover:from-teal-600 dark:enabled:hover:to-teal-800"
 					disabled={isPending}
 					type="submit"
 				>

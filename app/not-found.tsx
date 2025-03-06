@@ -13,7 +13,7 @@ export default async function NotFound() {
 
 	return (
 		<div className="text-lg md:text-xl">
-			<h2 className="mb-4 bg-gradient-to-b from-red-600 to-red-700 bg-clip-text text-3xl font-extrabold text-transparent dark:from-red-300 dark:to-red-400 md:text-4xl">
+			<h2 className="mb-4 bg-linear-to-b from-red-600 to-red-700 bg-clip-text text-3xl font-extrabold text-transparent dark:from-red-300 dark:to-red-400 md:text-4xl">
 				404: That page doesn't exist
 			</h2>
 
@@ -26,7 +26,7 @@ export default async function NotFound() {
 				.
 			</p>
 
-			<div className="relative mt-6 w-fit overflow-hidden rounded-2xl border-zinc-400/50 bg-zinc-200 drop-shadow-sm dark:bg-zinc-800">
+			<div className="relative mt-6 w-fit overflow-hidden rounded-2xl border-zinc-400/50 bg-zinc-200 drop-shadow-xs dark:bg-zinc-800">
 				<IconLoader2
 					className="absolute inset-0 m-auto animate-spin"
 					size={48}
