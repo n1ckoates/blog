@@ -4,7 +4,7 @@ import mergeMetadata from "@/lib/mergeMetadata";
 
 export const metadata = mergeMetadata({ title: "Blog Posts" });
 
-export default async function Blog() {
+export default function Blog() {
 	// Remove unneeded fields from posts before sending them to the client
 	const posts = allPosts.map((post) => ({
 		slug: post._meta.path,

@@ -3,7 +3,7 @@ import RSS from "rss";
 
 export const dynamic = "force-static";
 
-export async function GET() {
+export function GET() {
 	const url = process.env.VERCEL_PROJECT_PRODUCTION_URL
 		? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
 		: "http://localhost:3000";

@@ -14,7 +14,7 @@ export default async function Post(props: Props) {
 	if (!post) notFound();
 
 	return (
-		<article className="prose prose-lg prose-zinc mx-auto dark:prose-invert md:prose-xl prose-h1:tracking-tight prose-a:text-blue-600 prose-a:no-underline prose-a:hover:underline prose-pre:bg-zinc-100 dark:prose-a:text-blue-400 dark:prose-pre:bg-zinc-900 lg:mx-0">
+		<article className="prose prose-lg prose-zinc dark:prose-invert md:prose-xl prose-h1:tracking-tight prose-a:text-blue-600 prose-a:no-underline prose-a:hover:underline prose-pre:bg-zinc-100 dark:prose-a:text-blue-400 dark:prose-pre:bg-zinc-900 mx-auto lg:mx-0">
 			<span
 				style={{
 					viewTransitionName: `${post._meta.path}-time`,
@@ -39,7 +39,7 @@ export default async function Post(props: Props) {
 	);
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
 	return allPosts.map((post) => ({ slug: post._meta.path }));
 }
 

@@ -14,12 +14,12 @@ function S({ children }: { children: React.ReactNode }) {
 	);
 }
 
-export default async function Page() {
+export default function Page() {
 	return (
 		<>
 			<OrbContainer>
 				<Orb className="right-0 bg-blue-400/30 dark:bg-blue-600/30" />
-				<Orb className="right-36 top-28 bg-purple-400/30 dark:bg-purple-600/30" />
+				<Orb className="top-28 right-36 bg-purple-400/30 dark:bg-purple-600/30" />
 			</OrbContainer>
 
 			<div className="max-w-3xl space-y-4 text-xl md:text-2xl">
@@ -69,7 +69,7 @@ export default async function Page() {
 
 			<OrbContainer>
 				<Orb className="bg-emerald-400/30 dark:bg-emerald-600/30" />
-				<Orb className="left-72 top-16 bg-cyan-400/30 dark:bg-cyan-600/30" />
+				<Orb className="top-16 left-72 bg-cyan-400/30 dark:bg-cyan-600/30" />
 			</OrbContainer>
 
 			<h2 className="my-4 text-2xl font-bold">Newsletter</h2>
@@ -83,7 +83,7 @@ export default async function Page() {
 	);
 }
 
-async function PostGrid() {
+function PostGrid() {
 	const posts = allPosts.slice(0, 2);
 
 	return (
@@ -91,7 +91,7 @@ async function PostGrid() {
 			{posts.map((post) => (
 				<TransitionLink
 					href={"/blog/" + post._meta.path}
-					className="group relative h-60 overflow-hidden rounded-xl first:col-span-2 only:col-span-full max-md:last:even:col-span-full md:h-80 md:last:nth-3:col-span-full last:nth-4:col-span-2"
+					className="group relative h-60 overflow-hidden rounded-xl first:col-span-2 only:col-span-full last:nth-4:col-span-2 max-md:last:even:col-span-full md:h-80 md:last:nth-3:col-span-full"
 					aria-label={post.title}
 					key={post._meta.path}
 				>
@@ -120,7 +120,7 @@ async function PostGrid() {
 						</p>
 
 						<h1
-							className="max-w-lg text-balance text-2xl font-bold drop-shadow-xs md:group-first:text-3xl"
+							className="max-w-lg text-2xl font-bold text-balance drop-shadow-xs md:group-first:text-3xl"
 							style={{
 								viewTransitionName: `${post._meta.path}-title`,
 							}}
@@ -131,7 +131,7 @@ async function PostGrid() {
 
 					{/* This is a <div> instead of a <Link> because the card itself is a Link */}
 					<div
-						className="absolute bottom-4 left-4 rounded-lg bg-zinc-300/40 px-4 py-2 text-sm font-medium backdrop-blur-sm transition hover:bg-zinc-400/60 dark:bg-zinc-700/40 dark:hover:bg-zinc-600/60 md:text-base"
+						className="absolute bottom-4 left-4 rounded-lg bg-zinc-300/40 px-4 py-2 text-sm font-medium backdrop-blur-sm transition hover:bg-zinc-400/60 md:text-base dark:bg-zinc-700/40 dark:hover:bg-zinc-600/60"
 						aria-hidden
 					>
 						Read post
