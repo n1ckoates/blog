@@ -2,12 +2,13 @@ import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
 import remarkSmartypants from "remark-smartypants";
 import getBlurDataURL from "./getBlurDataURL";
+import { z } from "zod";
 
 const posts = defineCollection({
 	name: "posts",
 	directory: "../../content",
 	include: "**/*.{md,mdx}",
-	schema: (z) => ({
+	schema: z.object({
 		title: z.string(),
 		date: z.coerce.date(),
 		summary: z.string(),
