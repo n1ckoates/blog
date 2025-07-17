@@ -24,17 +24,8 @@ export default function Page() {
 
 			<div className="max-w-3xl space-y-4 text-xl md:text-2xl">
 				<p>
-					<S>Hello! I&apos;m Nick</S>, a web developer whose code sometimes
-					works. I enjoy designing and building cool things, and my best work is
-					displayed over on{" "}
-					<Link href="/projects">
-						<S>my projects page</S>
-					</Link>
-					. If you&apos;d like to get in touch, email me at{" "}
-					<a className="font-semibold" href="mailto:nick@nickoates.com">
-						nick@nickoates.com
-					</a>
-					.
+					<S>Hi! I'm Nick</S>, a web developer who enjoys designing and building
+					cool things online.
 				</p>
 				<p>
 					I&apos;m also a big fan of{" "}

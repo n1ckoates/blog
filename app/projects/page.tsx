@@ -92,17 +92,6 @@ const projects: Record<string, Project> = {
 		},
 	},
 
-	Needle: {
-		cover: "needle.jpg",
-		coverAlt:
-			"Discord screenshot showing automatic thread creation with Needle.",
-		description:
-			"Discord bot that creates threads automatically. I contributed by adding Docker support, implementing new features, and refactoring the codebase.",
-		links: {
-			Website: "https://needle.gg",
-		},
-	},
-
 	"dylanmcd.com": {
 		cover: "dylanmcd.png",
 		coverAlt: "Home page of dylanmcd.com",
@@ -112,17 +101,6 @@ const projects: Record<string, Project> = {
 			Website: "https://dylanmcd.com",
 		},
 	},
-
-	"Steam Deck Emulation Guide": {
-		cover: "steam-deck.jpg",
-		coverAlt:
-			"Close-up of the Steam Deck's front right side on a blue and purple background.",
-		description:
-			"A comprehensive guide to emulating video games on the Steam Deck. I wrote step-by-step instructions on how to install and configure a range of emulators, as well as how to add individual games to your Steam library for a streamlined gaming experience.",
-		links: {
-			"Visit Guide": "https://github.com/n1ckoates/steamdeck-emulation",
-		},
-	},
 };
 
 export default function Page() {
@@ -130,7 +108,7 @@ export default function Page() {
 		<>
 			<OrbContainer>
 				<Orb className="-top-20 right-0 bg-fuchsia-400/30 dark:bg-fuchsia-600/30" />
-				<Orb className="right-86 top-40 bg-cyan-400/30 dark:bg-cyan-600/30" />
+				<Orb className="top-40 right-86 bg-cyan-400/30 dark:bg-cyan-600/30" />
 			</OrbContainer>
 
 			<h2 className="mb-4 text-3xl font-extrabold md:text-4xl">Projects</h2>
@@ -179,7 +157,7 @@ async function ProjectCard([name, data]: [string, Project]) {
 			)}
 
 			<h1 className="px-6 pt-6 text-2xl font-bold">{name}</h1>
-			<p className="prose grow px-6 dark:prose-invert">{data.description}</p>
+			<p className="prose dark:prose-invert grow px-6">{data.description}</p>
 
 			{data.links && (
 				<div className="mt-4 flex flex-row gap-8 px-6 pb-6">
