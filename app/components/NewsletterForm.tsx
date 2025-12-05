@@ -26,7 +26,7 @@ export default function NewsletterForm({
 	);
 
 	return (
-		<div className="mx-auto max-w-lg rounded-3xl border border-zinc-400/50 bg-neutral-100/50 p-4 backdrop-blur-sm dark:border-zinc-600/50 dark:bg-neutral-900/50 md:text-lg print:hidden">
+		<div className="mx-auto max-w-lg rounded-3xl border border-zinc-400/50 bg-neutral-100/50 p-4 backdrop-blur-sm md:text-lg dark:border-zinc-600/50 dark:bg-neutral-900/50 print:hidden">
 			<span
 				className={clsx(
 					{

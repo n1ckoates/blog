@@ -15,7 +15,8 @@
 
 @utility bg-grid {
 	background-size: 20px 20px;
-	background-image: linear-gradient(to right, currentColor 1px, transparent 1px),
+	background-image:
+		linear-gradient(to right, currentColor 1px, transparent 1px),
 		linear-gradient(to bottom, currentColor 1px, transparent 1px);
 	background-attachment: fixed;
 }

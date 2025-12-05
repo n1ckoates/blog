@@ -46,7 +46,7 @@ export default function Search(props: {
 						aria-label="Search posts"
 						onChange={(e) => setQueryText(e.target.value)}
 					/>
-					<IconSearch className="absolute right-4 top-2" />
+					<IconSearch className="absolute top-2 right-4" />
 				</div>
 			</div>
 

@@ -7,8 +7,9 @@ import React from "react";
 import sharp from "sharp";
 import { highlight } from "sugar-high";
 import { Tweet } from "react-tweet";
+import { ImageProps } from "next/image";
 
-async function CustomImage(props: any) {
+async function CustomImage(props: ImageProps & { src: string }) {
 	const sharpImage = sharp(path.join(process.cwd(), "public", props.src));
 	const { width, height } = await sharpImage.metadata();
 
@@ -31,17 +32,9 @@ async function CustomImage(props: any) {
 	);
 }
 
-function CustomLink(props: any) {
-	const href = props.href as string;
-
-	if (href.startsWith("/")) {
-		return <Link {...props} />;
-	}
-
-	if (href.startsWith("#")) {
-		return <a {...props} />;
-	}
-
+function CustomLink(props: { href: string; children: string}) {
+	if (props.href.startsWith("/")) return <Link {...props} />;
+	if (props.href.startsWith("#")) return <a {...props} />;
 	return <a target="_blank" {...props} />;
 }
 
@@ -55,7 +48,7 @@ const CustomNewsletterForm = ({
 	</div>
 );
 
-function CustomCode({ children, ...props }: any) {
+function CustomCode({ children, ...props }: React.HTMLAttributes<HTMLElement> & { children: string }) {
 	const html = highlight(children);
 	return <code {...props} dangerouslySetInnerHTML={{ __html: html }} />;
 }

@@ -47,20 +47,20 @@ export default function Menu({
 				<span
 					className={clsx(
 						"h-0.5 w-4 rounded-full bg-black transition dark:bg-white",
-						{ "translate-y-1 rotate-45 scale-125": open },
+						{ "translate-y-1 scale-125 rotate-45": open },
 					)}
 				/>
 				<span
 					className={clsx(
 						"h-0.5 w-4 rounded-full bg-black transition dark:bg-white",
-						{ "-translate-y-1 -rotate-45 scale-125": open },
+						{ "-translate-y-1 scale-125 -rotate-45": open },
 					)}
 				/>
 			</button>
 
 			<div
 				className={clsx(
-					"absolute left-0 top-0 -z-10 h-screen w-screen bg-white/50 backdrop-blur-lg transition dark:bg-black/50",
+					"absolute top-0 left-0 -z-10 h-screen w-screen bg-white/50 backdrop-blur-lg transition dark:bg-black/50",
 					{ "pointer-events-none opacity-0": !open },
 				)}
 			>

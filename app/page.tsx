@@ -24,7 +24,7 @@ export default function Page() {
 
 			<div className="max-w-3xl space-y-4 text-xl md:text-2xl">
 				<p>
-					<S>Hi! I'm Nick</S>, a web developer who enjoys designing and building
+					<S>Hi! I&apos;m Nick</S>, a web developer who enjoys designing and building
 					cool things online.
 				</p>
 				<p>

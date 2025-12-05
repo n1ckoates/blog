@@ -8,6 +8,8 @@ export default function ThemeSwitch() {
 	const [mounted, setMounted] = useState(false);
 	const { setTheme, resolvedTheme } = useTheme();
 
+	// This is needed to avoid a hydration error
+	// eslint-disable-next-line react-hooks/set-state-in-effect
 	useEffect(() => setMounted(true), []);
 
 	const toggleTheme = () => {

@@ -32,8 +32,8 @@ export default function RootLayout({
 				suppressHydrationWarning
 				className={`${monaSans.className} scroll-smooth [scrollbar-gutter:stable]`}
 			>
-				<body className="max-w-7xl gap-8 bg-zinc-50 px-6 pb-8 text-black dark:bg-zinc-950 dark:text-white lg:mx-auto lg:flex lg:flex-row lg:py-20 2xl:px-0">
-					<div className="bg-grid fixed left-0 top-0 -z-50 size-full text-zinc-200 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_50%)] dark:text-zinc-900" />
+				<body className="max-w-7xl gap-8 bg-zinc-50 px-6 pb-8 text-black lg:mx-auto lg:flex lg:flex-row lg:py-20 2xl:px-0 dark:bg-zinc-950 dark:text-white">
+					<div className="bg-grid fixed top-0 left-0 -z-50 size-full [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_50%)] text-zinc-200 dark:text-zinc-900" />
 
 					<ThemeProvider attribute="class" disableTransitionOnChange>
 						<Navbar />
