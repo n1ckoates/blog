@@ -1,0 +1,79 @@
+---
+title: The Quest To Replace My MagSafe Cable
+summary: A perfectly normal cable replacement turned into a side quest where I was stuck managing Apple and FedEx's logistics nightmare.
+date: 2025-12-20 12:00:00 -08:00
+cover: /images/blog/quest-magsafe-replacement.webp
+coverAlt: Close up of a MagSafe cable next to a MacBook Air's MagSafe port
+---
+import { IconAlertTriangle, IconBrandAppleFilled } from '@tabler/icons-react';
+
+The short version: A perfectly normal MagSafe cable replacement turned into a multi-month-long side quest where I was stuck managing Apple and FedEx's logistics nightmare. By the end, I was left wondering why any of this was even my problem.
+
+Here's the long version:
+
+## The Day My Cable Died
+
+It all started on October 8th. I came home from school, plugged in my (at this point, only a few months old) MacBook Air to charge via MagSafe, and the cable just... did nothing. No light, no sound, no charge, just an expensive string lying on my desk. I tried a few more times, but it was pretty obvious to me that the cable was just dead for whatever reason. Thankfully though, I had Apple Care, so this just felt like a mild annoyance, not the beginning of an odyssey. I contacted Apple Support, explained the situation, and they quickly kicked off a repair and placed a $50 hold on my card for the advanced replacement. The next day, the cable shipped, and that should've been the end of the story. It wasn't.
+
+## FedEx's Failures
+
+Here's some important background: FedEx is almost never able to successfully deliver to my apartment building. With every other FedEx package in recent memory, the pattern is the same: they fail to deliver, I sigh, and then I go online and place a hold so I can pick it up at a nearby FedEx location. It's annoying, especially given that "deliver a package to me" is like, their entire job, but it's not the end of the world. So when I saw that Apple was shipping my replacement via FedEx, I simply assumed we'd do our usual dance of missed delivery, self-service hold, pickup, done.
+
+A few days later, FedEx did indeed fail to deliver the package to me, right on schedule. I headed to their site to place the usual "just keep it at your facility, I'll come get it" hold, only to be greeted with this lovely message:
+
+<div className="flex gap-6 p-6 bg-zinc-100 dark:bg-zinc-900 border rounded-lg drop-shadow-sm not-prose border-zinc-400/50 dark:border-zinc-600/50">
+<div><IconAlertTriangle className="text-red-700 dark:text-red-300 size-8 mt-1.5" /></div>
+<p>Due to shipper restrictions, additional delivery options are not available for this shipment. For more information, please contact the shipper.</p>
+</div>
+
+For some reason, Apple goes out of their way to disable basically every useful delivery option on their shipments: no holds, no reroutes, no scheduled delivery, nothing. The page just informed me that "due to shipper restrictions" I, the person who is actually receiving the package, can't make any decisions about receiving the package. At this point, it already felt a little bit ridiculous: FedEx couldn't reach me, and Apple was preventing me from reaching them.
+
+## Talking to the Machines
+
+I reached out to Apple Support to see if they could just lift those "shipper restrictions" so I could do the obvious thing and pick up my own cable.
+
+<figure>
+<Tweet id="1977849705037197713" />
+<figcaption>I coincidentally saw this tweet from [Theo](https://t3.gg) while on hold with Apple Support. Perfect timing!</figcaption>
+</figure>
+
+After being transferred around a few times, I was told that they couldn't change FedEx's delivery options and that I should just... wait and let FedEx try again, as if the second attempt would somehow overpower the known, recurring reality of my their delivery issues.
+
+Meanwhile, the package itself was having its own crisis. While in transit, the shipping label for my Apple box got stuck to a Walgreens catalog and ripped off, leaving the actual package unlabeled in the FedEx system. FedEx eventually called me and told me, in the vaguest way possible, that they had "destroyed the label" and I needed to ask Apple for a new one.
+
+A few days later, Apple emailed me to remind me that my original cable was due back in four days, even though I hadn't even received the replacement yet. I called up Apple Support and, after a half-hour on the phone, was told that FedEx *did* in fact have my package and that I should just go pick it up, and that I explicitly didn't need to worry about the 10-day return window given all the delays. So now, I had two conflicting pieces of information: Apple said FedEx had my package, but FedEx said they didn't. Either way, I was hoping that this would be end of the saga.
+
+## My Unpaid Internship in Logistics Quality Assurance
+
+On October 20th -- now nearly two weeks after the original cable died -- I went in-person to the FedEx ship center, where an employee confirmed what they had already told me: the label was gone, the package was not findable, and nothing was being sent back to Apple because they couldn't actually locate the cable. They were kind enough to explain the situation to me and send me an email for documentation, which is when I realized that I was doing QA on the Apple-FedEx integration rather than just trying to charge my laptop.
+
+I messaged Apple Support... again... and asked them to send me another replacement cable, since the first replacement had effectively vanished into the void. Apple replied that in order to do that, they needed the tracking number for the (fictional) shipment where FedEx supposedly sent the original package back to Apple. A shipment that never existed, because the package was never actually found. I emailed the FedEx employee to ask for that tracking number, and they confirmed that they were never able to locate the package, so there was no tracking number and nothing had been sent back anywhere.
+
+That same day, I went back to Apple Support and explained that there was no return tracking number because there was no return shipment. Apple escalated the case to a mysterious "CR+ Back Office" team, and then, on October 29th, I received this email from them:
+
+<div className="px-6 bg-zinc-100 dark:bg-zinc-900 border rounded-lg drop-shadow-sm border-zinc-400/50 dark:border-zinc-600/50">
+    <IconBrandAppleFilled className="text-blue-600 dark:text-blue-400 size-8 float-right mt-6" />
+    <p>Hi Nick,</p>
+    <p>Please contact Apple at [https://getsupport.apple.com](https://getsupport.apple.com) to be connected with the appropriate team. Apple Support will be happy to help.</p>
+    <p>Thank you,<br />Apple</p>
+</div>
+
+Apple Support was literally telling me to contact Apple Support. What.
+
+Despite being a `noreply` email, I replied to it, because it's not like anything else was making sense either. A few days later, I got a response from the Back Office team, telling me that they had already ordered another replacement cable for me, it would be arriving soon, and attached a return label for me to print and attach to the box.
+
+Incredibly, the stars aligned, and the cable actually arrived the next day, letting me charge my laptop via MagSafe once again. I thought that this whole ordeal was over, but there was still one more thing.
+
+## The Charge That Wouldn't Die
+
+I took my original defective cable to FedEx and dropped it off with the return label Apple gave me. As the back office team had told me to do, I got a receipt from FedEx as proof of shipment, and emailed a photo of it to them.
+
+On the same day, Apple went ahead and charged my card the full $50 from the original hold, treating the situation as if I had simply decided not to return the cable at all. Two days later, Apple received the return shipment, but the repair status still showed as "waiting to receive." I waited for the charge to be refunded, and reached back out to the back office team, but got no response. I waited a while more, and honestly mostly forgot about it -- I have better things to do than spend all my time with Apple Support -- but it still lingered in the back of my mind.
+
+Eventually, a few weeks later, I called up Apple Support for a final time and explained the whole situation. I got possibly the nicest customer service rep I've ever spoken to, who apologized for the whole situation. Still, it took an hour of *him* being on hold with their internal team to start *another* case. Finally though, on December 15th -- over two months after the original cable died -- I was refunded the $50. My long, logistics nightmare was finally over.
+
+## So, why was any of this my problem?
+
+From my perspective, this should have been the simplest kind of support interaction: cable dies, replacement ships, I send the broken one back, everyone moves on. Instead, because of Apple's shipping restrictions and FedEx's inability to reliably deliver to my address, I ended up stuck in the middle of a convoluted blame triangle where I had no actual control over anything. But more than that, **Apple treated the situation like it was *my* problem**, when it was clearly not. I wasn't FedEx's customer, Apple was, and they both should've dealt with the situation instead of me. Apple should have owned the mess by letting me pick up the package myself, and when they knew the package was lost, they should've delayed the hold and sent me a new one immediately.
+
+Apple Support is normally great, and this whole experience surprised me greatly. They should maybe consider using a different carrier in the future.

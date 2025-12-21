@@ -67,7 +67,7 @@ function createHeadingComponent(level: number) {
 
 		const Heading = `h${level}` as keyof React.JSX.IntrinsicElements;
 		return (
-			<Heading id={slug} className="relative w-fit">
+			<Heading id={slug} className="relative w-fit text-balance">
 				<a
 					href={`#${slug}`}
 					className="absolute ml-[-1em] h-full w-[calc(100%+1em)] no-underline before:inline-block before:scale-90 before:text-zinc-400 before:opacity-0 before:transition before:content-['#'] hover:before:scale-100 hover:before:opacity-100 dark:before:text-zinc-600"
