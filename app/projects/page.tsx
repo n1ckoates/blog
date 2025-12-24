@@ -111,7 +111,7 @@ export default function Page() {
 				<Orb className="top-40 right-86 bg-cyan-400/30 dark:bg-cyan-600/30" />
 			</OrbContainer>
 
-			<h2 className="mb-4 text-3xl font-extrabold md:text-4xl">Projects</h2>
+			<h1 className="mb-4 text-3xl font-extrabold md:text-4xl">Projects</h1>
 
 			<p className="mb-4 max-w-2xl text-lg md:text-xl">
 				Here&apos;s a few of the projects I&apos;ve worked on. To see everything
@@ -156,7 +156,7 @@ async function ProjectCard([name, data]: [string, Project]) {
 				</div>
 			)}
 
-			<h1 className="px-6 pt-6 text-2xl font-bold">{name}</h1>
+			<h2 className="px-6 pt-6 text-2xl font-bold">{name}</h2>
 			<p className="prose dark:prose-invert grow px-6">{data.description}</p>
 
 			{data.links && (

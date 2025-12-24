@@ -36,7 +36,7 @@ export default function Search(props: {
 	return (
 		<>
 			<div className="mb-4 flex flex-col justify-between gap-2 lg:flex-row">
-				<h2 className="text-3xl font-extrabold md:text-4xl">{props.title}</h2>
+				<h1 className="text-3xl font-extrabold md:text-4xl">{props.title}</h1>
 
 				<div className="relative w-full lg:w-2/3">
 					<TextInput
@@ -87,19 +87,19 @@ export default function Search(props: {
 								</time>
 								{post.readingTime} min read
 							</div>
-							<div className="w-full lg:w-2/3">
-								<h1
+							<hgroup className="w-full lg:w-2/3">
+								<h2
 									className="mb-1 text-xl font-bold md:text-2xl"
 									style={{
 										viewTransitionName: `${post.slug}-title`,
 									}}
 								>
 									{post.title}
-								</h1>
-								<h2 className="text-lg text-zinc-300 md:text-xl">
-									{post.summary}
 								</h2>
-							</div>
+								<p className="text-lg text-zinc-300 md:text-xl">
+									{post.summary}
+								</p>
+							</hgroup>
 						</div>
 					</Link>
 				))}

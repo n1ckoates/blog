@@ -17,6 +17,8 @@ function S({ children }: { children: React.ReactNode }) {
 export default function Page() {
 	return (
 		<>
+			<h1 className="sr-only">Nick Oates - Software Engineer</h1>
+		
 			<OrbContainer>
 				<Orb className="right-0 bg-blue-400/30 dark:bg-blue-600/30" />
 				<Orb className="top-28 right-36 bg-purple-400/30 dark:bg-purple-600/30" />

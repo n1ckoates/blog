@@ -13,9 +13,9 @@ export default async function NotFound() {
 
 	return (
 		<div className="text-lg md:text-xl">
-			<h2 className="mb-4 bg-linear-to-b from-red-600 to-red-700 bg-clip-text text-3xl font-extrabold text-transparent md:text-4xl dark:from-red-300 dark:to-red-400">
+			<h1 className="mb-4 bg-linear-to-b from-red-600 to-red-700 bg-clip-text text-3xl font-extrabold text-transparent md:text-4xl dark:from-red-300 dark:to-red-400">
 				404: That page doesn&apos;t exist
-			</h2>
+			</h1>
 
 			<p>
 				To make up for it, here&apos;s a cat photo{" "}

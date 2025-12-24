@@ -12,7 +12,7 @@ export default function mergeMetadata({
 	imageAlt?: string;
 } = {}): Metadata {
 	return {
-		title: title ? `${title} • Nick Oates` : "Nick Oates",
+		title: title ? `${title} • Nick Oates` : "Nick Oates — Software Engineer",
 		openGraph: {
 			siteName: "Nick Oates",
 			title: title ?? "Nick Oates",
