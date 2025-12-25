@@ -5,6 +5,7 @@ import me from "../../public/images/nick-oates.webp";
 import { Orb } from "@/components/Orb";
 import { OrbContainer } from "@/components/Orb";
 import { S, CustomLink } from "@/components/typography";
+import { ViewTransition } from "react";
 
 export const metadata = mergeMetadata({
     title: "About",
@@ -25,9 +26,11 @@ export default function About() {
                 <figcaption className="text-xs!">Photo of me by <CustomLink href="https://ajdimke.com" className="not-prose underline hover:text-orange-500">AJ Dimke</CustomLink></figcaption>
             </figure>
 
-            <p style={{ viewTransitionName: "about-lead" }}>
-                Hey, I&apos;m <S>Nick Oates</S>, a software engineer with a passion for designing and building cool things on the web. I love obsessing over the small details of my work, and I&apos;m always looking for new things to learn and ways to improve my skills.
-            </p>
+            <ViewTransition name="about-lead">
+                <p>
+                    Hey, I&apos;m <S>Nick Oates</S>, a software engineer with a passion for designing and building cool things on the web. I love obsessing over the small details of my work, and I&apos;m always looking for new things to learn and ways to improve my skills.
+                </p>
+            </ViewTransition>
 
             <p>
                 I&apos;m a strong believer in internet freedom & privacy, and I believe those values are essential to a healthy, open web. I&apos;m also a big fan of open-source software, reflected in much of <CustomLink href="/projects">my work</CustomLink>.

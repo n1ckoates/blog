@@ -4,9 +4,9 @@ import NewsletterForm from "@/components/NewsletterForm";
 import { OrbContainer, Orb } from "@/components/Orb";
 import allPosts from "@/lib/posts";
 import Image from "next/image";
-import { Link as TransitionLink } from "next-view-transitions";
 import { S } from "@/components/typography";
 import { Prose } from "@/components/Prose";
+import { ViewTransition } from "react";
 
 export default function Page() {
 	return (
@@ -18,9 +18,11 @@ export default function Page() {
 				<Orb className="top-28 right-36 bg-purple-400/30 dark:bg-purple-600/30" />
 			</OrbContainer>
 
-			<Prose as="p" style={{ viewTransitionName: "about-lead" }}>
-				Hey, I&apos;m <S>Nick Oates</S>, a software engineer with a passion for designing and building cool things on the web. I love obsessing over the small details of my work, and I&apos;m always looking for new things to learn and ways to improve my skills. <TransitionLink href="/about" className="whitespace-nowrap">Read more&hellip;</TransitionLink>
-			</Prose>
+			<ViewTransition name="about-lead">
+				<Prose as="p">
+					Hey, I&apos;m <S>Nick Oates</S>, a software engineer with a passion for designing and building cool things on the web. I love obsessing over the small details of my work, and I&apos;m always looking for new things to learn and ways to improve my skills. <Link href="/about" className="whitespace-nowrap">Read more&hellip;</Link>
+				</Prose>
+			</ViewTransition>
 
 			<div className="my-4 flex items-center justify-between">
 				<h2 className="text-2xl font-bold">Blog Posts</h2>
@@ -61,7 +63,7 @@ function PostGrid() {
 	return (
 		<div className="mx-auto grid grid-cols-2 gap-4 md:grid-cols-3">
 			{posts.map((post) => (
-				<TransitionLink
+				<Link
 					href={"/blog/" + post._meta.path}
 					className="group relative h-60 overflow-hidden rounded-xl first:col-span-2 only:col-span-full last:nth-4:col-span-2 max-md:last:even:col-span-full md:h-80 md:last:nth-3:col-span-full"
 					aria-label={post.title}
@@ -78,27 +80,27 @@ function PostGrid() {
 						blurDataURL={post.blurDataURL}
 					/>
 
-					<div className="absolute w-full bg-linear-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/50">
-						<p
-							className="text-zinc-800 drop-shadow-xs dark:text-zinc-200"
-							style={{
-								viewTransitionName: `${post._meta.path}-time`,
-							}}
-						>
-							{post.date.toLocaleDateString(undefined, {
-								dateStyle: "long",
-							})}{" "}
-							&bull; {post.readingTime} min read
-						</p>
 
-						<h1
-							className="max-w-lg text-2xl font-bold text-balance drop-shadow-xs md:group-first:text-3xl"
-							style={{
-								viewTransitionName: `${post._meta.path}-title`,
-							}}
-						>
-							{post.title}
-						</h1>
+					<div className="absolute w-full bg-linear-to-b from-zinc-50/70 via-zinc-50/50 via-75% p-4 dark:from-zinc-950/70 dark:via-zinc-950/50">
+						<ViewTransition name={`${post._meta.path}-grid-time`}>
+							<p
+								className="text-zinc-800 drop-shadow-xs dark:text-zinc-200"
+							>
+								{post.date.toLocaleDateString(undefined, {
+									dateStyle: "long",
+								})}{" "}
+								&bull; {post.readingTime} min read
+							</p>
+						</ViewTransition>
+
+
+						<ViewTransition name={`${post._meta.path}-grid-title`}>
+							<h1
+								className="max-w-lg text-2xl font-bold text-balance drop-shadow-xs md:group-first:text-3xl"
+							>
+								{post.title}
+							</h1>
+						</ViewTransition>
 					</div>
 
 					{/* This is a <div> instead of a <Link> because the card itself is a Link */}
@@ -108,7 +110,7 @@ function PostGrid() {
 					>
 						Read post
 					</div>
-				</TransitionLink>
+				</Link>
 			))}
 		</div>
 	);
