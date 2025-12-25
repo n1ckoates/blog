@@ -5,43 +5,22 @@ import { OrbContainer, Orb } from "@/components/Orb";
 import allPosts from "@/lib/posts";
 import Image from "next/image";
 import { Link as TransitionLink } from "next-view-transitions";
-
-function S({ children }: { children: React.ReactNode }) {
-	return (
-		<strong className="bg-linear-to-r from-purple-500 to-blue-500 bg-clip-text font-semibold text-transparent print:text-inherit">
-			{children}
-		</strong>
-	);
-}
+import { S } from "@/components/typography";
+import { Prose } from "@/components/Prose";
 
 export default function Page() {
 	return (
 		<>
 			<h1 className="sr-only">Nick Oates - Software Engineer</h1>
-		
+
 			<OrbContainer>
 				<Orb className="right-0 bg-blue-400/30 dark:bg-blue-600/30" />
 				<Orb className="top-28 right-36 bg-purple-400/30 dark:bg-purple-600/30" />
 			</OrbContainer>
 
-			<div className="max-w-3xl space-y-4 text-xl md:text-2xl">
-				<p>
-					<S>Hi! I&apos;m Nick</S>, a web developer who enjoys designing and building
-					cool things online.
-				</p>
-				<p>
-					I&apos;m also a big fan of{" "}
-					<a href="https://en.wikipedia.org/wiki/Internet_privacy">
-						<S>internet privacy</S>
-					</a>{" "}
-					and{" "}
-					<a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">
-						<S>open-source software</S>
-					</a>
-					, and I believe that those values are essential to a healthy web.
-					Thanks for stopping by my website!
-				</p>
-			</div>
+			<Prose as="p" style={{ viewTransitionName: "about-lead" }}>
+				Hey, I&apos;m <S>Nick Oates</S>, a software engineer with a passion for designing and building cool things on the web. I love obsessing over the small details of my work, and I&apos;m always looking for new things to learn and ways to improve my skills. <TransitionLink href="/about" className="whitespace-nowrap">Read more&hellip;</TransitionLink>
+			</Prose>
 
 			<div className="my-4 flex items-center justify-between">
 				<h2 className="text-2xl font-bold">Blog Posts</h2>

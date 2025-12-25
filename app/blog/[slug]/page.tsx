@@ -1,8 +1,9 @@
 import mergeMetadata from "@/lib/mergeMetadata";
 import { notFound } from "next/navigation";
-import CustomMDX from "@/components/CustomMDX";
+import { CustomMDX } from "@/components/typography";
 import allPosts from "@/lib/posts";
 import "./code.css";
+import { Prose } from "@/components/Prose";
 
 export const dynamicParams = false; // Blog posts are static, don't attempt to generate dynamic routes
 
@@ -14,7 +15,7 @@ export default async function Post(props: Props) {
 	if (!post) notFound();
 
 	return (
-		<article className="prose prose-lg prose-zinc dark:prose-invert md:prose-xl prose-h1:tracking-tight prose-a:text-blue-600 prose-a:no-underline prose-a:hover:underline prose-pre:bg-zinc-100 dark:prose-a:text-blue-400 dark:prose-pre:bg-zinc-900 mx-auto lg:mx-0 prose-figcaption:text-center">
+		<Prose>
 			<span
 				style={{
 					viewTransitionName: `${post._meta.path}-time`,
@@ -27,7 +28,6 @@ export default async function Post(props: Props) {
 			</span>
 
 			<h1
-				className="text-balance"
 				style={{
 					viewTransitionName: `${post._meta.path}-title`,
 				}}
@@ -35,7 +35,7 @@ export default async function Post(props: Props) {
 				{post.title}
 			</h1>
 			<CustomMDX code={post.mdx} />
-		</article>
+		</Prose>
 	);
 }
 

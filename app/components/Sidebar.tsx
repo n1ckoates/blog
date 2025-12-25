@@ -9,7 +9,7 @@ export default function Sidebar() {
 			<div className="sticky top-20 flex flex-col">
 				<div className="flex flex-row items-center">
 					<Link
-						className="min-w-[14rem] align-middle text-4xl font-bold transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+						className="min-w-56 align-middle text-4xl font-bold transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
 						href="/"
 					>
 						Nick Oates

@@ -9,7 +9,7 @@ import { highlight } from "sugar-high";
 import { Tweet } from "react-tweet";
 import { ImageProps } from "next/image";
 
-async function CustomImage(props: ImageProps & { src: string }) {
+export async function CustomImage(props: ImageProps & { src: string }) {
 	const sharpImage = sharp(path.join(process.cwd(), "public", props.src));
 	const { width, height } = await sharpImage.metadata();
 
@@ -26,13 +26,12 @@ async function CustomImage(props: ImageProps & { src: string }) {
 			blurDataURL={blurDataURL}
 			width={width}
 			height={height}
-			className="rounded-lg drop-shadow-xs"
 			sizes="(max-width: 896px) 100vw, 896px"
 		/>
 	);
 }
 
-function CustomLink(props: { href: string; children: string}) {
+export function CustomLink(props: { href: string; children: React.ReactNode; className?: string }) {
 	if (props.href.startsWith("/")) return <Link {...props} />;
 	if (props.href.startsWith("#")) return <a {...props} />;
 	return <a target="_blank" {...props} />;
@@ -48,7 +47,7 @@ const CustomNewsletterForm = ({
 	</div>
 );
 
-function CustomCode({ children, ...props }: React.HTMLAttributes<HTMLElement> & { children: string }) {
+export function CustomCode({ children, ...props }: React.HTMLAttributes<HTMLElement> & { children: string }) {
 	const html = highlight(children);
 	return <code {...props} dangerouslySetInnerHTML={{ __html: html }} />;
 }
@@ -67,7 +66,7 @@ function createHeadingComponent(level: number) {
 
 		const Heading = `h${level}` as keyof React.JSX.IntrinsicElements;
 		return (
-			<Heading id={slug} className="relative w-fit text-balance">
+			<Heading id={slug} className="relative w-fit">
 				<a
 					href={`#${slug}`}
 					className="absolute ml-[-1em] h-full w-[calc(100%+1em)] no-underline before:inline-block before:scale-90 before:text-zinc-400 before:opacity-0 before:transition before:content-['#'] hover:before:scale-100 hover:before:opacity-100 dark:before:text-zinc-600"
@@ -79,7 +78,7 @@ function createHeadingComponent(level: number) {
 	};
 }
 
-function CustomTweet({ id }: { id: string }) {
+export function CustomTweet({ id }: { id: string }) {
 	return (
 		<div className="not-prose flex justify-center">
 			<Tweet id={id} />
@@ -87,7 +86,15 @@ function CustomTweet({ id }: { id: string }) {
 	);
 }
 
-export default function CustomMDX({ code }: { code: string }) {
+export async function S({ children }: { children: React.ReactNode }) {
+	return (
+		<strong className="bg-linear-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text font-semibold text-transparent print:text-inherit">
+			{children}
+		</strong>
+	);
+}
+
+export function CustomMDX({ code }: { code: string }) {
 	return (
 		<MDXContent
 			code={code}
