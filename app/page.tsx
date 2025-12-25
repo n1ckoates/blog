@@ -25,7 +25,9 @@ export default function Page() {
 			</ViewTransition>
 
 			<div className="my-4 flex items-center justify-between">
-				<h2 className="text-2xl font-bold">Blog Posts</h2>
+				<ViewTransition name="blog-posts-header">
+					<h2 className="text-2xl font-bold">Blog Posts</h2>
+				</ViewTransition>
 
 				<Link
 					href="/blog"

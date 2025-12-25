@@ -20,8 +20,7 @@ type PartialBlogPost = {
 	blurDataURL: string;
 };
 
-export default function Search(props: {
-	title: string;
+export function BlogClient(props: {
 	posts: PartialBlogPost[];
 }) {
 	const [queryText, setQueryText] = useState("");
@@ -37,7 +36,9 @@ export default function Search(props: {
 	return (
 		<>
 			<div className="mb-4 flex flex-col justify-between gap-2 lg:flex-row">
-				<h1 className="text-3xl font-extrabold md:text-4xl">{props.title}</h1>
+				<ViewTransition name="blog-posts-header">
+					<h1 className="text-3xl font-extrabold md:text-4xl">Blog Posts</h1>
+				</ViewTransition>
 
 				<div className="relative w-full lg:w-2/3">
 					<TextInput

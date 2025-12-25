@@ -1,4 +1,4 @@
-import Search from "./Search";
+import { BlogClient } from "./page-client"
 import allPosts from "@/lib/posts";
 import mergeMetadata from "@/lib/mergeMetadata";
 
@@ -17,5 +17,5 @@ export default function Blog() {
 		blurDataURL: post.blurDataURL,
 	}));
 
-	return <Search title="Blog Posts" posts={posts} />;
+	return <BlogClient posts={posts} />;
 }
