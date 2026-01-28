@@ -1,5 +1,6 @@
 import allPosts from "@/lib/posts";
 import RSS from "rss";
+import { origin } from "@/lib/origin";
 
 export const dynamic = "force-static";
 
