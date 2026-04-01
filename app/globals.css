@@ -11,6 +11,22 @@
 	::file-selector-button {
 		border-color: var(--color-gray-200, currentColor);
 	}
+
+	:root {
+		--win-bg: #008080;
+		--win-silver: #d4d0c8;
+		--win-dark: #0a246a;
+		--win-title-start: #0a246a;
+		--win-title-end: #a6caf0;
+		--win-border-light: #ffffff;
+		--win-border-mid: #808080;
+		--win-border-dark: #404040;
+		--win-button-face: #d4d0c8;
+		--win-text: #000000;
+		--win-window-bg: #ffffff;
+		--win-selected: #0a246a;
+		--win-selected-text: #ffffff;
+	}
 }
 
 @utility bg-grid {
@@ -19,4 +35,85 @@
 		linear-gradient(to right, currentColor 1px, transparent 1px),
 		linear-gradient(to bottom, currentColor 1px, transparent 1px);
 	background-attachment: fixed;
+}
+
+/* Win2000 beveled border utilities */
+@utility win-raised {
+	border-top: 2px solid #ffffff;
+	border-left: 2px solid #ffffff;
+	border-right: 2px solid #404040;
+	border-bottom: 2px solid #404040;
+	box-shadow: inset 1px 1px 0px #dfdfdf, inset -1px -1px 0px #808080;
+}
+
+@utility win-sunken {
+	border-top: 2px solid #404040;
+	border-left: 2px solid #404040;
+	border-right: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
+	box-shadow: inset 1px 1px 0px #808080, inset -1px -1px 0px #dfdfdf;
+}
+
+@utility win-button {
+	background-color: #d4d0c8;
+	border-top: 2px solid #ffffff;
+	border-left: 2px solid #ffffff;
+	border-right: 2px solid #404040;
+	border-bottom: 2px solid #404040;
+	box-shadow: inset 1px 1px 0px #dfdfdf, inset -1px -1px 0px #808080;
+	color: #000000;
+	padding: 2px 8px;
+	cursor: default;
+	font-family: "MS Sans Serif", "Tahoma", sans-serif;
+	font-size: 11px;
+	user-select: none;
+}
+
+@utility win-button-active {
+	border-top: 2px solid #404040;
+	border-left: 2px solid #404040;
+	border-right: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
+	box-shadow: inset 1px 1px 0px #808080, inset -1px -1px 0px #dfdfdf;
+	padding: 3px 7px 1px 9px;
+}
+
+@utility win-input {
+	background-color: #ffffff;
+	border-top: 2px solid #404040;
+	border-left: 2px solid #404040;
+	border-right: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
+	box-shadow: inset 1px 1px 0px #808080;
+	color: #000000;
+	font-family: "MS Sans Serif", "Tahoma", sans-serif;
+	font-size: 11px;
+	padding: 2px 4px;
+}
+
+@utility win-titlebar {
+	background: linear-gradient(to right, #0a246a, #a6caf0);
+	color: #ffffff;
+	font-family: "MS Sans Serif", "Tahoma", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 3px 5px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	user-select: none;
+}
+
+@utility win-window {
+	background-color: #d4d0c8;
+	border-top: 2px solid #ffffff;
+	border-left: 2px solid #ffffff;
+	border-right: 2px solid #404040;
+	border-bottom: 2px solid #404040;
+	box-shadow: inset 1px 1px 0px #dfdfdf, inset -1px -1px 0px #808080;
+}
+
+@utility win-font {
+	font-family: "MS Sans Serif", "Tahoma", "Arial", sans-serif;
+	font-size: 11px;
 }

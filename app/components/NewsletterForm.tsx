@@ -1,10 +1,8 @@
 "use client";
 
 import { IconLoader2, IconMail } from "@tabler/icons-react";
-import clsx from "clsx";
 import { subscribe, type State } from "@/lib/actions";
 import { useActionState } from "react";
-import TextInput from "@/components/TextInput";
 
 export default function NewsletterForm({
 	title = "Subscribe to my newsletter",
@@ -19,50 +17,83 @@ export default function NewsletterForm({
 		message: title,
 	});
 
-	const icon = isPending ? (
-		<IconLoader2 className="animate-spin" />
-	) : (
-		<IconMail />
-	);
-
 	return (
-		<div className="mx-auto max-w-lg rounded-3xl border border-zinc-400/50 bg-neutral-100/50 p-4 backdrop-blur-sm md:text-lg dark:border-zinc-600/50 dark:bg-neutral-900/50 print:hidden">
-			<span
-				className={clsx(
-					{
-						"text-red-600 dark:text-red-400": status === "error",
-					},
-					"font-semibold",
-				)}
+		<div className="print:hidden">
+			<p
+				style={{
+					fontFamily: '"MS Sans Serif", Tahoma, Arial, sans-serif',
+					fontSize: "11px",
+					fontWeight: "bold",
+					color: status === "error" ? "#cc0000" : "#000",
+					marginBottom: "6px",
+				}}
 			>
 				{message}
-			</span>
+			</p>
 
-			<form
-				className={clsx("mt-2 flex w-full flex-wrap justify-between gap-2", {
-					hidden: status === "success",
-				})}
-				action={formAction}
-			>
-				<TextInput
-					className="grow rounded-xl"
-					type="email"
-					id="email"
-					name="email"
-					placeholder="Enter your email..."
-					required
-					aria-label="Email address"
-					autoComplete="email"
-				/>
-
-				<button
-					className="box-border flex grow cursor-default flex-row items-center justify-center gap-2 rounded-xl border-t border-white/30 bg-linear-to-b from-teal-600 to-teal-800 px-4 py-2 font-semibold text-white drop-shadow-xs active:opacity-70 enabled:hover:from-teal-500 enabled:hover:to-teal-700 disabled:opacity-70 dark:from-teal-700 dark:to-teal-900 dark:enabled:hover:from-teal-600 dark:enabled:hover:to-teal-800"
-					disabled={isPending}
-					type="submit"
+			{status !== "success" && (
+				<form
+					action={formAction}
+					style={{
+						display: "flex",
+						flexWrap: "wrap",
+						gap: "4px",
+					}}
 				>
-					{icon} Subscribe
-				</button>
-			</form>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						placeholder="Enter your email address..."
+						required
+						aria-label="Email address"
+						autoComplete="email"
+						style={{
+							flex: "1 1 180px",
+							background: "#fff",
+							borderTop: "2px solid #404040",
+							borderLeft: "2px solid #404040",
+							borderRight: "2px solid #ffffff",
+							borderBottom: "2px solid #ffffff",
+							boxShadow: "inset 1px 1px 0 #808080",
+							padding: "2px 6px",
+							fontFamily: '"MS Sans Serif", Tahoma, Arial, sans-serif',
+							fontSize: "11px",
+							color: "#000",
+							outline: "none",
+						}}
+					/>
+					<button
+						type="submit"
+						disabled={isPending}
+						style={{
+							display: "flex",
+							alignItems: "center",
+							gap: "4px",
+							padding: "2px 10px",
+							background: "#d4d0c8",
+							borderTop: "2px solid #ffffff",
+							borderLeft: "2px solid #ffffff",
+							borderRight: "2px solid #404040",
+							borderBottom: "2px solid #404040",
+							boxShadow: "inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080",
+							fontFamily: '"MS Sans Serif", Tahoma, Arial, sans-serif',
+							fontSize: "11px",
+							color: "#000",
+							cursor: "default",
+							opacity: isPending ? 0.6 : 1,
+							whiteSpace: "nowrap",
+						}}
+					>
+						{isPending ? (
+							<IconLoader2 size={14} className="animate-spin" aria-hidden />
+						) : (
+							<IconMail size={14} aria-hidden />
+						)}
+						Subscribe
+					</button>
+				</form>
+			)}
 		</div>
 	);
 }

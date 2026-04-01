@@ -1,5 +1,4 @@
 import "./globals.css";
-import { Mona_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { Analytics } from "@vercel/analytics/react";
@@ -11,13 +10,9 @@ export const metadata = mergeMetadata();
 
 export const viewport = {
 	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "#fafafa" },
-		{ media: "(prefers-color-scheme: dark)", color: "#09090b" },
-		{ color: "#2563eb" },
+		{ color: "#008080" },
 	],
 };
-
-const monaSans = Mona_Sans({ subsets: ["latin"] });
 
 export default function RootLayout({
 	children,
@@ -28,16 +23,29 @@ export default function RootLayout({
 		<html
 			lang="en"
 			suppressHydrationWarning
-			className={`${monaSans.className} scroll-smooth [scrollbar-gutter:stable]`}
+			className="scroll-smooth [scrollbar-gutter:stable]"
 		>
-			<body className="max-w-7xl gap-8 bg-zinc-50 px-6 pb-8 text-black lg:mx-auto lg:flex lg:flex-row lg:py-20 2xl:px-0 dark:bg-zinc-950 dark:text-white">
-				<div className="bg-grid fixed top-0 left-0 -z-50 size-full [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_50%)] text-zinc-200 dark:text-zinc-900" />
+			<body
+				className="max-w-7xl gap-8 px-6 pb-8 text-black lg:mx-auto lg:flex lg:flex-row lg:py-8 2xl:px-0"
+				style={{
+					background: "#008080",
+					fontFamily: '"MS Sans Serif", Tahoma, Arial, sans-serif',
+					fontSize: "11px",
+				}}
+			>
+				{/* Tiled desktop wallpaper pattern */}
+				<div
+					className="fixed top-0 left-0 -z-50 size-full"
+					style={{
+						background: "#008080",
+						backgroundImage: `url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='2' height='2' fill='%23007070' opacity='0.5'/%3E%3C/svg%3E")`,
+						backgroundSize: "4px 4px",
+					}}
+				/>
 
 				<ThemeProvider attribute="class" disableTransitionOnChange>
 					<Navbar />
-
 					<Sidebar />
-
 					<main id="main" className="mt-16 grow lg:mt-0">
 						{children}
 					</main>
