@@ -30,7 +30,7 @@ const posts = defineCollection({
 });
 
 export default defineConfig({
-	collections: [posts],
+	content: [posts],
 });
 
 function getReadingTime(content: string) {
