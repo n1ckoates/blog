@@ -19,8 +19,8 @@ export async function subscribe(
 		};
 	}
 
-	const email = formData.get("email") as string;
-	if (!email) {
+	const email = formData.get("email");
+	if (!email || typeof email !== "string") {
 		return { status: "error", message: "Please enter an email address." };
 	}
 
