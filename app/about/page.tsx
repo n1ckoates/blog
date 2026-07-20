@@ -41,7 +41,7 @@ export default function About() {
             </p>
 
             <p>
-                You can follow me on <CustomLink href="https://x.com/nickoates_">Twitter</CustomLink> or check out my code on <CustomLink href="https://github.com/n1ckoates">GitHub</CustomLink> to see what I&apos;m working on, or if you&apos;d like to get in touch, send me an email at <CustomLink href="mailto:nick@nickoates.com">nick@nickoates.com</CustomLink>.
+                You can follow me on <CustomLink href="https://x.com/nickoates_">Twitter</CustomLink> or check out my code on <CustomLink href="https://github.com/n1ckoates">GitHub</CustomLink> to see what I&apos;m working on, or if you&apos;d like to get in touch, send me an email at <CustomLink href="mailto:hey@nickoates.com">hey@nickoates.com</CustomLink>.
             </p>
 
         </Prose>

@@ -17,7 +17,7 @@ const socials = [
 	{
 		Icon: IconMailFilled,
 		label: "Email Nick Oates",
-		href: "mailto:nick@nickoates.com",
+		href: "mailto:hey@nickoates.com",
 		color: "hover:text-red-600 hover:dark:text-red-400",
 	},
 ];
