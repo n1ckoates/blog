@@ -6,12 +6,11 @@ export default function Sidebar() {
 	return (
 		<nav className="z-50 hidden lg:block">
 			<div className="sticky top-14 flex flex-col">
-				<Link
-					className="w-fit text-2xl font-bold tracking-tight transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
-					href="/"
+				<p
+					className="w-fit text-2xl font-bold tracking-tight"
 				>
 					Nick Oates
-				</Link>
+				</p>
 				<p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
 					Software Engineer
 				</p>
