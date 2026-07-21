@@ -3,10 +3,11 @@ import getBlurDataURL from "@/lib/getBlurDataURL";
 import mergeMetadata from "@/lib/mergeMetadata";
 import { IconExternalLink } from "@tabler/icons-react";
 import Image from "next/image";
+import clsx from "clsx";
 
 export const metadata = mergeMetadata({
 	title: "Projects",
-	description: "Here's a few of the projects I've worked on.",
+	description: "A selection of projects I've designed and built.",
 });
 
 interface Project {
@@ -23,7 +24,7 @@ const projects: Record<string, Project> = {
 		coverAlt: "Quoter's logo, a speech bubble with three dots inside.",
 		noCrop: true,
 		description:
-			"Quote book for Discord servers, built with Discord.js, MongoDB, and Typescript. The bot allows users to add, remove, edit, and search for quotes. You can also add quotes from Discord messages, or generate images from them. I created the bot, which has grown to over 2,000 servers and 200,000+ users.",
+			"Quote book for Discord servers, built with Discord.js, MongoDB, and TypeScript. The bot allows users to add, remove, edit, and search for quotes. You can also add quotes from Discord messages, or generate images from them. I created the bot, which has grown to over 2,000 servers and 200,000+ users.",
 		links: {
 			Website: "https://quoter.cc",
 			"Source Code": "https://github.com/quoter/quoter",
@@ -67,7 +68,7 @@ const projects: Record<string, Project> = {
 		cover: "blog.webp",
 		coverAlt: "Home page of nickoates.com",
 		description:
-			"The site you're on! I built my blog with Next.js, Tailwind CSS, Typescript, and MDX. Hosted on Vercel.",
+			"The site you're on! I built my blog with Next.js, Tailwind CSS, TypeScript, and MDX. Hosted on Vercel.",
 		links: {
 			"Source Code": "https://github.com/n1ckoates/blog",
 		},
@@ -111,21 +112,23 @@ export default function Page() {
 				<Orb className="top-40 right-86 bg-cyan-400/30 dark:bg-cyan-600/30" />
 			</OrbContainer>
 
-			<h1 className="mb-4 text-3xl font-extrabold md:text-4xl">Projects</h1>
+			<h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+				Projects
+			</h1>
 
-			<p className="mb-4 max-w-2xl text-lg md:text-xl">
-				Here&apos;s a few of the projects I&apos;ve worked on. To see everything
+			<p className="mt-3 mb-8 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-300">
+				Here are a few projects I&apos;ve designed and built. To see everything
 				I&apos;ve contributed to, check out{" "}
 				<a
 					href="https://github.com/n1ckoates"
-					className="font-semibold text-blue-600 hover:underline dark:text-blue-400"
+					className="font-medium text-blue-600 underline decoration-blue-600/30 underline-offset-4 hover:decoration-blue-600 dark:text-blue-400 dark:decoration-blue-400/30 dark:hover:decoration-blue-400"
 				>
 					my GitHub profile
 				</a>
 				.
 			</p>
 
-			<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+			<div className="divide-y divide-zinc-200 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50/60 backdrop-blur-sm dark:divide-zinc-800 dark:border-zinc-800 dark:bg-zinc-950/50">
 				{Object.entries(projects).map(ProjectCard)}
 			</div>
 
@@ -138,41 +141,51 @@ export default function Page() {
 
 async function ProjectCard([name, data]: [string, Project]) {
 	return (
-		<div
-			className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-neutral-100/30 backdrop-blur-sm transition-transform hover:scale-[1.01] dark:border-zinc-800 dark:bg-neutral-900/30"
+		<article
+			className={clsx(
+				"grid gap-5 p-4 transition-colors hover:bg-white/60 sm:p-5 dark:hover:bg-zinc-900/50",
+				data.cover && "sm:grid-cols-[10rem_minmax(0,1fr)]",
+			)}
 			key={name}
 		>
 			{data.cover && data.coverAlt && (
-				<div className="relative h-48">
+				<div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
 					<Image
 						alt={data.coverAlt}
 						src={"/images/projects/" + data.cover}
 						fill
 						className={data.noCrop ? "object-contain" : "object-cover"}
-						sizes="(max-width:768px) 100vw, 470px"
+						sizes="(max-width:640px) 100vw, 160px"
 						placeholder="blur"
 						blurDataURL={await getBlurDataURL("/images/projects/" + data.cover)}
 					/>
 				</div>
 			)}
 
-			<h2 className="px-6 pt-6 text-2xl font-bold">{name}</h2>
-			<p className="prose dark:prose-invert grow px-6">{data.description}</p>
+			<div className="min-w-0">
+				<div className="flex flex-wrap items-start justify-between gap-2">
+					<h2 className="text-lg font-semibold tracking-tight">{name}</h2>
 
-			{data.links && (
-				<div className="mt-4 flex flex-row gap-8 px-6 pb-6">
-					{Object.entries(data.links).map(([title, href]) => (
-						<a
-							key={href}
-							href={href}
-							className="flex flex-row items-center gap-1 font-semibold text-blue-600 hover:underline dark:text-blue-400"
-							target="_blank"
-						>
-							{title} <IconExternalLink size={20} />
-						</a>
-					))}
+					{data.links && (
+						<div className="flex flex-wrap gap-x-4 gap-y-1">
+							{Object.entries(data.links).map(([title, href]) => (
+								<a
+									key={href}
+									href={href}
+									className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+									target="_blank"
+								>
+									{title} <IconExternalLink size={14} aria-hidden />
+								</a>
+							))}
+						</div>
+					)}
 				</div>
-			)}
-		</div>
+
+				<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+					{data.description}
+				</p>
+			</div>
+		</article>
 	);
 }

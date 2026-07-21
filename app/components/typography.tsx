@@ -1,4 +1,3 @@
-import NewsletterForm from "@/components/NewsletterForm";
 import { MDXContent } from "@content-collections/mdx/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,23 +30,20 @@ export async function CustomImage(props: ImageProps & { src: string }) {
 	);
 }
 
-export function CustomLink(props: { href: string; children: React.ReactNode; className?: string }) {
+export function CustomLink(props: {
+	href: string;
+	children: React.ReactNode;
+	className?: string;
+}) {
 	if (props.href.startsWith("/")) return <Link {...props} />;
 	if (props.href.startsWith("#")) return <a {...props} />;
 	return <a target="_blank" {...props} />;
 }
 
-const CustomNewsletterForm = ({
-	title = "Like what you're reading?",
-}: {
-	title?: string;
-}) => (
-	<div className="not-prose text-base text-black dark:text-white">
-		<NewsletterForm title={title} />
-	</div>
-);
-
-export function CustomCode({ children, ...props }: React.HTMLAttributes<HTMLElement> & { children: string }) {
+export function CustomCode({
+	children,
+	...props
+}: React.HTMLAttributes<HTMLElement> & { children: string }) {
 	const html = highlight(children);
 	return <code {...props} dangerouslySetInnerHTML={{ __html: html }} />;
 }
@@ -86,14 +82,6 @@ export function CustomTweet({ id }: { id: string }) {
 	);
 }
 
-export async function S({ children }: { children: React.ReactNode }) {
-	return (
-		<strong className="bg-linear-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text font-semibold text-transparent print:text-inherit">
-			{children}
-		</strong>
-	);
-}
-
 export function CustomMDX({ code }: { code: string }) {
 	return (
 		<MDXContent
@@ -108,7 +96,6 @@ export function CustomMDX({ code }: { code: string }) {
 				h4: createHeadingComponent(4),
 				h5: createHeadingComponent(5),
 				h6: createHeadingComponent(6),
-				NewsletterForm: CustomNewsletterForm,
 				Tweet: CustomTweet,
 			}}
 		/>

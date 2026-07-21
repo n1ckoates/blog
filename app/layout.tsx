@@ -5,7 +5,6 @@ import Sidebar from "@/components/Sidebar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import mergeMetadata from "@/lib/mergeMetadata";
-import { ThemeProvider } from "next-themes";
 
 export const metadata = mergeMetadata();
 
@@ -13,7 +12,6 @@ export const viewport = {
 	themeColor: [
 		{ media: "(prefers-color-scheme: light)", color: "#fafafa" },
 		{ media: "(prefers-color-scheme: dark)", color: "#09090b" },
-		{ color: "#2563eb" },
 	],
 };
 
@@ -27,21 +25,18 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			suppressHydrationWarning
-			className={`${monaSans.className} scroll-smooth [scrollbar-gutter:stable]`}
+			className={`${monaSans.className} scrollbar-gutter-stable scroll-smooth`}
 		>
-			<body className="max-w-7xl gap-8 bg-zinc-50 px-6 pb-8 text-black lg:mx-auto lg:flex lg:flex-row lg:py-20 2xl:px-0 dark:bg-zinc-950 dark:text-white">
-				<div className="bg-grid fixed top-0 left-0 -z-50 size-full [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_50%)] text-zinc-200 dark:text-zinc-900" />
+			<body className="min-h-screen bg-zinc-50 px-5 pb-12 text-zinc-950 antialiased lg:mx-auto lg:grid lg:max-w-6xl lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-12 lg:px-8 lg:py-14 xl:px-0 dark:bg-zinc-950 dark:text-zinc-50">
+				<div className="bg-grid fixed top-0 left-0 -z-50 size-full mask-[radial-gradient(ellipse_at_top_left,black,transparent_50%)] text-zinc-100/80 dark:text-zinc-900/50" />
 
-				<ThemeProvider attribute="class" disableTransitionOnChange>
-					<Navbar />
+				<Navbar />
 
-					<Sidebar />
+				<Sidebar />
 
-					<main id="main" className="mt-16 grow lg:mt-0">
-						{children}
-					</main>
-				</ThemeProvider>
+				<main id="main" className="mt-16 min-w-0 lg:mt-0">
+					{children}
+				</main>
 
 				<Analytics />
 				<SpeedInsights />

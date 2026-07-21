@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @layer base {
 	*,
 	::after,
@@ -19,4 +17,15 @@
 		linear-gradient(to right, currentColor 1px, transparent 1px),
 		linear-gradient(to bottom, currentColor 1px, transparent 1px);
 	background-attachment: fixed;
+}
+
+@layer base {
+	::selection {
+		background: color-mix(in srgb, var(--color-blue-500) 25%, transparent);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-blue-500);
+		outline-offset: 3px;
+	}
 }

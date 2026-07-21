@@ -13,18 +13,16 @@ export default function Menu({
 	open: boolean;
 	setOpen: (open: boolean) => void;
 }) {
-	if (typeof window !== "undefined") {
-		const main = document.getElementById("main") as HTMLElement;
-		const body = document.body;
+	useEffect(() => {
+		const main = document.getElementById("main");
+		main?.toggleAttribute("inert", open);
+		document.body.classList.toggle("overflow-hidden", open);
 
-		if (open) {
-			main.inert = true;
-			body.classList.add("overflow-hidden");
-		} else {
-			main.inert = false;
-			body.classList.remove("overflow-hidden");
-		}
-	}
+		return () => {
+			main?.removeAttribute("inert");
+			document.body.classList.remove("overflow-hidden");
+		};
+	}, [open]);
 
 	useEffect(() => {
 		function handleResize() {
@@ -41,7 +39,7 @@ export default function Menu({
 				aria-label="Toggle navigation"
 				aria-expanded={open}
 				onClick={() => setOpen(!open)}
-				className="grid size-10 items-center justify-center gap-1.5 rounded-md p-4 transition-colors hover:bg-zinc-300/50 dark:hover:bg-zinc-700/50"
+				className="grid size-8 items-center justify-center gap-1.5 rounded-md p-2 transition-colors hover:bg-zinc-200/70 dark:hover:bg-zinc-800/70"
 				type="button"
 			>
 				<span
@@ -59,17 +57,19 @@ export default function Menu({
 			</button>
 
 			<div
+				aria-hidden={!open}
+				inert={!open}
 				className={clsx(
-					"absolute top-0 left-0 -z-10 h-screen w-screen bg-white/50 backdrop-blur-lg transition dark:bg-black/50",
+					"absolute top-0 left-0 -z-10 h-dvh w-screen bg-zinc-50/90 backdrop-blur-xl transition dark:bg-zinc-950/90",
 					{ "pointer-events-none opacity-0": !open },
 				)}
 			>
-				<div className="flex flex-col divide-y divide-zinc-400/50 p-6 pt-16 text-2xl font-semibold dark:divide-zinc-600/50">
+				<div className="flex flex-col divide-y divide-zinc-200 px-5 pt-20 text-lg font-medium dark:divide-zinc-800">
 					{links.map(({ title, href }) => (
 						<Link
 							key={href}
 							href={href}
-							className="group py-4"
+							className="group py-3.5"
 							onClick={() => setOpen(false)}
 						>
 							<div
@@ -87,7 +87,7 @@ export default function Menu({
 					))}
 				</div>
 
-				<div className="fixed bottom-32 flex w-full flex-row justify-center gap-8">
+				<div className="mx-5 mt-5 flex items-center justify-center gap-1 border-t border-zinc-200 pt-4 dark:border-zinc-800">
 					<SocialIcons />
 				</div>
 			</div>

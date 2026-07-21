@@ -20,9 +20,7 @@ type PartialBlogPost = {
 	blurDataURL: string;
 };
 
-export function BlogClient(props: {
-	posts: PartialBlogPost[];
-}) {
+export function BlogClient(props: { posts: PartialBlogPost[] }) {
 	const [queryText, setQueryText] = useState("");
 	const [animationParent] = useAutoAnimate();
 
@@ -35,70 +33,82 @@ export function BlogClient(props: {
 
 	return (
 		<>
-			<div className="mb-4 flex flex-col justify-between gap-2 lg:flex-row">
+			<div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
 				<ViewTransition name="blog-posts-header">
-					<h1 className="text-3xl font-extrabold md:text-4xl">Blog Posts</h1>
+					<div>
+						<h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+							Blog
+						</h1>
+						<p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+							Notes on software, the web, and things I&apos;m learning.
+						</p>
+					</div>
 				</ViewTransition>
 
-				<div className="relative w-full lg:w-2/3">
+				<div className="relative w-full sm:w-64">
 					<TextInput
 						name="search"
-						className="w-full rounded-md"
+						className="w-full rounded-lg pr-10 text-sm"
 						placeholder="Search posts..."
 						aria-label="Search posts"
 						onChange={(e) => setQueryText(e.target.value)}
 					/>
-					<IconSearch className="absolute top-2 right-4" />
+					<IconSearch
+						className="absolute top-2.5 right-3 text-zinc-400"
+						size={18}
+						aria-hidden
+					/>
 				</div>
 			</div>
 
-			<div ref={animationParent}>
+			<div ref={animationParent} className="space-y-3">
 				{!filteredPosts.length && (
-					<p>No posts were found with that search term.</p>
+					<p className="rounded-xl border border-zinc-200 p-5 text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+						No posts were found with that search term.
+					</p>
 				)}
 				{filteredPosts.map(({ post }) => (
 					<Link
 						href={"/blog/" + post.slug}
 						key={post.slug}
-						className="group relative mb-4 block overflow-hidden rounded-lg border border-zinc-200 drop-shadow-sm dark:border-zinc-800 dark:bg-neutral-900/30"
+						className="group grid overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50/60 transition-colors hover:bg-white sm:grid-cols-[10rem_minmax(0,1fr)] dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:bg-zinc-900/60"
 						aria-label={post.title}
 					>
-						<Image
-							alt={post.coverAlt}
-							src={post.cover}
-							fill
-							className="absolute -z-10 object-cover brightness-50 transition group-hover:scale-105"
-							placeholder="blur"
-							blurDataURL={post.blurDataURL}
-						/>
+						<div className="relative aspect-[16/9] overflow-hidden bg-zinc-200 sm:aspect-auto dark:bg-zinc-800">
+							<Image
+								alt={post.coverAlt}
+								src={post.cover}
+								fill
+								className="object-cover transition duration-500 group-hover:scale-[1.03]"
+								sizes="(max-width:640px) 100vw, 160px"
+								placeholder="blur"
+								blurDataURL={post.blurDataURL}
+							/>
+						</div>
 
-						<div className="flex flex-col justify-between gap-1 bg-linear-to-b from-transparent to-zinc-950 p-4 text-white lg:flex-row">
-							<ViewTransition name={`${post.slug}-search-time`}>
-								<div className="text-zinc-300 md:text-lg">
-									<time
-										dateTime={post.date.toISOString()}
-										className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"
-									>
+						<div className="min-w-0 p-4 sm:p-5">
+							<ViewTransition name={post.slug + "-search-time"}>
+								<p className="mb-1.5 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+									<time dateTime={post.date.toISOString()}>
 										{post.date.toLocaleDateString(undefined, {
-											dateStyle: "long",
+											month: "short",
+											day: "numeric",
+											year: "numeric",
 										})}
-									</time>
-									{post.readingTime} min read
-								</div>
-							</ViewTransition>
-							<hgroup className="w-full lg:w-2/3">
-								<ViewTransition name={`${post.slug}-search-title`}>
-									<h2
-										className="mb-1 text-xl font-bold md:text-2xl"
-									>
-										{post.title}
-									</h2>
-								</ViewTransition>
-
-								<p className="text-lg text-zinc-300 md:text-xl">
-									{post.summary}
+									</time>{" "}
+									&bull; {post.readingTime} min read
 								</p>
-							</hgroup>
+							</ViewTransition>
+
+							<ViewTransition name={post.slug + "-search-title"}>
+								<h2 className="text-lg leading-snug font-semibold tracking-tight sm:text-xl">
+									{post.title}
+								</h2>
+							</ViewTransition>
+
+							<p className="mt-1.5 line-clamp-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+								{post.summary}
+							</p>
 						</div>
 					</Link>
 				))}

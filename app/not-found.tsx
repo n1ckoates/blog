@@ -12,8 +12,8 @@ export default async function NotFound() {
 	const photo = await getCatPhoto();
 
 	return (
-		<div className="text-lg md:text-xl">
-			<h1 className="mb-4 bg-linear-to-b from-red-600 to-red-700 bg-clip-text text-3xl font-extrabold text-transparent md:text-4xl dark:from-red-300 dark:to-red-400">
+		<div className="text-base leading-7">
+			<h1 className="mb-3 bg-linear-to-b from-red-600 to-red-700 bg-clip-text text-2xl font-semibold tracking-tight text-transparent sm:text-3xl dark:from-red-300 dark:to-red-400">
 				404: That page doesn&apos;t exist
 			</h1>
 
@@ -26,10 +26,10 @@ export default async function NotFound() {
 				.
 			</p>
 
-			<div className="relative mt-6 w-fit overflow-hidden rounded-2xl border-zinc-400/50 bg-zinc-200 drop-shadow-xs dark:bg-zinc-800">
+			<div className="relative mt-5 w-fit overflow-hidden rounded-xl border border-zinc-200 bg-zinc-200 dark:border-zinc-800 dark:bg-zinc-800">
 				<IconLoader2
 					className="absolute inset-0 m-auto animate-spin"
-					size={48}
+					size={32}
 				/>
 
 				<Image
