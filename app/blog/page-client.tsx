@@ -7,7 +7,6 @@ import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import TextInput from "@/components/TextInput";
 import { useFuzzySearchList } from "@nozbe/microfuzz/react";
-import { ViewTransition } from "react";
 
 type PartialBlogPost = {
 	slug: string;
@@ -34,16 +33,14 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 	return (
 		<>
 			<div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-				<ViewTransition name="blog-posts-header">
-					<div>
-						<h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-							Blog
-						</h1>
-						<p className="text-muted-foreground mt-1 text-sm">
-							Notes on software, the web, and things I&apos;m learning.
-						</p>
-					</div>
-				</ViewTransition>
+				<div>
+					<h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+						Blog
+					</h1>
+					<p className="text-muted-foreground mt-1 text-sm">
+						Notes on software, the web, and things I&apos;m learning.
+					</p>
+				</div>
 
 				<div className="relative w-full sm:w-64">
 					<TextInput
@@ -87,24 +84,20 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 						</div>
 
 						<div className="min-w-0 p-4 sm:p-5">
-							<ViewTransition name={post.slug + "-search-time"}>
-								<p className="text-muted-foreground mb-1.5 text-xs font-medium">
-									<time dateTime={post.date.toISOString()}>
-										{post.date.toLocaleDateString(undefined, {
-											month: "short",
-											day: "numeric",
-											year: "numeric",
-										})}
-									</time>{" "}
-									&bull; {post.readingTime} min read
-								</p>
-							</ViewTransition>
+							<p className="text-muted-foreground mb-1.5 text-xs font-medium">
+								<time dateTime={post.date.toISOString()}>
+									{post.date.toLocaleDateString(undefined, {
+										month: "short",
+										day: "numeric",
+										year: "numeric",
+									})}
+								</time>{" "}
+								&bull; {post.readingTime} min read
+							</p>
 
-							<ViewTransition name={post.slug + "-search-title"}>
-								<h2 className="text-lg leading-snug font-semibold tracking-tight sm:text-xl">
-									{post.title}
-								</h2>
-							</ViewTransition>
+							<h2 className="text-lg leading-snug font-semibold tracking-tight sm:text-xl">
+								{post.title}
+							</h2>
 
 							<p className="text-subtle-foreground mt-1.5 line-clamp-2 text-sm leading-6">
 								{post.summary}

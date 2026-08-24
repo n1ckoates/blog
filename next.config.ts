@@ -8,7 +8,4 @@ export default withContent({
 	images: {
 		deviceSizes: [320, 448, 640, 768, 896],
 	},
-	experimental: {
-		viewTransition: true,
-	}
 });

@@ -4,7 +4,6 @@ import { CustomMDX } from "@/components/typography";
 import allPosts from "@/lib/posts";
 import "./code.css";
 import { Prose } from "@/components/Prose";
-import { ViewTransition } from "react";
 
 export const dynamicParams = false; // Blog posts are static, don't attempt to generate dynamic routes
 
@@ -17,26 +16,14 @@ export default async function Post(props: Props) {
 
 	return (
 		<Prose>
-			<ViewTransition name={`${post._meta.path}-grid-time`}>
-				<ViewTransition name={`${post._meta.path}-search-time`}>
-					<span>
-						<time dateTime={post.date.toISOString()}>
-							{post.date.toLocaleDateString(undefined, { dateStyle: "long" })}
-						</time>{" "}
-						&bull; {post.readingTime} min read
-					</span>
-				</ViewTransition>
-			</ViewTransition>
+			<span>
+				<time dateTime={post.date.toISOString()}>
+					{post.date.toLocaleDateString(undefined, { dateStyle: "long" })}
+				</time>{" "}
+				&bull; {post.readingTime} min read
+			</span>
 
-
-			<ViewTransition name={`${post._meta.path}-grid-title`}>
-				<ViewTransition name={`${post._meta.path}-search-title`}>
-					<h1
-					>
-						{post.title}
-					</h1>
-				</ViewTransition>
-			</ViewTransition>
+			<h1>{post.title}</h1>
 
 			<CustomMDX code={post.mdx} />
 		</Prose>

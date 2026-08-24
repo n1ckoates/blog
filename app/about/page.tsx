@@ -5,7 +5,6 @@ import me from "../../public/images/nick-oates.webp";
 import { Orb } from "@/components/Orb";
 import { OrbContainer } from "@/components/Orb";
 import { CustomLink } from "@/components/typography";
-import { ViewTransition } from "react";
 
 export const metadata = mergeMetadata({
 	title: "About",
@@ -42,14 +41,12 @@ export default function About() {
 				</figcaption>
 			</figure>
 
-			<ViewTransition name="about-lead">
-				<p className="lead">
-					I&apos;m a software engineer at Vercel, where I work on the{" "}
-					<CustomLink href="https://ai-sdk.dev">AI SDK</CustomLink>. I care
-					about thoughtful developer tools, open-source software, and the small
-					details that make technology feel good to use.
-				</p>
-			</ViewTransition>
+			<p className="lead">
+				I&apos;m a software engineer at Vercel, where I work on the{" "}
+				<CustomLink href="https://ai-sdk.dev">AI SDK</CustomLink>. I care about
+				thoughtful developer tools, open-source software, and the small details
+				that make technology feel good to use.
+			</p>
 
 			<p>
 				I&apos;m a strong believer in internet freedom and privacy, and I

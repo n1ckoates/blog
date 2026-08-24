@@ -3,7 +3,6 @@ import { IconArrowRight } from "@tabler/icons-react";
 import { OrbContainer, Orb } from "@/components/Orb";
 import allPosts from "@/lib/posts";
 import Image from "next/image";
-import { ViewTransition } from "react";
 import clsx from "clsx";
 
 export default function Page() {
@@ -16,40 +15,34 @@ export default function Page() {
 				<Orb className="top-28 right-36 bg-purple-400/30 dark:bg-purple-600/30" />
 			</OrbContainer>
 
-			<ViewTransition name="about-lead">
-				<section className="max-w-3xl" aria-labelledby="intro-heading">
-					<h2
-						id="intro-heading"
-						className="max-w-2xl text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl"
-					>
-						Software engineer at Vercel, working on the AI SDK.
-					</h2>
-					<div className="text-subtle-foreground mt-5 max-w-2xl space-y-3 text-base leading-7">
-						<p>
-							I care about thoughtful developer tools, open-source software, and
-							the small details that make technology feel good to use.
-						</p>
-						<p>
-							I recently graduated from Benson Polytechnic High School, where I
-							studied radio broadcasting, helped start a student newspaper, and
-							learned that you can just do things.{" "}
-							<Link
-								href="/about"
-								className="text-primary decoration-primary/30 hover:decoration-primary font-medium underline underline-offset-4 transition"
-							>
-								More about me
-							</Link>
-						</p>
-					</div>
-				</section>
-			</ViewTransition>
+			<section className="max-w-3xl" aria-labelledby="intro-heading">
+				<h2
+					id="intro-heading"
+					className="max-w-2xl text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl"
+				>
+					Software engineer at Vercel, working on the AI SDK.
+				</h2>
+				<div className="text-subtle-foreground mt-5 max-w-2xl space-y-3 text-base leading-7">
+					<p>
+						I care about thoughtful developer tools, open-source software, and
+						the small details that make technology feel good to use.
+					</p>
+					<p>
+						I recently graduated from Benson Polytechnic High School, where I
+						studied radio broadcasting, helped start a student newspaper, and
+						learned that you can just do things.{" "}
+						<Link
+							href="/about"
+							className="text-primary decoration-primary/30 hover:decoration-primary font-medium underline underline-offset-4 transition"
+						>
+							More about me
+						</Link>
+					</p>
+				</div>
+			</section>
 
 			<div className="border-border mt-12 mb-4 flex items-end justify-between border-b pb-3">
-				<ViewTransition name="blog-posts-header">
-					<h2 className="text-xl font-semibold tracking-tight">
-						Recent writing
-					</h2>
-				</ViewTransition>
+				<h2 className="text-xl font-semibold tracking-tight">Recent writing</h2>
 
 				<Link
 					href="/blog"
@@ -96,21 +89,17 @@ function PostGrid() {
 					<div className="absolute inset-0 bg-linear-to-t from-zinc-950/95 via-zinc-950/25 to-transparent" />
 
 					<div className="absolute inset-x-0 bottom-0 p-4 text-white sm:p-5">
-						<ViewTransition name={post._meta.path + "-grid-time"}>
-							<p className="mb-1.5 text-xs font-medium text-zinc-300">
-								{post.date.toLocaleDateString(undefined, {
-									month: "short",
-									day: "numeric",
-									year: "numeric",
-								})}{" "}
-								&bull; {post.readingTime} min read
-							</p>
-						</ViewTransition>
-						<ViewTransition name={post._meta.path + "-grid-title"}>
-							<h3 className="max-w-lg text-lg leading-snug font-semibold text-balance sm:text-xl">
-								{post.title}
-							</h3>
-						</ViewTransition>
+						<p className="mb-1.5 text-xs font-medium text-zinc-300">
+							{post.date.toLocaleDateString(undefined, {
+								month: "short",
+								day: "numeric",
+								year: "numeric",
+							})}{" "}
+							&bull; {post.readingTime} min read
+						</p>
+						<h3 className="max-w-lg text-lg leading-snug font-semibold text-balance sm:text-xl">
+							{post.title}
+						</h3>
 					</div>
 				</Link>
 			))}
