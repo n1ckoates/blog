@@ -28,7 +28,7 @@ export default function SocialIcons() {
 			href={social.href}
 			key={social.href}
 			className={clsx(
-				"group relative flex flex-1 items-center justify-center rounded-md p-2 text-zinc-500 hover:bg-zinc-200/70 dark:text-zinc-400 dark:hover:bg-zinc-800/70",
+				"text-muted-foreground hover:bg-secondary/70 group relative flex flex-1 items-center justify-center rounded-md p-2",
 				social.color,
 			)}
 			title={social.label}

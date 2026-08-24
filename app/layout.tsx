@@ -27,7 +27,7 @@ export default function RootLayout({
 			lang="en"
 			className={`${monaSans.className} scrollbar-gutter-stable scroll-smooth`}
 		>
-			<body className="min-h-screen bg-zinc-50 px-5 pb-12 text-zinc-950 antialiased lg:mx-auto lg:grid lg:max-w-6xl lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-12 lg:px-8 lg:py-14 xl:px-0 dark:bg-zinc-950 dark:text-zinc-50">
+			<body className="bg-background text-foreground min-h-screen px-5 pb-12 antialiased lg:mx-auto lg:grid lg:max-w-6xl lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-12 lg:px-8 lg:py-14 xl:px-0">
 				<div className="bg-grid fixed top-0 left-0 -z-50 size-full mask-[radial-gradient(ellipse_at_top_left,black,transparent_50%)] text-zinc-100/80 dark:text-zinc-900/50" />
 
 				<Navbar />

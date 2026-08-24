@@ -116,19 +116,19 @@ export default function Page() {
 				Projects
 			</h1>
 
-			<p className="mt-3 mb-8 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-300">
+			<p className="text-subtle-foreground mt-3 mb-8 max-w-2xl text-base leading-7">
 				Here are a few projects I&apos;ve designed and built. To see everything
 				I&apos;ve contributed to, check out{" "}
 				<a
 					href="https://github.com/n1ckoates"
-					className="font-medium text-blue-600 underline decoration-blue-600/30 underline-offset-4 hover:decoration-blue-600 dark:text-blue-400 dark:decoration-blue-400/30 dark:hover:decoration-blue-400"
+					className="text-primary decoration-primary/30 hover:decoration-primary font-medium underline underline-offset-4"
 				>
 					my GitHub profile
 				</a>
 				.
 			</p>
 
-			<div className="divide-y divide-zinc-200 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50/60 backdrop-blur-sm dark:divide-zinc-800 dark:border-zinc-800 dark:bg-zinc-950/50">
+			<div className="divide-border border-border bg-surface divide-y overflow-hidden rounded-xl border backdrop-blur-sm">
 				{Object.entries(projects).map(ProjectCard)}
 			</div>
 
@@ -143,13 +143,13 @@ async function ProjectCard([name, data]: [string, Project]) {
 	return (
 		<article
 			className={clsx(
-				"grid gap-5 p-4 transition-colors hover:bg-white/60 sm:p-5 dark:hover:bg-zinc-900/50",
+				"hover:bg-surface-hover grid gap-5 p-4 transition-colors sm:p-5",
 				data.cover && "sm:grid-cols-[10rem_minmax(0,1fr)]",
 			)}
 			key={name}
 		>
 			{data.cover && data.coverAlt && (
-				<div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+				<div className="border-border bg-muted relative aspect-[4/3] overflow-hidden rounded-lg border">
 					<Image
 						alt={data.coverAlt}
 						src={"/images/projects/" + data.cover}
@@ -172,7 +172,7 @@ async function ProjectCard([name, data]: [string, Project]) {
 								<a
 									key={href}
 									href={href}
-									className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+									className="text-primary flex items-center gap-1 text-sm font-medium hover:underline"
 									target="_blank"
 								>
 									{title} <IconExternalLink size={14} aria-hidden />
@@ -182,7 +182,7 @@ async function ProjectCard([name, data]: [string, Project]) {
 					)}
 				</div>
 
-				<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+				<p className="text-subtle-foreground mt-2 text-sm leading-6">
 					{data.description}
 				</p>
 			</div>

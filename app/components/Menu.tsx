@@ -39,20 +39,18 @@ export default function Menu({
 				aria-label="Toggle navigation"
 				aria-expanded={open}
 				onClick={() => setOpen(!open)}
-				className="grid size-8 items-center justify-center gap-1.5 rounded-md p-2 transition-colors hover:bg-zinc-200/70 dark:hover:bg-zinc-800/70"
+				className="hover:bg-secondary/70 grid size-8 items-center justify-center gap-1.5 rounded-md p-2 transition-colors"
 				type="button"
 			>
 				<span
-					className={clsx(
-						"h-0.5 w-4 rounded-full bg-black transition dark:bg-white",
-						{ "translate-y-1 scale-125 rotate-45": open },
-					)}
+					className={clsx("bg-foreground h-0.5 w-4 rounded-full transition", {
+						"translate-y-1 scale-125 rotate-45": open,
+					})}
 				/>
 				<span
-					className={clsx(
-						"h-0.5 w-4 rounded-full bg-black transition dark:bg-white",
-						{ "-translate-y-1 scale-125 -rotate-45": open },
-					)}
+					className={clsx("bg-foreground h-0.5 w-4 rounded-full transition", {
+						"-translate-y-1 scale-125 -rotate-45": open,
+					})}
 				/>
 			</button>
 
@@ -60,11 +58,11 @@ export default function Menu({
 				aria-hidden={!open}
 				inert={!open}
 				className={clsx(
-					"absolute top-0 left-0 -z-10 h-dvh w-screen bg-zinc-50/90 backdrop-blur-xl transition dark:bg-zinc-950/90",
+					"bg-background/90 absolute top-0 left-0 -z-10 h-dvh w-screen backdrop-blur-xl transition",
 					{ "pointer-events-none opacity-0": !open },
 				)}
 			>
-				<div className="flex flex-col divide-y divide-zinc-200 px-5 pt-20 text-lg font-medium dark:divide-zinc-800">
+				<div className="divide-border flex flex-col divide-y px-5 pt-20 text-lg font-medium">
 					{links.map(({ title, href }) => (
 						<Link
 							key={href}
@@ -79,7 +77,7 @@ export default function Menu({
 									"-translate-x-40": !open,
 								})}
 							>
-								<span className="transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
+								<span className="group-hover:text-muted-foreground transition-colors">
 									{title}
 								</span>
 							</div>
@@ -87,7 +85,7 @@ export default function Menu({
 					))}
 				</div>
 
-				<div className="mx-5 mt-5 flex items-center justify-center gap-1 border-t border-zinc-200 pt-4 dark:border-zinc-800">
+				<div className="border-border mx-5 mt-5 flex items-center justify-center gap-1 border-t pt-4">
 					<SocialIcons />
 				</div>
 			</div>

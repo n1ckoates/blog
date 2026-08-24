@@ -39,7 +39,7 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 						<h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
 							Blog
 						</h1>
-						<p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+						<p className="text-muted-foreground mt-1 text-sm">
 							Notes on software, the web, and things I&apos;m learning.
 						</p>
 					</div>
@@ -54,7 +54,7 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 						onChange={(e) => setQueryText(e.target.value)}
 					/>
 					<IconSearch
-						className="absolute top-2.5 right-3 text-zinc-400"
+						className="text-muted-foreground absolute top-2.5 right-3"
 						size={18}
 						aria-hidden
 					/>
@@ -63,7 +63,7 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 
 			<div ref={animationParent} className="space-y-3">
 				{!filteredPosts.length && (
-					<p className="rounded-xl border border-zinc-200 p-5 text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+					<p className="border-border text-muted-foreground rounded-xl border p-5 text-sm">
 						No posts were found with that search term.
 					</p>
 				)}
@@ -71,10 +71,10 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 					<Link
 						href={"/blog/" + post.slug}
 						key={post.slug}
-						className="group grid overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50/60 transition-colors hover:bg-white sm:grid-cols-[10rem_minmax(0,1fr)] dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:bg-zinc-900/60"
+						className="border-border bg-surface hover:bg-surface-hover group grid overflow-hidden rounded-xl border transition-colors sm:grid-cols-[10rem_minmax(0,1fr)]"
 						aria-label={post.title}
 					>
-						<div className="relative aspect-[16/9] overflow-hidden bg-zinc-200 sm:aspect-auto dark:bg-zinc-800">
+						<div className="bg-secondary relative aspect-[16/9] overflow-hidden sm:aspect-auto">
 							<Image
 								alt={post.coverAlt}
 								src={post.cover}
@@ -88,7 +88,7 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 
 						<div className="min-w-0 p-4 sm:p-5">
 							<ViewTransition name={post.slug + "-search-time"}>
-								<p className="mb-1.5 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+								<p className="text-muted-foreground mb-1.5 text-xs font-medium">
 									<time dateTime={post.date.toISOString()}>
 										{post.date.toLocaleDateString(undefined, {
 											month: "short",
@@ -106,7 +106,7 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 								</h2>
 							</ViewTransition>
 
-							<p className="mt-1.5 line-clamp-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+							<p className="text-subtle-foreground mt-1.5 line-clamp-2 text-sm leading-6">
 								{post.summary}
 							</p>
 						</div>

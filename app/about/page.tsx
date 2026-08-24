@@ -88,8 +88,8 @@ export default function About() {
 
 			<p>
 				You can follow me on{" "}
-				<CustomLink href="https://x.com/nickoates_">Twitter</CustomLink>, see what
-				I&apos;m building on{" "}
+				<CustomLink href="https://x.com/nickoates_">Twitter</CustomLink>, see
+				what I&apos;m building on{" "}
 				<CustomLink href="https://github.com/n1ckoates">GitHub</CustomLink>, or
 				email me at{" "}
 				<CustomLink href="mailto:hey@nickoates.com">

@@ -19,14 +19,14 @@ export default async function NotFound() {
 
 			<p>
 				To make up for it, here&apos;s a cat photo{" "}
-				<span className="text-zinc-700 *:underline dark:text-zinc-300">
+				<span className="text-subtle-foreground *:underline">
 					(by <a href={photo.authorUrl}>{photo.author}</a> on{" "}
 					<a href={photo.url}>Unsplash</a>)
 				</span>
 				.
 			</p>
 
-			<div className="relative mt-5 w-fit overflow-hidden rounded-xl border border-zinc-200 bg-zinc-200 dark:border-zinc-800 dark:bg-zinc-800">
+			<div className="border-border bg-secondary relative mt-5 w-fit overflow-hidden rounded-xl border">
 				<IconLoader2
 					className="absolute inset-0 m-auto animate-spin"
 					size={32}

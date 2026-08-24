@@ -24,7 +24,7 @@ export default function Page() {
 					>
 						Software engineer at Vercel, working on the AI SDK.
 					</h2>
-					<div className="mt-5 max-w-2xl space-y-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
+					<div className="text-subtle-foreground mt-5 max-w-2xl space-y-3 text-base leading-7">
 						<p>
 							I care about thoughtful developer tools, open-source software, and
 							the small details that make technology feel good to use.
@@ -35,7 +35,7 @@ export default function Page() {
 							learned that you can just do things.{" "}
 							<Link
 								href="/about"
-								className="font-medium text-blue-600 underline decoration-blue-600/30 underline-offset-4 transition hover:decoration-blue-600 dark:text-blue-400 dark:decoration-blue-400/30 dark:hover:decoration-blue-400"
+								className="text-primary decoration-primary/30 hover:decoration-primary font-medium underline underline-offset-4 transition"
 							>
 								More about me
 							</Link>
@@ -44,7 +44,7 @@ export default function Page() {
 				</section>
 			</ViewTransition>
 
-			<div className="mt-12 mb-4 flex items-end justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
+			<div className="border-border mt-12 mb-4 flex items-end justify-between border-b pb-3">
 				<ViewTransition name="blog-posts-header">
 					<h2 className="text-xl font-semibold tracking-tight">
 						Recent writing
@@ -53,7 +53,7 @@ export default function Page() {
 
 				<Link
 					href="/blog"
-					className="group flex items-center gap-1 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+					className="text-muted-foreground hover:text-foreground group flex items-center gap-1 text-sm font-medium transition-colors"
 				>
 					View all
 					<IconArrowRight
@@ -77,7 +77,7 @@ function PostGrid() {
 				<Link
 					href={"/blog/" + post._meta.path}
 					className={clsx(
-						"group relative min-h-52 overflow-hidden rounded-xl bg-zinc-200 after:pointer-events-none after:absolute after:inset-0 after:z-10 after:rounded-xl after:ring-1 after:ring-white/15 after:ring-inset sm:min-h-56 dark:bg-zinc-800",
+						"group bg-secondary relative min-h-52 overflow-hidden rounded-xl after:pointer-events-none after:absolute after:inset-0 after:z-10 after:rounded-xl after:ring-1 after:ring-white/15 after:ring-inset sm:min-h-56",
 						(index === 0 || index === 3) && "md:col-span-2",
 					)}
 					aria-label={post.title}
