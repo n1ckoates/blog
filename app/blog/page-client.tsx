@@ -7,7 +7,6 @@ import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import TextInput from "@/components/TextInput";
 import { useFuzzySearchList } from "@nozbe/microfuzz/react";
-import { ViewTransition } from "react";
 
 type PartialBlogPost = {
 	slug: string;
@@ -20,9 +19,7 @@ type PartialBlogPost = {
 	blurDataURL: string;
 };
 
-export function BlogClient(props: {
-	posts: PartialBlogPost[];
-}) {
+export function BlogClient(props: { posts: PartialBlogPost[] }) {
 	const [queryText, setQueryText] = useState("");
 	const [animationParent] = useAutoAnimate();
 
@@ -35,70 +32,76 @@ export function BlogClient(props: {
 
 	return (
 		<>
-			<div className="mb-4 flex flex-col justify-between gap-2 lg:flex-row">
-				<ViewTransition name="blog-posts-header">
-					<h1 className="text-3xl font-extrabold md:text-4xl">Blog Posts</h1>
-				</ViewTransition>
+			<div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+				<div>
+					<h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+						Blog
+					</h1>
+					<p className="text-muted-foreground mt-1 text-sm">
+						Notes on software, the web, and things I&apos;m learning.
+					</p>
+				</div>
 
-				<div className="relative w-full lg:w-2/3">
+				<div className="relative w-full sm:w-64">
 					<TextInput
 						name="search"
-						className="w-full rounded-md"
+						className="w-full rounded-lg pr-10 text-sm"
 						placeholder="Search posts..."
 						aria-label="Search posts"
 						onChange={(e) => setQueryText(e.target.value)}
 					/>
-					<IconSearch className="absolute top-2 right-4" />
+					<IconSearch
+						className="text-muted-foreground absolute top-2.5 right-3"
+						size={18}
+						aria-hidden
+					/>
 				</div>
 			</div>
 
-			<div ref={animationParent}>
+			<div ref={animationParent} className="space-y-3">
 				{!filteredPosts.length && (
-					<p>No posts were found with that search term.</p>
+					<p className="border-border text-muted-foreground rounded-xl border p-5 text-sm">
+						No posts were found with that search term.
+					</p>
 				)}
 				{filteredPosts.map(({ post }) => (
 					<Link
 						href={"/blog/" + post.slug}
 						key={post.slug}
-						className="group relative mb-4 block overflow-hidden rounded-lg border border-zinc-200 drop-shadow-sm dark:border-zinc-800 dark:bg-neutral-900/30"
+						className="border-border bg-surface hover:bg-surface-hover grid overflow-hidden rounded-xl border sm:grid-cols-[10rem_minmax(0,1fr)]"
 						aria-label={post.title}
 					>
-						<Image
-							alt={post.coverAlt}
-							src={post.cover}
-							fill
-							className="absolute -z-10 object-cover brightness-50 transition group-hover:scale-105"
-							placeholder="blur"
-							blurDataURL={post.blurDataURL}
-						/>
+						<div className="bg-secondary relative aspect-video overflow-hidden sm:aspect-auto">
+							<Image
+								alt={post.coverAlt}
+								src={post.cover}
+								fill
+								className="object-cover"
+								sizes="(max-width:640px) 100vw, 160px"
+								placeholder="blur"
+								blurDataURL={post.blurDataURL}
+							/>
+						</div>
 
-						<div className="flex flex-col justify-between gap-1 bg-linear-to-b from-transparent to-zinc-950 p-4 text-white lg:flex-row">
-							<ViewTransition name={`${post.slug}-search-time`}>
-								<div className="text-zinc-300 md:text-lg">
-									<time
-										dateTime={post.date.toISOString()}
-										className="whitespace-pre after:content-['_•_'] lg:after:content-['\A']"
-									>
-										{post.date.toLocaleDateString(undefined, {
-											dateStyle: "long",
-										})}
-									</time>
-									{post.readingTime} min read
-								</div>
-							</ViewTransition>
-							<hgroup className="w-full lg:w-2/3">
-								<ViewTransition name={`${post.slug}-search-title`}>
-									<h2
-										className="mb-1 text-xl font-bold md:text-2xl"
-									>
-										{post.title}
-									</h2>
-								</ViewTransition>
+						<div className="min-w-0 p-4 sm:p-5">
+							<p className="text-muted-foreground mb-1.5 text-xs font-medium">
+								<time dateTime={post.date.toISOString()}>
+									{post.date.toLocaleDateString(undefined, {
+										month: "short",
+										day: "numeric",
+										year: "numeric",
+									})}
+								</time>{" "}
+								&bull; {post.readingTime} min read
+							</p>
 
-								<p className="text-lg text-zinc-300 md:text-xl">
-									{post.summary}
-								</p>
-							</hgroup>
+							<h2 className="text-lg leading-snug font-semibold tracking-tight sm:text-xl">
+								{post.title}
+							</h2>
+
+							<p className="text-subtle-foreground mt-1.5 line-clamp-2 text-sm leading-6">
+								{post.summary}
+							</p>
 						</div>
 					</Link>
 				))}

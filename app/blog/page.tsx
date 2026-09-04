@@ -1,8 +1,8 @@
-import { BlogClient } from "./page-client"
+import { BlogClient } from "./page-client";
 import allPosts from "@/lib/posts";
 import mergeMetadata from "@/lib/mergeMetadata";
 
-export const metadata = mergeMetadata({ title: "Blog Posts" });
+export const metadata = mergeMetadata({ title: "Blog" });
 
 export default function Blog() {
 	// Remove unneeded fields from posts before sending them to the client

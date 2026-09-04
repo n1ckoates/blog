@@ -28,13 +28,13 @@ export default function SocialIcons() {
 			href={social.href}
 			key={social.href}
 			className={clsx(
-				"group relative rounded-md p-2 text-zinc-700 transition hover:bg-zinc-300/50 dark:text-zinc-300 dark:hover:bg-zinc-700/50",
+				"text-muted-foreground hover:bg-secondary/70 group relative flex flex-1 items-center justify-center rounded-md p-2",
 				social.color,
 			)}
 			title={social.label}
 			target="_blank"
 		>
-			<social.Icon className="size-7 transition" />
+			<social.Icon className="size-4.5" />
 		</a>
 	));
 }

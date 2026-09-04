@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 export function GET() {
 	const feed = new RSS({
 		title: "Nick Oates",
-		description: "I write about tech and other things I find interesting.",
+		description: "Notes on software, the web, and things I'm learning.",
 		feed_url: `${origin}/feed.xml`,
 		site_url: origin,
 		image_url: `${origin}/favicon.ico`,

@@ -10,21 +10,21 @@ export default function SidebarLinks() {
 	if (pathname.startsWith("/blog")) pathname = "/blog";
 
 	return (
-		<div className="mt-4 flex flex-col">
+		<div className="mt-6 flex w-48 flex-col">
 			{links.map((link) => (
 				<Link
 					key={link.href}
 					href={link.href}
-					className="group w-56 py-1 text-2xl font-semibold"
+					className="group py-0.5 text-base font-medium"
 				>
 					<div
-						className={clsx("flex items-center gap-4 rounded-lg px-4 py-2", {
-							"text-zinc-700 group-hover:bg-zinc-200 group-hover:text-black dark:text-zinc-300 dark:group-hover:bg-zinc-800 dark:group-hover:text-white":
+						className={clsx("flex items-center gap-3 rounded-md px-3 py-2", {
+							"text-muted-foreground group-hover:bg-secondary/70 group-hover:text-foreground":
 								pathname !== link.href,
-							"bg-zinc-200 dark:bg-zinc-800": pathname === link.href,
+							"bg-secondary text-foreground": pathname === link.href,
 						})}
 					>
-						<link.Icon size={32} className="inline-block align-middle" />
+						<link.Icon size={18} stroke={1.8} aria-hidden />
 						{link.title}
 					</div>
 				</Link>

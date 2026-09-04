@@ -1,26 +1,16 @@
-import Link from "next/link";
-import ThemeSwitch from "./ThemeSwitch";
 import SidebarLinks from "@/components/SidebarLinks";
 import SocialIcons from "@/components/SocialIcons";
 
 export default function Sidebar() {
 	return (
-		<nav className="z-50 hidden shrink-0 lg:block lg:w-72">
-			<div className="sticky top-20 flex flex-col">
-				<div className="flex flex-row items-center">
-					<Link
-						className="min-w-56 align-middle text-4xl font-bold transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
-						href="/"
-					>
-						Nick Oates
-					</Link>
-
-					<ThemeSwitch />
-				</div>
+		<nav className="z-50 hidden lg:block">
+			<div className="sticky top-14 flex flex-col">
+				<p className="w-fit text-2xl font-bold tracking-tight">Nick Oates</p>
+				<p className="text-muted-foreground mt-1 text-sm">Software Engineer</p>
 
 				<SidebarLinks />
 
-				<div className="fixed bottom-20 flex w-72 flex-row justify-center gap-6">
+				<div className="border-border mt-5 flex w-48 items-center justify-center border-t pt-4">
 					<SocialIcons />
 				</div>
 			</div>

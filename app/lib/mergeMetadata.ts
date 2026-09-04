@@ -1,6 +1,8 @@
 import { Metadata } from "next";
+import { origin } from "@/lib/origin";
 
-const defaultDescription = "I'm Nick Oates, a software engineer with a passion for designing and building cool things on the web. I love obsessing over the small details of my work, and I'm always looking for new things to learn and ways to improve my skills."
+const defaultDescription =
+	"Software engineer at Vercel working on the AI SDK, open-source software, and thoughtful developer tools.";
 
 export default function mergeMetadata({
 	title,
@@ -14,6 +16,7 @@ export default function mergeMetadata({
 	imageAlt?: string;
 } = {}): Metadata {
 	return {
+		metadataBase: new URL(origin),
 		title: title ? `${title} • Nick Oates` : "Nick Oates — Software Engineer",
 		openGraph: {
 			siteName: "Nick Oates",

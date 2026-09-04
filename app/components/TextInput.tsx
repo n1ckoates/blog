@@ -8,7 +8,7 @@ export default function TextInput(
 			type="text"
 			{...props}
 			className={clsx(
-				"box-border border border-zinc-400/50 bg-white px-4 py-2 placeholder-zinc-500 drop-shadow-xs focus-within:outline-hidden hover:border-zinc-500/50 focus:border-blue-500 dark:border-zinc-600/50 dark:bg-zinc-900 dark:placeholder-zinc-500 dark:hover:border-zinc-500/50 dark:focus:border-blue-500",
+				"border-border-strong placeholder:text-muted-foreground hover:border-border-hover focus:border-ring box-border border bg-white/80 px-3 py-2 focus-visible:outline-none dark:bg-zinc-900/80",
 				props.className,
 			)}
 		/>
