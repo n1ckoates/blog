@@ -71,12 +71,12 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 						className="border-border bg-surface hover:bg-surface-hover group grid overflow-hidden rounded-xl border transition-colors sm:grid-cols-[10rem_minmax(0,1fr)]"
 						aria-label={post.title}
 					>
-						<div className="bg-secondary relative aspect-[16/9] overflow-hidden sm:aspect-auto">
+						<div className="bg-secondary relative aspect-video overflow-hidden sm:aspect-auto">
 							<Image
 								alt={post.coverAlt}
 								src={post.cover}
 								fill
-								className="object-cover transition duration-500 group-hover:scale-[1.03]"
+								className="object-cover transition duration-250 group-hover:scale-[1.05]"
 								sizes="(max-width:640px) 100vw, 160px"
 								placeholder="blur"
 								blurDataURL={post.blurDataURL}
