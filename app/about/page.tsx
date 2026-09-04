@@ -55,8 +55,8 @@ export default function About() {
 			</p>
 
 			<p>
-				I graduated from Benson Polytechnic High School in 2026, where I studied
-				radio broadcasting and gave the valedictorian speech. While I was there,
+				I <CustomLink href="/blog/graduating-high-school">graduated</CustomLink> from Benson Polytechnic High School in 2026, where I majored in
+				radio broadcasting and gave a valedictorian speech. While I was there,
 				I helped start the school newspaper,{" "}
 				<CustomLink href="https://bensonorbit.com/staff_name/nick-oates/">
 					The Benson Orbit
@@ -67,7 +67,7 @@ export default function About() {
 			</p>
 
 			<p>
-				Outside of work, I like writing and playing video games with friends. My
+				Outside of work, I like writing on <CustomLink href="/blog">my blog</CustomLink> and playing video games with friends. My
 				favorites are{" "}
 				<CustomLink href="https://en.wikipedia.org/wiki/Portal_2">
 					Portal 2
@@ -92,7 +92,7 @@ export default function About() {
 				<CustomLink href="mailto:hey@nickoates.com">
 					hey@nickoates.com
 				</CustomLink>
-				.
+				. Thanks for stopping by my website!
 			</p>
 		</Prose>
 	);
