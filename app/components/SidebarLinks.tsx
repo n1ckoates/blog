@@ -10,12 +10,12 @@ export default function SidebarLinks() {
 	if (pathname.startsWith("/blog")) pathname = "/blog";
 
 	return (
-		<div className="mt-6 flex w-48 flex-col gap-1">
+		<div className="mt-6 flex w-48 flex-col">
 			{links.map((link) => (
 				<Link
 					key={link.href}
 					href={link.href}
-					className="group text-base font-medium"
+					className="group py-0.5 text-base font-medium"
 				>
 					<div
 						className={clsx("flex items-center gap-3 rounded-md px-3 py-2", {
