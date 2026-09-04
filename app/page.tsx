@@ -89,7 +89,7 @@ function PostGrid() {
 					<div className="absolute inset-0 bg-linear-to-t from-zinc-950/95 via-zinc-950/25 to-transparent" />
 
 					<div className="absolute inset-x-0 bottom-0 p-4 text-white sm:p-5">
-						<p className="mb-1.5 text-xs font-medium text-zinc-300">
+						<p className="mb-1 text-xs font-medium text-zinc-300">
 							{post.date.toLocaleDateString(undefined, {
 								month: "short",
 								day: "numeric",
