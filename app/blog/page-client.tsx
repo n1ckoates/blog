@@ -68,7 +68,7 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 					<Link
 						href={"/blog/" + post.slug}
 						key={post.slug}
-						className="border-border bg-surface hover:bg-surface-hover group grid overflow-hidden rounded-xl border transition-colors sm:grid-cols-[10rem_minmax(0,1fr)]"
+						className="border-border bg-surface hover:bg-surface-hover grid overflow-hidden rounded-xl border sm:grid-cols-[10rem_minmax(0,1fr)]"
 						aria-label={post.title}
 					>
 						<div className="bg-secondary relative aspect-video overflow-hidden sm:aspect-auto">
@@ -76,7 +76,7 @@ export function BlogClient(props: { posts: PartialBlogPost[] }) {
 								alt={post.coverAlt}
 								src={post.cover}
 								fill
-								className="object-cover transition duration-250 group-hover:scale-[1.05]"
+								className="object-cover"
 								sizes="(max-width:640px) 100vw, 160px"
 								placeholder="blur"
 								blurDataURL={post.blurDataURL}

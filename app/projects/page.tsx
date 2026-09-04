@@ -143,7 +143,7 @@ async function ProjectCard([name, data]: [string, Project]) {
 	return (
 		<article
 			className={clsx(
-				"hover:bg-surface-hover grid gap-5 p-4 transition-colors sm:p-5",
+				"grid gap-5 p-4 sm:p-5",
 				data.cover && "sm:grid-cols-[10rem_minmax(0,1fr)]",
 			)}
 			key={name}
