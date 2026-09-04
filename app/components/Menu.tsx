@@ -39,18 +39,26 @@ export default function Menu({
 				aria-label="Toggle navigation"
 				aria-expanded={open}
 				onClick={() => setOpen(!open)}
-				className="hover:bg-secondary/70 grid size-8 items-center justify-center gap-1.5 rounded-md p-2"
+				className="hover:bg-secondary/70 relative grid size-8 place-items-center rounded-md p-2"
 				type="button"
 			>
 				<span
-					className={clsx("bg-foreground h-0.5 w-4 rounded-full transition", {
-						"translate-y-1 scale-125 rotate-45": open,
-					})}
+					className={clsx(
+						"bg-foreground absolute h-0.5 w-4 rounded-full transition",
+						{
+							"-translate-y-1": !open,
+							"scale-125 rotate-45": open,
+						},
+					)}
 				/>
 				<span
-					className={clsx("bg-foreground h-0.5 w-4 rounded-full transition", {
-						"-translate-y-1 scale-125 -rotate-45": open,
-					})}
+					className={clsx(
+						"bg-foreground absolute h-0.5 w-4 rounded-full transition",
+						{
+							"translate-y-1": !open,
+							"scale-125 -rotate-45": open,
+						},
+					)}
 				/>
 			</button>
 
