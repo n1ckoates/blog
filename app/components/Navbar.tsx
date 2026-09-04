@@ -24,8 +24,7 @@ export default function Navbar() {
 			className={clsx(
 				"before:bg-background/80 fixed top-0 left-0 z-50 flex w-full items-center justify-between px-5 py-3 before:absolute before:inset-0 before:-z-10 before:border-b before:backdrop-blur-xl before:transition lg:hidden",
 				{
-					"before:border-border/70 before:opacity-100 before:drop-shadow-lg":
-						solid,
+					"before:border-border/70 before:opacity-100": solid,
 					"before:border-transparent before:opacity-0": !solid,
 				},
 			)}
