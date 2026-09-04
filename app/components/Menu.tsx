@@ -39,7 +39,7 @@ export default function Menu({
 				aria-label="Toggle navigation"
 				aria-expanded={open}
 				onClick={() => setOpen(!open)}
-				className="hover:bg-secondary/70 grid size-8 items-center justify-center gap-1.5 rounded-md p-2 transition-colors"
+				className="hover:bg-secondary/70 grid size-8 items-center justify-center gap-1.5 rounded-md p-2"
 				type="button"
 			>
 				<span
@@ -77,7 +77,7 @@ export default function Menu({
 									"-translate-x-40": !open,
 								})}
 							>
-								<span className="group-hover:text-muted-foreground transition-colors">
+								<span className="group-hover:text-muted-foreground">
 									{title}
 								</span>
 							</div>

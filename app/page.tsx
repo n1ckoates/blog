@@ -33,7 +33,7 @@ export default function Page() {
 						learned that you can just do things.{" "}
 						<Link
 							href="/about"
-							className="text-primary decoration-primary/30 hover:decoration-primary font-medium underline underline-offset-4 transition"
+							className="text-primary decoration-primary/30 hover:decoration-primary font-medium underline underline-offset-4"
 						>
 							More about me
 						</Link>

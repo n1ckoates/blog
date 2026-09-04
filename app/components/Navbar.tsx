@@ -31,7 +31,7 @@ export default function Navbar() {
 			)}
 		>
 			<Link
-				className="hover:text-muted-foreground text-lg font-bold tracking-tight transition-colors"
+				className="hover:text-muted-foreground text-lg font-bold tracking-tight"
 				href="/"
 			>
 				Nick Oates
