@@ -1,4 +1,3 @@
-import { OrbContainer, Orb } from "@/components/Orb";
 import getBlurDataURL from "@/lib/getBlurDataURL";
 import mergeMetadata from "@/lib/mergeMetadata";
 import { IconExternalLink } from "@tabler/icons-react";
@@ -107,11 +106,6 @@ const projects: Record<string, Project> = {
 export default function Page() {
 	return (
 		<>
-			<OrbContainer>
-				<Orb className="-top-20 right-0 bg-fuchsia-400/30 dark:bg-fuchsia-600/30" />
-				<Orb className="top-40 right-86 bg-cyan-400/30 dark:bg-cyan-600/30" />
-			</OrbContainer>
-
 			<h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
 				Projects
 			</h1>
@@ -131,10 +125,6 @@ export default function Page() {
 			<div className="divide-border border-border bg-surface divide-y overflow-hidden rounded-xl border backdrop-blur-sm">
 				{Object.entries(projects).map(ProjectCard)}
 			</div>
-
-			<OrbContainer>
-				<Orb className="-top-52 left-52 bg-emerald-400/30 dark:bg-emerald-600/30" />
-			</OrbContainer>
 		</>
 	);
 }

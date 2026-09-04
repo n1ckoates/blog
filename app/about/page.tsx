@@ -2,8 +2,6 @@ import { Prose } from "@/components/Prose";
 import mergeMetadata from "@/lib/mergeMetadata";
 import Image from "next/image";
 import me from "../../public/images/nick-oates.webp";
-import { Orb } from "@/components/Orb";
-import { OrbContainer } from "@/components/Orb";
 import { CustomLink } from "@/components/typography";
 
 export const metadata = mergeMetadata({
@@ -13,11 +11,6 @@ export const metadata = mergeMetadata({
 export default function About() {
 	return (
 		<Prose>
-			<OrbContainer>
-				<Orb className="right-0 bg-blue-400/30 dark:bg-blue-600/30" />
-				<Orb className="top-28 right-36 bg-purple-400/30 dark:bg-purple-600/30" />
-			</OrbContainer>
-
 			<h1>
 				About<span className="sr-only"> Nick Oates</span>
 			</h1>
@@ -55,9 +48,10 @@ export default function About() {
 			</p>
 
 			<p>
-				I <CustomLink href="/blog/graduating-high-school">graduated</CustomLink> from Benson Polytechnic High School in 2026, where I majored in
-				radio broadcasting and gave a valedictorian speech. While I was there,
-				I helped start the school newspaper,{" "}
+				I <CustomLink href="/blog/graduating-high-school">graduated</CustomLink>{" "}
+				from Benson Polytechnic High School in 2026, where I majored in radio
+				broadcasting and gave a valedictorian speech. While I was there, I
+				helped start the school newspaper,{" "}
 				<CustomLink href="https://bensonorbit.com/staff_name/nick-oates/">
 					The Benson Orbit
 				</CustomLink>
@@ -67,8 +61,9 @@ export default function About() {
 			</p>
 
 			<p>
-				Outside of work, I like writing on <CustomLink href="/blog">my blog</CustomLink> and playing video games with friends. My
-				favorites are{" "}
+				Outside of work, I like writing on{" "}
+				<CustomLink href="/blog">my blog</CustomLink> and playing video games
+				with friends. My favorites are{" "}
 				<CustomLink href="https://en.wikipedia.org/wiki/Portal_2">
 					Portal 2
 				</CustomLink>
