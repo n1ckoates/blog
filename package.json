@@ -39,6 +39,7 @@
 		"eslint-config-next": "16.2.9",
 		"prettier": "^3.8.4",
 		"prettier-plugin-tailwindcss": "^0.8.0",
+		"schema-dts": "^2.0.0",
 		"typescript": "5.9.3",
 		"zod": "^4.5.4"
 	},

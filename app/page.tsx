@@ -4,10 +4,30 @@ import { OrbContainer, Orb } from "@/components/Orb";
 import allPosts from "@/lib/posts";
 import Image from "next/image";
 import clsx from "clsx";
+import { JsonLd } from "@/components/JsonLd";
+import { origin } from "@/lib/origin";
+import type { WebSite, WithContext } from "schema-dts";
+
+const jsonLd: WithContext<WebSite> = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"@id": `${origin}/#website`,
+	name: "Nick Oates",
+	url: origin,
+	description:
+		"Software engineer at Vercel working on the AI SDK, open-source software, and thoughtful developer tools.",
+	author: {
+		"@type": "Person",
+		name: "Nick Oates",
+		url: `${origin}/about`,
+	},
+};
 
 export default function Page() {
 	return (
 		<>
+			<JsonLd data={jsonLd} />
+
 			<h1 className="sr-only">Nick Oates - Software Engineer</h1>
 
 			<OrbContainer>

@@ -4,6 +4,9 @@ import { CustomMDX } from "@/components/typography";
 import allPosts from "@/lib/posts";
 import "./code.css";
 import { Prose } from "@/components/Prose";
+import { JsonLd } from "@/components/JsonLd";
+import { origin } from "@/lib/origin";
+import type { BlogPosting, WithContext } from "schema-dts";
 
 export const dynamicParams = false; // Blog posts are static, don't attempt to generate dynamic routes
 
@@ -13,9 +16,36 @@ export default async function Post(props: Props) {
 	const { slug } = await props.params;
 	const post = allPosts.find((post) => post._meta.path === slug);
 	if (!post) notFound();
+	const postUrl = `${origin}/blog/${post._meta.path}`;
+	const jsonLd: WithContext<BlogPosting> = {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		headline: post.title,
+		description: post.summary,
+		image: new URL(post.cover, origin).toString(),
+		datePublished: post.date.toISOString(),
+		mainEntityOfPage: {
+			"@type": "WebPage",
+			"@id": postUrl,
+		},
+		url: postUrl,
+		author: {
+			"@type": "Person",
+			name: "Nick Oates",
+			url: `${origin}/about`,
+		},
+		publisher: {
+			"@type": "Person",
+			name: "Nick Oates",
+			url: origin,
+		},
+		isPartOf: { "@id": `${origin}/#website` },
+	};
 
 	return (
 		<Prose>
+			<JsonLd data={jsonLd} />
+
 			<span>
 				<time dateTime={post.date.toISOString()}>
 					{post.date.toLocaleDateString(undefined, { dateStyle: "long" })}
