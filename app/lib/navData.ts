@@ -1,8 +1,13 @@
-import { IconNotebook, IconCode, IconHome, IconUser } from "@tabler/icons-react";
+import {
+  IconNotebook,
+  IconCode,
+  IconHome,
+  IconUser,
+} from "@tabler/icons-react";
 
 export const links = [
-	{ title: "Home", href: "/", Icon: IconHome },
-	{ title: "About", href: "/about", Icon: IconUser },
-	{ title: "Projects", href: "/projects", Icon: IconCode },
-	{ title: "Blog", href: "/blog", Icon: IconNotebook },
+  { Icon: IconHome, href: "/", title: "Home" },
+  { Icon: IconUser, href: "/about", title: "About" },
+  { Icon: IconCode, href: "/projects", title: "Projects" },
+  { Icon: IconNotebook, href: "/blog", title: "Blog" },
 ];

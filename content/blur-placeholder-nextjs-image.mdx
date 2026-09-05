@@ -12,8 +12,8 @@ My blog uses [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to 
 
 ```jsx
 <MDXRemote
-	source="![An image](https://example.com/image.jpg)"
-	components={{ img: CustomImage }}
+  source="![An image](https://example.com/image.jpg)"
+  components={{ img: CustomImage }}
 />
 ```
 
@@ -24,24 +24,24 @@ import Image from "next/image";
 import sharp from "sharp";
 
 async function CustomImage(props) {
-	const sharpImage = sharp(path.join(process.cwd(), "public", props.src)); // Get image path
-	const { width, height } = await sharpImage.metadata(); // Get image dimensions
+  const sharpImage = sharp(path.join(process.cwd(), "public", props.src)); // Get image path
+  const { width, height } = await sharpImage.metadata(); // Get image dimensions
 
-	const placeholder = await sharpImage.resize(10).toBuffer(); // Resize to 10px wide
-	const base64 = placeholder.toString("base64"); // Convert to base64 string
-	const blurDataURL = `data:image/png;base64,${base64}`; // Prepend data URL
+  const placeholder = await sharpImage.resize(10).toBuffer(); // Resize to 10px wide
+  const base64 = placeholder.toString("base64"); // Convert to base64 string
+  const blurDataURL = `data:image/png;base64,${base64}`; // Prepend data URL
 
-	return (
-		<Image
-			{...props} // Pass through original props, e.g. `alt`
-			placeholder="blur"
-			blurDataURL={blurDataURL}
-			width={width}
-			height={height}
-			className="rounded-lg drop-shadow-sm"
-			sizes="(max-width: 896px) 100vw, 896px"
-		/>
-	);
+  return (
+    <Image
+      {...props} // Pass through original props, e.g. `alt`
+      placeholder="blur"
+      blurDataURL={blurDataURL}
+      width={width}
+      height={height}
+      className="rounded-lg drop-shadow-sm"
+      sizes="(max-width: 896px) 100vw, 896px"
+    />
+  );
 }
 ```
 

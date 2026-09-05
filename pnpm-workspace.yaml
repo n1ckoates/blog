@@ -1,6 +1,6 @@
 allowBuilds:
   esbuild: true
-  unrs-resolver: false
+  lefthook: true
 
 packages:
   - "."
